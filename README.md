@@ -1,20 +1,24 @@
 **Tabla de Contenido**
 
 [TOC]
-##Introducción
+
+## Introducción
+
 El sitio será un ecommerce que ofrezca productos personalizados como calcomanias, agendas, bolsas de plástico y tela, almanaques, entre otros.
 El público objetivo serán empresas y personas de Misiones que necesiten merchandising para sus emprendimientos.
 Nuestra oferta se adecua al público al cual apuntamos creando productos personalizados para cada cliente.
 
 
 ##Autores
+
 El grupo de desarrollo está compuesto de cuatro desarrolladores Misioneros.
-* **Silvestre Villar **de 22 años perteneciente a la localidad de Garuhapé.:man_technologist:
-* **Vega Nuria **de 25 años de la localidad de Oberá.:woman_technologist:
+* **Silvestre Villar ** de 22 años perteneciente a la localidad de Garuhapé.:man_technologist:
+* **Vega Nuria ** de 25 años de la localidad de Oberá.:woman_technologist:
 * **Castro Hernán** de 27 años de la localidad de Leandro N Alem.:man_technologist:
-* **Mendez Matias **de 27 años de la localidad de Posadas.:man_technologist:
+* **Mendez Matias ** de 27 años de la localidad de Posadas.:man_technologist:
 
 ##Herramientas utilizadas :hammer_and_wrench:
+
 * NodeJs
 * JavaScript
 * Express
