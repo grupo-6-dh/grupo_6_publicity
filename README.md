@@ -1,8 +1,3 @@
-**Tabla de contenido**
-
-[TOC]
-
-
 ## Introducción
 
 El sitio será un ecommerce que ofrezca productos personalizados como calcomanias, agendas, bolsas de plástico y tela, almanaques, entre otros.
@@ -27,12 +22,12 @@ El grupo de desarrollo está compuesto de cuatro desarrolladores Misioneros.
 
 ## Referencias
 A modo de inspiracion para el diseño, se tomaron como referencia las siguientes páginas web:
-https://www.bolsasgreen.com/
-https://www.bolsalogo.com.ar/
-https://www.jazmeendeco.com.ar/
-https://es.cplfabbrika.com/
-https://rhinoshield.io/
-https://www.casetify.com/
+- https://www.bolsasgreen.com/
+- https://www.bolsalogo.com.ar/
+- https://www.jazmeendeco.com.ar/
+- https://es.cplfabbrika.com/
+- https://rhinoshield.io/
+- https://www.casetify.com/
 
 ## Estado del proyecto
 El proyecto se encuentra en las etapas iniciales del ciclo de vida de desarrollo, a medida que el mismo avance, se realizarán las actualizaciones correspondientes sobre este documento :memo:
@@ -43,6 +38,4 @@ El proyecto se lleva a cabo siguiendo el marco de trabajo para desarrollo ágil 
 
 ### Objetivos del Sprint
 Selección de la tematica del sitio y desarrollo de bocetos gráficos de las principales secciones a implementar.
-
-
 
