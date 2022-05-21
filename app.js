@@ -9,5 +9,5 @@ app.listen(3030,()=> {
 });
 
 app.get('/',function(req,res){
-    res.sendFile(path.join(__dirname,'/view/index.html'));
+    res.sendFile(path.join(__dirname,'/view/registro.html'));
 })

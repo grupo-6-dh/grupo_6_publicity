@@ -5,10 +5,12 @@
 label{
     font-size: 20px;
     font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
 }
 .titulo{
-    margin: 5px;
+    margin-top: 5px;
     font-weight: 300; 
+    font-family: 'Montserrat', sans-serif;
       
 }
 .ruta{
@@ -21,7 +23,14 @@ label{
     margin-bottom: 20px;
     margin-top: 20px;
 }
-
+.footer a{
+   color: rgba(113, 15, 15, 0.734);
+    text-decoration: none;
+}
+.footer a:hover{
+    color: rgb(165, 16, 16);
+    text-decoration: none;
+}
 main{
     justify-content: center;
     align-items: center;
@@ -69,6 +78,13 @@ form{
 .formulario label{
     margin-bottom: 10px;
 }
+.form{
+    border-radius: 5px;
+    border-color: rgba(169, 169, 169, 0.392);
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 @media (min-width:340px){
 
     .titulo{
@@ -86,10 +102,7 @@ form{
        
         
     }
-    .formulario label{
-        margin: 5px;
-        
-    }
+   
     .formulario form{
         margin-top: 0;
         width: 100%;
@@ -107,14 +120,25 @@ form{
     }
     #btn{
         font-size: 15px;
+        font-weight: 400;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(100, 100, 100,0.5);
+        background-color: #ffff;
+        border-color: #ffff;
+        
     }
     .check label{
         font-size: 10px;
         margin: 0;
     }
     .check{
+        display: inline-block;
         margin-top: 15px;
         width: 100px;
+        box-shadow: 0px 0px 5px rgba(100, 100, 100,0.5);
+    }
+    #robot{
+        margin: 0;
     }
     ul label{
         font-size: 15px;
@@ -122,6 +146,7 @@ form{
     .footer{
         font-size: 15px;
         font-weight: 300;
+        font-family: 'Montserrat', sans-serif;
     }
     .ruta{
         font-size: 10px;
@@ -136,6 +161,7 @@ form{
     .formulario{
         width: 450px;
     }
+   
 }
 
 @media (min-width:1200px){
@@ -150,6 +176,15 @@ form{
     .formulario li{
         margin: 0 5px;
         text-align: left;
+        
+    }
+    .formulario input{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .formulario label{
+        margin: 5px;
+        
     }
     .check{
         margin-top: 15px;
