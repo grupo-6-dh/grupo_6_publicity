@@ -11,5 +11,5 @@ app.listen(8080,()=> {
 
 
 app.get('/',function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/index.html'));
+    res.sendFile(path.resolve(__dirname,'./view/index.html'));
 })
