@@ -1,15 +1,22 @@
-const express=require("express");
-const path=require("path");
-const app=express();
+/* Importo el módulo express */
+const express = require ('express');
 
-const publicPath=path.resolve(__dirname,'./public');
-app.use(express.static(publicPath));
+/* Guardo en la variable app la ejecución de la función express */
+const app = express();
 
-app.listen(8080,()=> {
-    console.log("Servidor corriendo en el puerto 8080")
-});
+/* Importo el módulo nativo path en la variable path */
+const path = require ('path');
 
+/* A través de la propiedad static de express establezco los archivos estáticos */
+app.use (express.static('public'));
 
-app.get('/',function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/index.html'));
+/* Levanto mi servidor */
+app.listen(8080, () => console.log('Servidor funcionando en http://localhost:8080'))
+
+/* Indico cuando me mostrará el home de mi página */
+app.get ('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/home.html'))
+})
+app.get ('/carrito', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/carrito.html'))
 })
