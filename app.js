@@ -11,3 +11,11 @@ app.listen(3030,()=> {
 app.get('/',function(req,res){
     res.sendFile(path.join(__dirname,'/view/registro.html'));
 })
+
+app.get('/login',function(req,res){
+    res.sendFile(path.join(__dirname,'/view/login.html'));
+})
+
+app.get('/recuperarPass',function(req,res){
+    res.sendFile(path.join(__dirname,'/view/recuperarPass.html'));
+})
