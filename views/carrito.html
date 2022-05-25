@@ -12,12 +12,12 @@
     <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
     <!--Font-->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    
+
 </head>
 
 <body>
     <header>
-        <!--Menu--> 
+        <!--Menu-->
         <section class="contenedor-header">
             <div class="menu-hamburguesa">
                 <i class="fas fa-bars"></i>
@@ -25,12 +25,12 @@
             <div class="logo">
                 <img src="/img/LOGO_ROJO.png" alt="logo Publicity">
             </div>
-             <!--Barra de busqueda--> 
-             <div class="barra-de-busqueda">
-                <input type="search" placeholder="Buscar productos" >
+            <!--Barra de busqueda-->
+            <div class="barra-de-busqueda">
+                <input type="search" placeholder="Buscar productos">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <!--Usuario y carrito--> 
+            <!--Usuario y carrito-->
             <div class="lista-usuario">
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
@@ -38,73 +38,92 @@
                 </ul>
             </div>
         </section>
-        <!--Barra de navegacion Productos--> 
+        <!--Barra de navegacion Productos-->
         <section class="nav-bar">
             <ul>
                 <li><a href="">BOLSAS FRISELINA</a></li>
                 <li><a href="">BOLSAS PLÁSTICAS</a></li>
                 <li><a href="">ETIQUETAS</a></li>
             </ul>
-        </section>       
+        </section>
     </header>
 
-<!--Main-->
-<main class="full body">
-    <section id="carrito">
-        <h2>Carrito</h2>
-        <article class="encabezado">
-            <h3 id="articulos">Articulos</h3>
-            <div><h3>Precio</h3>
-            <h3>Cantidad</h3>
-            <h3>Subtotal</h3></div>
-        </article>
-        <article>
-            <img src="/img/bolsa_friselina.jpg" alt="Bolsa">
-            <p class="nombreProducto"><strong>Bolsa friselina</strong></p>
-            <button class="compra" type="submit">Eliminar</button>
-            <div>
-            <div><label>precio</label><p class="precioCarrito">$000.000</p></div>
-            <div><label>cantidad</label><input class="carritoCantidad" id="box-number"type="number" value="number" name="cant"  min="1" required></div>
-            <div><label>total</label><p>$000.000</p></div>
-            </div>
-        </article>
-        <article>
-            <img src="/img/cajas_detalles.jpg" alt="Caja">
-            <p class="nombreProducto"><strong>Caja de detalles</strong></p>
-            <button class="compra" type="submit">Eliminar</button>
-            <div>
-            <div><label>precio</label><p class="precioCarrito">$000.000</p></div>
-            <div><label>cantidad</label><input class="carritoCantidad" id="box-number"type="number" value="number" name="cant"  min="1" required></div>
-            <div><label>total</label><p>$000.000</p></div>
-            </div>
-        </article>
-        <article>
-            <img src="/img/bolsa_plastica.jpg" alt="Caja">
-            <p class="nombreProducto"><strong>Caja plastica</strong></p>
-            <button class="compra" type="submit">Eliminar</button>
-            <div>
-            <div><label>precio</label><p class="precioCarrito">$000.000</p></div>
-            <div><label>cantidad</label><input class="carritoCantidad" id="box-number"type="number" value="number" name="cant"  min="1" required></div>
-            <div><label>total</label><p>$000.000</p></div>
-            </div>
-        </article>
+    <!--Main-->
+    <main class="full body">
+        <section id="carrito">
+            <h2>Carrito</h2>
+            <article class="encabezado">
+                <h3 id="articulos">Articulos</h3>
+                <div>
+                    <h3>Precio</h3>
+                    <h3>Cantidad</h3>
+                    <h3>Subtotal</h3>
+                </div>
+            </article>
+            <article>
+                <img src="/img/bolsa_friselina.jpg" alt="Bolsa">
+                <p class="nombreProducto"><strong>Bolsa friselina</strong></p>
+                <button class="compra" type="submit">Eliminar</button>
+                <div>
+                    <div><label>precio</label>
+                        <p class="precioCarrito">$000.000</p>
+                    </div>
+                    <div><label>cantidad</label><input class="carritoCantidad" id="box-number" type="number"
+                            value="number" name="cant" min="1" required></div>
+                    <div><label>total</label>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <img src="/img/cajas_detalles.jpg" alt="Caja">
+                <p class="nombreProducto"><strong>Caja de detalles</strong></p>
+                <button class="compra" type="submit">Eliminar</button>
+                <div>
+                    <div><label>precio</label>
+                        <p class="precioCarrito">$000.000</p>
+                    </div>
+                    <div><label>cantidad</label><input class="carritoCantidad" id="box-number" type="number"
+                            value="number" name="cant" min="1" required></div>
+                    <div><label>total</label>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <img src="/img/bolsa_plastica.jpg" alt="Caja">
+                <p class="nombreProducto"><strong>Caja plastica</strong></p>
+                <button class="compra" type="submit"><span>Eliminar</span></button>
+                <div>
+                    <div><label>precio</label>
+                        <p class="precioCarrito">$000.000</p>
+                    </div>
+                    <div><label>cantidad</label><input class="carritoCantidad" id="box-number" type="number"
+                            value="number" name="cant" min="1" required></div>
+                    <div><label>total</label>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </article>
 
-        <article id="total">
-            <div>
-            <div><label>Total</label><p>$000.000</p></div>
-        </div>
-        </article>
-        <div class="finalizarCompra">
-            <form action="/">
-            <button class="btncompra" type="submit">Seguir comprando</button></a>
-            <button class="btncompra" type="submit">Actualizar carrito</button>
-            <button class="btncompra"  type="submit">Finalizar compra</button></a>
-        </form>
-        </div>
+            <article id="total">
+                <div>
+                    <div><label>Total</label>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </article>
+            <div class="finalizarCompra">
+                
+                    <button class="btncompra" type="submit"><span>Seguir comprando</span></button>
+                    <button class="btncompra" type="submit"><span>Actualizar carrito</span></button>
+                    <button class="btncompra" type="submit"><span> Finalizar compra</span></button>
+                
+            </div>
 
-    </section>
-</main>
-<!--Footer-->
+        </section>
+    </main>
+    <!--Footer-->
     <footer>
         <section class="contenedor-info">
             <div>
@@ -123,16 +142,16 @@
         <section class="contacto-redes">
             <h5>Contactáctanos</h5>
             <div>
-                <a href="#"><i class="fa-brands fa-instagram"></i>  @publicity.Misiones</a>
+                <a href="#"><i class="fa-brands fa-instagram"></i> @publicity.Misiones</a>
             </div>
             <div>
-                <a href="#"><i class="fa-brands fa-whatsapp"></i>  +54 9 3755-458194</a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i> +54 9 3755-458194</a>
             </div>
         </section>
         <div class="copyright">
             <p>Copyright © Publicity Misiones</p>
         </div>
-        
+
     </footer>
 </body>
 

@@ -27,9 +27,7 @@ main #carrito h2{
     padding-bottom: 10px;
     border-bottom: solid 2px white;
 }
-main #carrito .encabezado{
-    display: none;
-}
+
 
 main #carrito article{
     width: 100%;
@@ -106,30 +104,80 @@ main #carrito #total div div label{
     padding-right: 10px;
 }
 
-/*Botones de carrito finalizar comprar*/
-main #carrito .finalizarCompra form{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  
-}
-main #carrito .finalizarCompra form button{
-    width: 30%;
-    min-width: 85px;
-    max-width: 180px;
-    height: 40px;  
-    margin-right: 5px;
-    border:1px solid #ebebeb;
-    font-weight: bold;
-    color: #ebebeb;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(100, 100, 100,0.5);
-    background-color: #212F3D;
-}
+
 /*Boton eliminar*/
 .compra{
-    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 35px;
+    background:#212F3D;
+    color: #ebebeb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .3s ease all;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
 }
+.compra:hover{
+    background-color: red;
+}
+/*Botones de carrito finalizar comprar*/
+
+.btncompra{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 35px;
+    background:#212F3D;
+    color: #ebebeb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .3s ease all;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin: 2%;
+}
+.btncompra::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+    z-index: 1;
+    top: -80px;
+    left: 0;
+    transition: .3s ease-in-out all;
+}
+.btncompra span{
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+
+}
+
+.btncompra:hover::after{
+    top: 0;
+}
+
+.finalizarCompra{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
       
  /*---------------------------main carrito de compras-------------------------*/
  main #carrito article div{
@@ -160,3 +208,4 @@ main #carrito .finalizarCompra form button{
  main #carrito #total div label{
      display: block;
  }
+
