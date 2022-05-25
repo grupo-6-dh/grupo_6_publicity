@@ -42,7 +42,8 @@ label {
 main {
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    background-color: #EBEBEB;
+    padding: 3%;
 }
 
 .boton {
@@ -74,6 +75,7 @@ form {
     border: solid 2px rgba(128, 128, 128, 0.237);
     border-radius: 10px;
     margin: auto;
+    background-color: white;
     
 }
 
