@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #ebebeb;
+    min-height: 100vh;
+    
+    flex-wrap: wrap ;
+    justify-content:center;
+}
+/*---------------------------main carrito de compras-------------------------*/
+main #carrito{
+    padding: 15px;
+    margin: auto;
+    min-width: 330px;
+}
+main #carrito h2{
+    display: block;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: solid 2px white;
+}
+
+
+main #carrito article{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-bottom: solid 2px white;
+    position: relative;
+   
+}
+main #carrito article img{
+    width: 130px;
+    height: 130px;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+
+main #carrito article button{
+    height: 25px;
+    position: absolute;
+    top: 100px;
+    left: 178px;
+}
+
+main #carrito article label{
+    flex-direction: column;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+main #carrito article .carritoCantidad{
+    width: 50px;
+    height: 25px;
+    margin: auto;
+}
+
+main #carrito article .nombreProducto{
+    display: flex;
+    width: 130px;
+    padding-top: 15px;
+    padding-left: 20px;
+    text-align: center;
+    justify-content:  center;
+}
+main #carrito article div{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+/*Precio*/
+main #carrito article div div{
+    width: 33%;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+main #carrito #total{
+    border-bottom: none;
+}
+main #carrito #total div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; width: 100%;
+}
+main #carrito #total div div{
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+main #carrito #total div div label{
+    padding-right: 10px;
+}
+
+/*Boton eliminar*/
+.compra{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 35px;
+    background:#212F3D;
+    color: #ebebeb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .3s ease all;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.compra:hover{
+    background-color: red;
+}
+/*Botones de carrito finalizar comprar*/
+
+.btncompra{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 35px;
+    background:#212F3D;
+    color: #ebebeb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .3s ease all;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin: 2%;
+}
+.btncompra::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+    z-index: 1;
+    top: -80px;
+    left: 0;
+    transition: .3s ease-in-out all;
+}
+.btncompra span{
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+
+}
+
+.btncompra:hover::after{
+    top: 0;
+}
+
+.finalizarCompra{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+      
+ /*---------------------------main carrito de compras-------------------------*/
+ main #carrito article div{
+     width: auto;
+     justify-content: space-around;
+     flex-grow: 1;
+ }
+
+ main #carrito .encabezado{
+     display: flex;
+ }
+ main #carrito .encabezado div h3{
+ text-align: center;
+ justify-content: space-around;
+ width: 33%;
+ }
+
+ main #carrito .encabezado #articulos{
+     display: block;
+     min-width: 260px;
+     text-align: center;
+ }
+
+ main #carrito article div label{
+     display: none;
+ }
+
+ main #carrito #total div label{
+     display: block;
+ }
+

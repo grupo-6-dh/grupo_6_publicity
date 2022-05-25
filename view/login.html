@@ -6,17 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicity</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,900;1,700&display=swap"
+        rel="stylesheet">
+    <!--CSS  -->
+    <link rel="stylesheet" href="/css/style-login.css" type="text/css">
     <link rel="Stylesheet" href="css/header-footer.css" type="text/css">
-    <!--Iconos-->
-    <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
-    <!--Font-->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/79b8daf391.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
     <header>
-        <!--Menu--> 
+        <!--Menu-->
         <section class="contenedor-header">
             <div class="menu-hamburguesa">
                 <i class="fas fa-bars"></i>
@@ -24,12 +30,12 @@
             <div class="logo">
                 <img src="/img/LOGO_ROJO.png" alt="logo Publicity">
             </div>
-             <!--Barra de busqueda--> 
-             <div class="barra-de-busqueda">
-                <input type="search" placeholder="Buscar productos" >
+            <!--Barra de busqueda-->
+            <div class="barra-de-busqueda">
+                <input type="search" placeholder="Buscar productos">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <!--Usuario y carrito--> 
+            <!--Usuario y carrito-->
             <div class="lista-usuario">
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
@@ -37,23 +43,56 @@
                 </ul>
             </div>
         </section>
-        <!--Barra de navegacion Productos--> 
+        <!--Barra de navegacion Productos-->
         <section class="nav-bar">
             <ul>
                 <li><a href="">BOLSAS FRISELINA</a></li>
                 <li><a href="">BOLSAS PLÁSTICAS</a></li>
-                <li><a href="">BOLSAS CRISTAL</a></li>
+                <li><a href="">ETIQUETAS</a></li>
             </ul>
-        </section>       
+        </section>
     </header>
 
-<!--Main-->
     <main>
+        <div class="ruta">
+            <p>Inicio > Login</p>
+        </div>
+        <div class="formulario">
 
+            <h2 class="titulo">Login</h2>
 
-        
+            <form>
+                <ul>
+                    <li>
+
+                        <input class="form" type="email" placeholder="Ingrese su email" required>
+                    </li>
+
+                    <li>
+
+                        <input class="form" type="text" placeholder="Ingrese su contraseña" required>
+                    </li>
+
+                </ul>
+
+                <div class="check">
+                    <label>Recordarme</label>
+                    <input type="checkbox" id="recordarme" required>
+                </div>
+
+                <div class="boton">
+                    <button id="btn" type="submit">Ingresar</button>
+                </div>
+                <div class="footer">
+                    <p>¿Olvidaste tu contraseña? <a href="/recuperarPass">Recuperar contraseña</a></p>
+                </div>
+
+            </form>
+
+        </div>
+
     </main>
-<!--Footer-->
+
     <footer>
         <section class="contenedor-info">
             <div>
@@ -83,6 +122,7 @@
         </div>
         
     </footer>
+
 </body>
 
 </html>
