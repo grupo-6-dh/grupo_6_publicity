@@ -125,6 +125,7 @@ main #carrito #total div div label{
     position: relative;
     overflow: hidden;
 }
+
 .compra:hover{
     background-color: red;
 }
