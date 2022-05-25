@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express = require('express');
 const path = require('path');
 const app=express();
@@ -27,6 +26,7 @@ app.get('/login',function(req,res){
 
 app.get('/recuperarPass',function(req,res){
     res.sendFile(path.join(__dirname,'/view/recuperarPass.html'));
+})
 
 app.get ('/carrito', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/carrito.html'))
