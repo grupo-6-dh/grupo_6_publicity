@@ -49,23 +49,90 @@
     <!--Main-->
     <main>
         <!--Carrusel-->
-        <section id="section-carrusel">
-            <ul class="slider">
-                <li id="slide1"><img src="/img/bolsa_friselina.jpg" alt="Bolsas friselina"></li>
-                <li id="slide2"><img src="/img/bolsa_plastica.jpg" alt="Bolsa plastica"></li>
-                <li id="slide3"><img src="/img/cajas_detalles.jpg" alt="Caja detalle"></li>
-            </ul>
-            <nav>
-                <ul class="menu">
-                    <li><a href="#slide1">·</a></li>
-                    <li><a href="#slide2">·</a></li>
-                    <li><a href="#slide3">·</a></li>
-                </ul>
-            </nav>
+        <div class="back-image">
+            <img src="/img/fondo3.jpeg">
+        </div>
+        <section class="slide">
+            <div class="slide-inner">
+                <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
+                <div class="slide-item">
+                    <img src="/img/bolsa_friselina.jpg">
+                    <label class="slide-text">BOLSAS FRISELINA</label>
+                </div>
+                <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
+                <div class="slide-item">
+                    <img src="/img/bolsa_plastica.jpg">
+                    <label class="slide-text">BOLSAS PLÁSTICAS</label>
+                </div>
+                <input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
+                <div class="slide-item">
+                    <img src="/img/cajas_detalles.jpg">
+                    <label class="slide-text">CON TU LOGO</label>
+                </div>
+                <!--Acciones de las flechas-->
+                <label for="slide-3" class="slide-control prev control-1">‹</label>
+                <label for="slide-2" class="slide-control next control-1">›</label>
+                <label for="slide-1" class="slide-control prev control-2">‹</label>
+                <label for="slide-3" class="slide-control next control-2">›</label>
+                <label for="slide-2" class="slide-control prev control-3">‹</label>
+                <label for="slide-1" class="slide-control next control-3">›</label>
+                <ol class="slide-indicador">
+                    <li>
+                        <label for="slide-1" class="slide-circulo">•</label>
+                    </li>
+                    <li>
+                        <label for="slide-2" class="slide-circulo">•</label>
+                    </li>
+                    <li>
+                        <label for="slide-3" class="slide-circulo">•</label>
+                    </li>
+                </ol>
+            </div>
         </section>
         <!--Productos destacados-->
-        <section>
-            Productos destacados
+        <section class="featured-products">
+            <h1><i class="fa-regular fa-star"></i> Productos destacados</h1>
+            <div class="products-list">
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/bolsa_friselina.jpg" alt="Bolsa de friselina con mango">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsa friselina con mango</h2>
+                        <a class="product-price">$1250.50</a>
+                        <a class="product-offer">10% off a partir de 200 unidades</a>
+                        <p>
+                            Ideales para que tu marca vaya a todos lados.
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/cajas_detalles.jpg" alt="Bolsa de friselina con mango">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsa friselina con mango</h2>
+                        <a class="product-price">$1250.50</a>
+                        <a class="product-offer">10% off a partir de 200 unidades</a>
+                        <p>
+                            Ideales para que tu marca vaya a todos lados.
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/bolsa_plastica.jpg" alt="Bolsa de friselina con mango">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsa friselina con mango</h2>
+                        <a class="product-price">$1250.50</a>
+                        <a class="product-offer">10% off a partir de 200 unidades</a>
+                        <p>
+                            Ideales para que tu marca vaya a todos lados.
+                        </p>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
     <!--Footer-->
