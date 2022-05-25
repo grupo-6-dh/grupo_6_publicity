@@ -13,3 +13,8 @@ app.listen(8080,()=> {
 app.get('/',function(req,res){
     res.sendFile(path.resolve(__dirname,'./view/index.html'));
 })
+
+app.get('/products', function (req, res) {
+    res.sendFile(path.resolve(__dirname, './view/products.html'));
+})
+

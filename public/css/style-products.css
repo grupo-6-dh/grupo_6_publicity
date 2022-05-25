@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 100vw;
+    font-family: 'Montserrat';
+    background-color: #E2D6E0;
+}
+
+.main-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* PROBANDO CON MEDIA QUERIES*/
+@media (max-width: 599px){
+    /*Nada por aquí aun*/
+}
+
+@media (min-width: 600px) {
+    .container-filters {
+        flex-grow: 0; /* do not grow   - initial value: 0 */
+        flex-shrink: 0; /* do not shrink - initial value: 1 */
+        width: 25%;
+    }
+    
+    .container-products {
+        flex-grow: 0; /* do not grow   - initial value: 0 */
+        flex-shrink: 0; /* do not shrink - initial value: 1 */
+        width: 75%;
+    }
+}
+
+.container-filters{
+    padding: 3%;
+}
+
+.container-products{
+    padding: 3%;
+}
+
+.container-filters h4{
+    font-weight: 500;
+}
+.container-filters .category-quantity{
+    color: gray;
+}
+
+.container-products h1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.products-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.product{
+    border-top: solid 1px #E2D6E0;; 
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.product-img{
+    height: 130px;
+    width: 130px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+.product-info{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.product-name {
+    text-align: left;
+}
+
+.product-price {
+    font-size: large;
+    font-weight: bold;
+    display: inline-block;
+    align-self: left;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.product-offer {
+    display: flex;
+    align-self: left;
+    color: rgb(85, 218, 65);
+    font-size: smaller;
+    font-weight: lighter;
+    padding-bottom: 2%;
+}
+
+h1{
+    background-color: #E2D6E0;
+    margin-left: 5%;
+    margin-top: 3%;
+}
