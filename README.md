@@ -38,5 +38,5 @@ Se ha avanzado con el diseño UX/UI de la página, se crearon las vistas home, l
 **Sprint actual :arrows_counterclockwise:--> Sprint 2**
 
 ### Objetivos del Sprint
-Selección de la tematica del sitio y desarrollo de bocetos gráficos de las principales secciones a implementar.
+Construir un sitio que sea estéticamente agradable y fácil de usar.
 
