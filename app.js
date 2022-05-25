@@ -20,6 +20,10 @@ app.get('/',function(req,res){
     res.sendFile(path.resolve(__dirname,'./view/index.html'));
 })
 
+app.get('/products', function (req, res) {
+    res.sendFile(path.resolve(__dirname, './view/products.html'));
+})
+
 app.get('/login',function(req,res){
     res.sendFile(path.join(__dirname,'/view/login.html'));
 })
