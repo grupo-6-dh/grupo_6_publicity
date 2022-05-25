@@ -16,6 +16,9 @@ app.get('/registro',function(req,res){
 app.get('/detalle-producto',function(req,res){
     res.sendFile(path.resolve(__dirname,'./view/detalle-producto.html'));
 })
+app.get('/',function(req,res){
+    res.sendFile(path.resolve(__dirname,'./view/index.html'));
+})
 
 app.get('/login',function(req,res){
     res.sendFile(path.join(__dirname,'/view/login.html'));
