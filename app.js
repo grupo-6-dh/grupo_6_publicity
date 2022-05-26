@@ -33,5 +33,5 @@ app.get('/recuperarPass',function(req,res){
 })
 
 app.get ('/carrito', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/carrito.html'))
+    res.sendFile(path.join(__dirname, '/view/carrito.html'))
 })

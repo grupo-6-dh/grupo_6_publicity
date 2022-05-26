@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     font-family: 'Montserrat';
 }
 
@@ -44,6 +44,7 @@ main {
     align-items: center;
     background-color: #EBEBEB;
     padding: 3%;
+    height: 700px;
 }
 
 .boton {

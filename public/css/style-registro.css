@@ -48,6 +48,8 @@ main {
     justify-content: center;
     align-items: center;
     margin: 10px;
+    height: 700px;
+    background-color: #EBEBEB;
 }
 
 .boton {
@@ -64,6 +66,7 @@ main {
 
 form {
     margin-top: 20px;
+    
 }
 
 .formulario {
@@ -76,6 +79,7 @@ form {
     border-radius: 10px;
     margin: auto;
     margin-bottom: 15px ;
+    background-color: white;
 }
 
 .formulario ul {
