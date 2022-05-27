@@ -13,6 +13,9 @@ El grupo de desarrollo está compuesto de cuatro desarrolladores Misioneros.
 * **Castro Hernán** de 27 años de la localidad de Leandro N Alem.:man_technologist:
 * **Mendez Matias**  de 27 años de la localidad de Posadas.:man_technologist:
 
+## Backlog, tablero de trabajo
+- https://grupo-6-publicity.atlassian.net/jira/software/projects/G6P/boards/1
+
 ## Herramientas utilizadas :hammer_and_wrench:
 
 * NodeJs
