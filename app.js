@@ -16,6 +16,20 @@ app.get('/registro',function(req,res){
 app.get('/detalle-producto',function(req,res){
     res.sendFile(path.resolve(__dirname,'./view/detalle-producto.html'));
 })
+
+app.get('/alta-producto',function(req,res){
+    res.sendFile(path.resolve(__dirname,'./view/alta-producto.html'));
+})
+
+app.get('/abml', function (req, res) {
+    res.sendFile(path.resolve(__dirname, './view/abml-productos.html'));
+})
+
+
+app.get('/modificar-producto',function(req,res){
+    res.sendFile(path.resolve(__dirname,'./view/modificar-producto.html'));
+})
+
 app.get('/',function(req,res){
     res.sendFile(path.resolve(__dirname,'./view/index.html'));
 })
