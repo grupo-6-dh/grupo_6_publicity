@@ -7,23 +7,7 @@
 body {
     width: 100vw;
     font-family: 'Montserrat';
-    background-color: #EBEBEB;
-}
-
-.back-image{
-    position: absolute;
-    left: 0;
-    right: 0;
-    filter: blur(5px);
-    width: 100%;
-    z-index: -1;
-    
-}
-
-.back-image img{
-    width: 100%;
-    opacity: 50%;
-    min-height: 800px;
+    background-color: #ebebeb;
 }
 
 .slide {
@@ -39,8 +23,6 @@ body {
     right: 0;
     margin: auto;
     width: 100%;
-    max-height: 600px;
-    max-width: 1000px;
     box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.5);
 }
 
@@ -58,15 +40,19 @@ body {
 
 .slide-item img {
     display: block;
-    height: auto;
-    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    z-index: -1;
 }
 
+
 .slide-text {
+    display: none;
     color: #fff;
     font-size: 15px;
     background:rgba(0, 0, 0, 0.66);
     position: absolute;
+    z-index: 2;
     top: 75%;
     left: 30%;
     right: 30%;
@@ -95,7 +81,7 @@ body {
     transform: translate(0, -50%);
     text-align: center;
     width: 40px;
-    z-index: 10;
+    z-index: 3;
 }
 
 .slide-control.prev {
@@ -122,23 +108,23 @@ body {
     margin: 0;
     padding: 0;
     position: absolute;
-    bottom: 2%;
+    bottom: 1%;
     left: 0;
     right: 0;
     text-align: center;
-    z-index: 10;
+    z-index: 4;
 }
 
 .slide-indicador li {
     display: inline-block;
-    margin: 0 5px;
+    margin: 0 2px;
 }
 
 .slide-circulo {
     color: #828282;
     cursor: pointer;
     display: block;
-    font-size: 35px;
+    font-size: 40px;
 }
 
 .slide-circulo:hover {
@@ -148,15 +134,16 @@ body {
 #slide-1:checked~.control-1~.slide-indicador li:nth-child(1) .slide-circulo,
 #slide-2:checked~.control-2~.slide-indicador li:nth-child(2) .slide-circulo,
 #slide-3:checked~.control-3~.slide-indicador li:nth-child(3) .slide-circulo {
-    color: #428bca;
+    color: #021d58d7;
 }
 
 .featured-products{
-    background-color: #EBEBEB;
+    background-color: white;
+    margin-top: 2px;
+    padding: 2%;
 }
 .featured-products h1{
-    padding-top: 4%;
-    font-size: 35px;
+    color: #212F3D;
     font-weight: bold;
     text-align: center;
     margin-bottom: 1px;
@@ -164,7 +151,7 @@ body {
 
 .products-list {
     border-radius: 5px;
-    margin: 3%;
+    margin: 1%;
     padding: 2px;
     display: flex;
     flex-wrap: wrap;
@@ -191,8 +178,10 @@ body {
 
 
 .product{
+    display: flex;
+    flex-wrap: wrap;
     border-radius: 8px;
-    max-width: 400px;
+    width: 100%;
     padding: 2%;
     margin:1%;  
     background-color: rgb(255, 255, 255);
@@ -206,7 +195,6 @@ body {
 
 .product-img img{
     width: 100%;
-    border-radius: 8px 8px 0 0;
 }
 
 .product-info{
@@ -215,7 +203,7 @@ body {
 
 .product-name {
     text-align: left;
-    height: 60px;
+    font-size: large;
 }
 
 .product-price {
@@ -234,4 +222,20 @@ body {
     font-size: smaller;
     font-weight: lighter;
     padding-bottom: 2%;
+}
+
+@media (min-width:700px) {
+    .product {
+        width: 45%;
+    }
+
+    .slide-text {
+        display: block;
+    }
+
+}
+@media (min-width:1200px) {
+    .product {
+        width: 30%;
+    }
 }

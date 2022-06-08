@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicity</title>
+    <link rel="Stylesheet" href="css/carrito-style.css" type="text/css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <!--Iconos-->
+    <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
+    <!--Font-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+</head>
+
+<body>
+    <header>
+        <!--Menu-->
+        <section class="contenedor-header">
+            <div class="menu-hamburguesa">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">
+                <img src="/img/LOGO_ROJO.png" alt="logo Publicity">
+            </div>
+            <!--Barra de busqueda-->
+            <div class="barra-de-busqueda">
+                <input type="search" placeholder="Buscar productos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <!--Usuario y carrito-->
+            <div class="lista-usuario">
+                <ul>
+                    <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
+                    <li><a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+            </div>
+        </section>
+        <!--Barra de navegacion Productos-->
+        <section class="nav-bar">
+            <ul>
+                <li><a href="/">INICIO</a></li>
+                <li><a href="/detalle-producto">BOLSAS FRISELINA</a></li>
+                <li><a href="/detalle-producto">BOLSAS PLÁSTICAS</a></li>
+                <li><a href="/detalle-producto">BOLSAS CRISTAL</a></li>
+                <li><a href="/products">TODOS LOS PRODUCTOS</a></li>
+            </ul>
+        </section>
+    </header>
+
+    <!--Main-->
+    <main class="full body">
+        <section id="carrito">
+            <h2>Carrito</h2>
+            <article class="encabezado">
+                <h3 id="articulos">Articulos</h3>
+                <div>
+                    <h3>Precio</h3>
+                    <h3>Cantidad</h3>
+                    <h3>Subtotal</h3>
+                </div>
+            </article>
+            <article>
+                <img src="/img/bolsa_friselina.PNG" alt="Bolsa">
+                <p class="nombreProducto"><strong>Bolsa friselina</strong></p>
+                <button class="compra" type="submit">Eliminar</button>
+                <div>
+                    <div><label>precio</label>
+                        <p class="precioCarrito">$000.000</p>
+                    </div>
+                    <div><label>cantidad</label><input class="carritoCantidad" id="box-number" type="number"
+                            value="number" name="cant" min="1" required></div>
+                    <div><label>total</label>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <img src="/img/cajas_detalles.jpg" alt="Caja">
+                <p class="nombreProducto"><strong>Caja de detalles</strong></p>
+                <button class="compra" type="submit">Eliminar</button>
+                <div>
+                    <div><label>precio</label>
+                        <p class="precioCarrito">$000.000</p>
+                    </div>
+                    <div><label>cantidad</label><input class="carritoCantidad" id="box-number" type="number"
+                            value="number" name="cant" min="1" required></div>
+                    <div><label>total</label>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <img src="/img/bolsa_plastica.jpg" alt="Caja">
+                <p class="nombreProducto"><strong>Caja plastica</strong></p>
+                <button class="compra" type="submit"><span>Eliminar</span></button>
+                <div>
+                    <div><label>precio</label>
+                        <p class="precioCarrito">$000.000</p>
+                    </div>
+                    <div><label>cantidad</label><input class="carritoCantidad" id="box-number" type="number"
+                            value="number" name="cant" min="1" required></div>
+                    <div><label>total</label>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </article>
+
+            <article id="total">
+                <div>
+                    <div><label>Total</label>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </article>
+            <div class="finalizarCompra">
+                
+                    <button class="btncompra" type="submit"><span>Seguir comprando</span></button>
+                    <button class="btncompra" type="submit"><span>Actualizar carrito</span></button>
+                    <button class="btncompra" type="submit"><span> Finalizar compra</span></button>
+                
+            </div>
+
+        </section>
+    </main>
+    <!--Footer-->
+    <footer>
+        <section class="contenedor-info">
+            <div>
+                <h5>Ventas personalizadas</h5>
+                <p><i class="fa-solid fa-check"></i></p>
+            </div>
+            <div>
+                <h5>Aceptamos todos los medios de pago</h5>
+                <p><i class="fa-solid fa-credit-card"></i></p>
+            </div>
+            <div>
+                <h5>Enviamos tu compra</h5>
+                <p><i class="fa-solid fa-truck"></i></p>
+            </div>
+        </section>
+        <section class="contacto-redes">
+            <h5>Contactáctanos</h5>
+            <div>
+                <a href="#"><i class="fa-brands fa-instagram"></i> @publicity.Misiones</a>
+            </div>
+            <div>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i> +54 9 3755-458194</a>
+            </div>
+        </section>
+        <div class="copyright">
+            <p>Copyright © Publicity Misiones</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>
