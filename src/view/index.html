@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicity</title>
+    <!--Estilos Grupo 6-->
+    <link rel="Stylesheet" href="css/header-footer.css" type="text/css">
+    <link rel="Stylesheet" href="css/style-index.css" type="text/css">
+    <!--Iconos-->
+    <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
+    <!--Font-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <!--Menu-->
+        <section class="contenedor-header">
+            <div class="menu-hamburguesa">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">
+                <img src="/img/LOGO_ROJO.png" alt="logo Publicity">
+            </div>
+            <!--Barra de busqueda-->
+            <div class="barra-de-busqueda">
+                <input type="search" placeholder="Buscar productos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <!--Usuario y carrito-->
+            <div class="lista-usuario">
+                <ul>
+                    <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
+                    <li><a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+            </div>
+        </section>
+        <!--Barra de navegacion Productos-->
+        <section class="nav-bar">
+            <ul>
+                <li><a href="/">INICIO</a></li>
+                <li><a href="/detalle-producto">BOLSAS FRISELINA</a></li>
+                <li><a href="/detalle-producto">BOLSAS PLÁSTICAS</a></li>
+                <li><a href="/detalle-producto">BOLSAS CRISTAL</a></li>
+                <li><a href="/products">TODOS LOS PRODUCTOS</a></li>
+            </ul>
+        </section>
+    </header>
+    
+    <!--Main-->
+    <main>
+        <!--Carrusel-->
+        <section class="slide">
+            <div class="slide-inner">
+                <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
+                <div class="slide-item">
+                    <img src="/img/banner.png">
+                    <label class="slide-text">BOLSAS FRISELINA</label>
+                </div>
+                <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
+                <div class="slide-item">
+                    <img src="/img/banner.png">
+                    <label class="slide-text">BOLSAS PLÁSTICAS</label>
+                </div>
+                <input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
+                <div class="slide-item">
+                    <img src="/img/banner.png">
+                    <label class="slide-text">CON TU LOGO</label>
+                </div>
+                <!--Acciones de las flechas-->
+                <label for="slide-3" class="slide-control prev control-1">‹</label>
+                <label for="slide-2" class="slide-control next control-1">›</label>
+                <label for="slide-1" class="slide-control prev control-2">‹</label>
+                <label for="slide-3" class="slide-control next control-2">›</label>
+                <label for="slide-2" class="slide-control prev control-3">‹</label>
+                <label for="slide-1" class="slide-control next control-3">›</label>
+                <ol class="slide-indicador">
+                    <li>
+                        <label for="slide-1" class="slide-circulo">•</label>
+                    </li>
+                    <li>
+                        <label for="slide-2" class="slide-circulo">•</label>
+                    </li>
+                    <li>
+                        <label for="slide-3" class="slide-circulo">•</label>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        <!--Productos destacados-->
+        <section class="featured-products">
+            <h1> Productos destacados</h1>
+            <div class="products-list">
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/bolsa_friselina.PNG" alt="Bolsa de friselina con mango">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsa friselina con mango</h2>
+                        <a class="product-price">$1250.50</a>
+                        <a class="product-offer">10% off a partir de 200 unidades</a>
+                        <p>
+                            Ideales para que tu marca vaya a todos lados.
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/bolsa-plastica-marca.jpeg" alt="Bolsa plastica">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsa plástica</h2>
+                        <a class="product-price">$1250.50</a>
+                        <a class="product-offer">10% off a partir de 200 unidades</a>
+                        <p>
+                            Ideales para que tu marca vaya a todos lados.
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/bolsa-cristal-marca.jpeg" alt="Bolsa cristal">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsa cristal</h2>
+                        <a class="product-price">$1250.50</a>
+                        <a class="product-offer">10% off a partir de 200 unidades</a>
+                        <p>
+                            Ideales para que tu marca vaya a todos lados.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- Trabajos realizados -->
+        <section class="featured-products">
+            <h1>Trabajos realizados</h1>
+            <div class="products-list">
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/mara.PNG" alt="Bolsa de friselina con mango">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsa kraft con mango</h2>
+                        <p>
+                            Te invitamos a que visites la página de instagram @mara_velasyaromas para apreciar las hermosas cosas que venden👏.
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/orange.PNG" alt="Bolsa plastica">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsas Cristal</h2>
+                        <p>
+                            Bolsas vineras de cristal para Orange.
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/vienessa.PNG" alt="Bolsa cristal">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsas de papel</h2>
+                        <p>
+                            ¿Sabias que las bolsas de delivery además de usarlas para gastronomía se puede utilizar para la entrega de cualquier tipo de producto? 🤩
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/creaciones.PNG" alt="Bolsa cristal">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsas plásticas</h2>
+                        <p>
+                            Estas bolsas plásticas boutique son un éxito a la hora de publicitar tu marca, asi como también tus redes sociales 🤳🙌.
+                            Te invitamos a visitar la página de instagram de @tochycreaciones para que conozcas el excelente trabajo que hacen confeccionando.
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/bunker.PNG" alt="Bolsa cristal">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsas de polietileno </h2>
+                        <p>
+                            Las bolsas de polietileno son geniales para quienes estan comenzado porque están a un precio súper accesible! Además de llevar tu logo también podes elegirlas según la medida que más se adecue a tus productos👌
+
+                        </p>
+                    </div>
+                </article>
+                <article class="product">
+                    <div class="product-img">
+                        <img src="/img/berry.PNG" alt="Bolsa cristal">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">Bolsas plásticas para Berry Store</h2>
+                        <p>
+                            Las bolsas plásticas boutique son súper cómodas y accesibles!! Además las personalizamos a tu gusto🤩
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <!--Footer-->
+    <footer>
+        <section class="contenedor-info">
+            <div>
+                <h5>Ventas personalizadas</h5>
+                <p><i class="fa-solid fa-check"></i></p>
+            </div>
+            <div>
+                <h5>Aceptamos todos los medios de pago</h5>
+                <p><i class="fa-solid fa-credit-card"></i></p>
+            </div>
+            <div>
+                <h5>Enviamos tu compra</h5>
+                <p><i class="fa-solid fa-truck"></i></p>
+            </div>
+        </section>
+        <section class="contacto-redes">
+            <h5>Contactáctanos</h5>
+            <div>
+                <a href="#"><i class="fa-brands fa-instagram"></i> @publicity.Misiones</a>
+            </div>
+            <div>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i> +54 9 3755-458194</a>
+            </div>
+        </section>
+        <div class="copyright">
+            <p>Copyright © Publicity Misiones</p>
+        </div>
+    
+    </footer>
+
+
+
+</body>
+</html>
