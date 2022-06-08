@@ -41,5 +41,7 @@ Se ha avanzado con el diseño UX/UI de la página, se crearon las vistas home, l
 **Sprint actual :arrows_counterclockwise:--> Sprint 3**
 
 ### Objetivos del Sprint
-Construir un sitio que sea estéticamente agradable y fácil de usar.
+Durante esta iteración su foco será el de modificar el sitio para que:
+● Reutilizar los componentes compartidos: header, menu, footer, etc.
+● Muestrar contenido dinámicamente a través de un motor de templates (Express+EJS).
 
