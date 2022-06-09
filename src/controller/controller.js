@@ -2,32 +2,41 @@ const path = require('path');
 
 const controller = {
     registro: (req, res) => {
-        res.sendFile(path.join(__dirname, '../view/registro.html'));
+        return res.render('registro');
     },
 
     detalleProducto: (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../view/detalle-producto.html'));
+        return res.render('detalle-producto');
     },
 
     index: (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../view/index.html'));
+        return res.render('index');
     },
 
     products: (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../view/products.html'));
+       return res.render('products');
     },
 
     login: (req, res) => {
-        res.sendFile(path.join(__dirname, '../view/login.html'));
+        return res.render('login');
     },
 
     recuperarPass: (req, res) => {
-        res.sendFile(path.join(__dirname, '../view/recuperarPass.html'));
+        return res.render('recuperarPass');
     },
 
     carrito: (req, res) => {
-        res.sendFile(path.join(__dirname, '../view/carrito.html'))
+        return res.render('carrito');
     },
+    modificarProducto: (req,res) => {
+        return res.render('modificar-producto');
+    },
+    abml:(req,res) => {
+        return res.render('abml-productos'); //no funciona ver que pasa
+    },
+    alta:(req,res) => {
+        return res.render('alta-producto');
+    }
 }
 
 module.exports = controller;

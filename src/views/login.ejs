@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicity</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <!--CSS  -->
+    <link rel="stylesheet" href="/css/style-login.css" type="text/css">
+    <link rel="Stylesheet" href="css/header-footer.css" type="text/css">
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/79b8daf391.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <%-include('partials/header.ejs')%> 
+    <main>
+        <div class="ruta">
+            <p>Inicio > Login</p>
+        </div>
+        <div class="formulario">
+
+            <h2 class="titulo">Login</h2>
+
+            <form>
+                <ul>
+                    <li>
+
+                        <input class="form" type="email" placeholder="Ingrese su email" required>
+                    </li>
+
+                    <li>
+
+                        <input class="form" type="text" placeholder="Ingrese su contraseña" required>
+                    </li>
+
+                </ul>
+
+                <div class="check">
+                    <label>Recordarme</label>
+                    <input type="checkbox" id="recordarme" required>
+                </div>
+
+                <div class="boton">
+                    <button id="btn" type="submit">Ingresar</button>
+                </div>
+                <div class="footer">
+                    <p>¿Olvidaste tu contraseña? <a href="/recuperarPass">Recuperar contraseña</a></p>
+                </div>
+                <div class="footer">
+                    <p>¿Todavia no te registraste? <a href="/registro">Registrarme</a></p>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <%-include('partials/footer.ejs')%> 
+
+</body>
+
+</html>

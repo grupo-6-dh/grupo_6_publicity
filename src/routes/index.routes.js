@@ -19,6 +19,12 @@ routes.get("/recuperarPass", controller.recuperarPass)
 
 routes.get("/carrito", controller.carrito)
 
+routes.get("/modificarProducto", controller.modificarProducto)
+
+routes.get("/abml", controller.abml)
+
+routes.get("/alta",controller.alta)
+
 
 
 module.exports = routes;
