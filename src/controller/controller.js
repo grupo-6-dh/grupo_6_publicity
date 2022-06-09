@@ -31,9 +31,9 @@ const controller = {
     modificarProducto: (req,res) => {
         return res.render('modificar-producto');
     },
-    abml:(req,res) => {
-        return res.render('abml-productos'); //no funciona ver que pasa
-    },
+   abml: (req,res) => {
+        return res.render('abml-productos');
+   },
     alta:(req,res) => {
         return res.render('alta-producto');
     }
