@@ -25,6 +25,7 @@ routes.get("/abml", controller.abml)
 
 routes.get("/alta",controller.alta)
 
+routes.get("/info",controller.info)
 
 
 

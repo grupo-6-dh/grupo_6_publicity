@@ -36,6 +36,9 @@ const controller = {
    },
     alta:(req,res) => {
         return res.render('alta-producto');
+    },
+    info:(req,res) => {
+        return res.render('info-pago');
     }
 }
 
