@@ -33,19 +33,19 @@
             <form>
                 <ul>
                     <li>
-                        <input class="form" type="text" placeholder="Nombre y Apellido">
+                        <input class="form" type="text" placeholder="Nombre y Apellido" minlength="3" required>
                     </li>
 
                     <li>
-                        <input class="form" type="email" placeholder="Email">
+                        <input class="form" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                     </li>
 
                     <li>
-                        <input class="form" type="text" placeholder="Contraseña">
+                        <input class="form" type="text" placeholder="Contraseña" minlength="5" required>
                     </li>
 
                     <li>
-                        <input class="form" type="text" placeholder="Confirmar contraseña">
+                        <input class="form" type="text" placeholder="Confirmar contraseña" minlength="5" required>
                     </li>
 
                 </ul>
