@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicity</title>
+    <link rel="Stylesheet" href="css/detalle-producto.css" type="text/css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <!--Iconos-->
+    <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
+    <!--Font-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    
+</head>
+
+<body>
+   <%-include('partials/header.ejs')%> 
+
+<!--Main-->
+    <main>
+        <article class="producto">
+            <section class="imagen-principal">
+                    <img src="/img/bolsa_friselina.PNG" alt="Bolsa de friselina con mango">
+            </section>
+            <section class="contenedor-detalle-producto">
+                <div class="info-producto">
+                    <h3 class="nombre">Bolsa friselina con mango</h3>
+                    <a class="precio">$53,70 c/u</a>
+                    <a class="oferta">Ahorrá llevando 250 unidades o más</a>
+                    <p>
+                        Ideales para que tu marca vaya a todos lados.
+                    </p>
+                    <p>
+                        Estas bolsas son absolutamente ¡Reutilizables! Así que además de estar cuidando a nuestro planeta, estarán tus bolsas por todos lados a bajo costo.
+                    </p>
+                </div>
+                <div class="configuracion-producto">
+                    </select>
+                    <label>Color de bolsa</label>
+                    <select>
+                        <option value="beige">Beige</option>
+                        <option value="negro">Negro</option>
+                        <option value="blanco">Blanco</option>
+                    </select>
+                    <label>Color de tinta</label>
+                    <select>
+                        <option value="beige">Negro</option>
+                        <option value="negro">Rojo</option>
+                        <option value="blanco">Azul</option>
+                        <option value="azul">Naranja</option>
+                    </select>
+                    <label>Tamaño</label>
+                    <select>
+                        <option value="35x30">35x30</option>
+                        <option value="45x40">45x40</option>
+                        <option value="Blanco"></option>
+                    </select>
+                    <label>Cantidad</label>
+                    <p>Cantidad mínima de compra 100 unidades</p>
+                    <input type="number">
+                    </select>
+                    <button>Agregar al carrito</button>
+                </div>
+            </section>
+        </article>
+       
+        
+
+        
+    </main>
+<!--Footer-->
+<%-include('partials/footer.ejs')%> 
+</body>
+
+</html>

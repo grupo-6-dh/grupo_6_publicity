@@ -13,6 +13,9 @@ El grupo de desarrollo está compuesto de cuatro desarrolladores Misioneros.
 * **Castro Hernán** de 27 años de la localidad de Leandro N Alem.:man_technologist:
 * **Mendez Matias**  de 27 años de la localidad de Posadas.:man_technologist:
 
+## Backlog, tablero de trabajo
+- https://grupo-6-publicity.atlassian.net/jira/software/projects/G6P/boards/1
+
 ## Herramientas utilizadas :hammer_and_wrench:
 
 * NodeJs
@@ -35,8 +38,10 @@ El proyecto se encuentra en las etapas iniciales del ciclo de vida de desarrollo
 El proyecto se lleva a cabo siguiendo el marco de trabajo para desarrollo ágil de Scrum. El mismo cuenta con un total de 8 Spritnts.
 Se ha avanzado con el diseño UX/UI de la página, se crearon las vistas home, login, recupero de contraseña, registro, productos, detalle de producto, y carrito.
 
-**Sprint actual :arrows_counterclockwise:--> Sprint 2**
+**Sprint actual :arrows_counterclockwise:--> Sprint 3**
 
 ### Objetivos del Sprint
-Construir un sitio que sea estéticamente agradable y fácil de usar.
+Durante esta iteración su foco será el de modificar el sitio para que:
+● Reutilizar los componentes compartidos: header, menu, footer, etc.
+● Muestrar contenido dinámicamente a través de un motor de templates (Express+EJS).
 

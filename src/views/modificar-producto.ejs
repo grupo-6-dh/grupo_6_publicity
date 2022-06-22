@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicity</title>
+    <link rel="Stylesheet" href="css/modificar-producto.css" type="text/css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <!--Iconos-->
+    <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
+    <!--Font-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    
+</head>
+
+<body>
+    <%-include('partials/header.ejs')  %> 
+
+<!--Main-->
+    <main>
+        <article class="producto">
+            <h1>Modificar producto</h1>
+            <div class="titulo">
+                <input class="inputText" type="text" placeholder="Bolsa friselina con mango">
+            </div>
+            <section class="imagen-principal">
+                    <div class="archivo">
+                        <p class="texto">Subir imagen nueva</p>
+                        <input class="btn-enviar" type="file" id="btnEnviar">
+                      </div>
+            </section>
+            <section class="contenedor-detalle-producto">
+                <div class="configuracion-producto">
+                    <div class="contenedor">
+                        <h4>Colores de bolsa disponibles</h4>
+                        <label><input class="checkbox" type="checkbox" id="bolsaBeige" value="beige">Beige</label>
+                        <label ><input class="checkbox" type="checkbox" id="bolsaNegra" value="negro">Negro</label>
+                        <label ><input class="checkbox" type="checkbox" id="bolsaBlanca" value="blanco">Blanco</label>
+                        <label ><input class="checkbox" type="checkbox" id="bolsaAzul" value="azul">Azul</label>
+                        <label ><input class="checkbox" type="checkbox" id="bolsaNaranja" value="naranja">Naranja</label>
+                        <label ><input class="checkbox" type="checkbox" id="bolsaRoja" value="rojo">Rojo</label>
+                        <label ><input class="checkbox" type="checkbox" id="bolsaRosa" value="rosa">Rosa</label>
+                        <label ><input class="checkbox" type="checkbox" id="bolsaCeleste" value="celeste">Celeste</label>
+                    </div>
+                    <div class="contenedor">
+                        <h4>Colores de tinta disponibles</h4>
+                        <label><input class="checkbox" type="checkbox" id="tintaBeige" value="beige">Beige</label>
+                        <label ><input class="checkbox" type="checkbox" id="tintaNegra" value="negro">Negro</label>
+                        <label ><input class="checkbox" type="checkbox" id="tintaBlanca" value="blanco">Blanco</label>
+                        <label ><input class="checkbox" type="checkbox" id="tintaAzul" value="azul">Azul</label>
+                        <label ><input class="checkbox" type="checkbox" id="tintaNaranja" value="naranja">Naranja</label>
+                        <label ><input class="checkbox" type="checkbox" id="tintaRoja" value="rojo">Rojo</label>
+                        <label ><input class="checkbox" type="checkbox" id="tintaRosa" value="rosa">Rosa</label>
+                        <label ><input class="checkbox" type="checkbox" id="tintaCeleste" value="celeste">Celeste</label>
+                    </div>
+                    <div class="contenedor">
+                        <h4>Tamaños disponibles</h4>
+                        <label><input class="checkbox" type="checkbox" id="tamanio1" value="beige">35x30</label>
+                        <label ><input class="checkbox" type="checkbox" id="tamanio2" value="blanco">45x40</label>
+                    </div>
+                    <div class="contenedor">
+                        <label>Cantidad mínima de compra</label>
+                        <input class="inputText" type="number">
+                    </div>
+                    <button class="boton-guardar">Guardar</button>
+                </div>
+            </section>
+        </article>
+       
+        
+    </main>
+<!--Footer-->
+<%-include('partials/footer.ejs')  %> 
+</body>
+
+</html>
