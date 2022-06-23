@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicity</title>
-    <link rel="Stylesheet" href="css/detalle-producto.css" type="text/css">
-    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="Stylesheet" href="/css/detalle-producto.css" type="text/css">
+    <link rel="stylesheet" href="/css/header-footer.css" >
     <!--Iconos-->
     <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
     <!--Font-->
@@ -20,42 +20,40 @@
 
 <!--Main-->
     <main>
+
         <article class="producto">
             <section class="imagen-principal">
-                    <img src="/img/bolsa_friselina.PNG" alt="Bolsa de friselina con mango">
+                    <img src="/<%=detalle.imagen %>" alt="Bolsa de friselina con mango">
             </section>
             <section class="contenedor-detalle-producto">
                 <div class="info-producto">
-                    <h3 class="nombre">Bolsa friselina con mango</h3>
-                    <a class="precio">$53,70 c/u</a>
+                    <h3 class="nombre"><%= detalle.nombre%></h3>
+                    <a class="precio"><%= detalle.precio %>c/u</a>
                     <a class="oferta">Ahorrá llevando 250 unidades o más</a>
                     <p>
-                        Ideales para que tu marca vaya a todos lados.
+                        <%= detalle.descripcion%>
                     </p>
-                    <p>
-                        Estas bolsas son absolutamente ¡Reutilizables! Así que además de estar cuidando a nuestro planeta, estarán tus bolsas por todos lados a bajo costo.
-                    </p>
+                    
                 </div>
                 <div class="configuracion-producto">
                     </select>
                     <label>Color de bolsa</label>
                     <select>
-                        <option value="beige">Beige</option>
-                        <option value="negro">Negro</option>
-                        <option value="blanco">Blanco</option>
+                        <% for(let i=0;i < detalle.colorBolsa.length; i++){ %>
+                        <option value="<%= detalle.colorBolsa[i] %>"><%= detalle.colorBolsa[i]%></option>
+                        <% } %>
+                        
                     </select>
                     <label>Color de tinta</label>
                     <select>
-                        <option value="beige">Negro</option>
-                        <option value="negro">Rojo</option>
-                        <option value="blanco">Azul</option>
-                        <option value="azul">Naranja</option>
+                        <% for(let i=0;i < detalle.colorTinta.length; i++){ %>
+                            <option value="<%= detalle.colorTinta[i] %>"><%= detalle.colorTinta[i]%></option>
+                            <% } %>
                     </select>
                     <label>Tamaño</label>
+                    
                     <select>
-                        <option value="35x30">35x30</option>
-                        <option value="45x40">45x40</option>
-                        <option value="Blanco"></option>
+                        <option value="<%= detalle.tamaño %>"><%= detalle.tamaño%></option>   
                     </select>
                     <label>Cantidad</label>
                     <p>Cantidad mínima de compra 100 unidades</p>

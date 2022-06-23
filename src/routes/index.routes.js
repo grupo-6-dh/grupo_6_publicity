@@ -11,7 +11,9 @@ routes.get("/info-pago", controller.info)
 
 routes.get("/registro", controller.registro)
 
-routes.get("/detalle-producto", controller.detalleProducto)
+routes.get("/detalleProducto/:id", controller.detalleProducto);
+
+routes.get("/products/:categoria", controller.categoria);
 
 routes.get("/products", controller.listar)
 

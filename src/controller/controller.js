@@ -9,15 +9,34 @@ const controller = {
        return res.render('products',{productos});
     },
 
+    
+    detalleProducto: (req, res) => {
+        let id=req.params.id;
+        let detalle=productos.find((item)=>item.id==id);
+        return res.render('detalle-producto',{detalle});
+    },
+    
+    categoria: (req, res) => {
+        let cat=req.params.categoria;
+        let contienen=[];
+        let bool=false;
+        for(let i=0;i<productos.length;i++){
+            if(productos[i].nombre.includes(cat)){
+                contienen.push(productos[i]);
+                bool=true;
+            }
+        }
+        if(bool==true){
+            return res.render('products',{'productos':contienen});
+        }else{
+            return res.render('products',{productos});
+        }
+    },
+    
     registro: (req, res) => {
         return res.render('registro');
     },
-
-    detalleProducto: (req, res) => {
-        return res.render('detalle-producto');
-    },
-
-
+    
     login: (req, res) => {
         return res.render('login');
     },

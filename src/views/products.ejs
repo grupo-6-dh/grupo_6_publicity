@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicity</title>
     <!--Estilos Grupo 6-->
-    <link rel="Stylesheet" href="css/header-footer.css" type="text/css">
-    <link rel="Stylesheet" href="css/style-products.css" type="text/css">
+    <link rel="Stylesheet" href="/css/header-footer.css" type="text/css">
+    <link rel="Stylesheet" href="/css/style-products.css" type="text/css">
     <!--Iconos-->
     <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
     <!--Font-->
@@ -39,20 +39,22 @@
             <section class="container-products">
                 <div class="products-list">
                     <% for(let i=0;i < productos.length;i++) {%>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="../<%=productos[i].imagen %>" >
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name"><%=productos[i].nombre %> </h2>
-                            <a class="product-price"><%=productos[i].precio %></a>
-                            <a class="product-offer">Oferta 10% off a partir de 200u</a>
-                            <p>
-                                <%=productos[i].descripcion %>
-                            </p>
-                            
-                        </div>
-                    </article>
+                        <article class="product">
+                            <div class="product-img">
+                                <img src="../<%=productos[i].imagen %>" >
+                            </div>
+                            <div class="product-info">
+                                <a href="/detalleProducto/<%=productos[i].id %>" style="text-decoration:none; color:black">
+                                    <h2 class="product-name"><%=productos[i].nombre %> </h2>
+                                </a>
+                                <a class="product-price"><%=productos[i].precio %></a>
+                                <a class="product-offer">Oferta 10% off a partir de 200u</a>
+                                <p>
+                                    <%=productos[i].descripcion %>
+                                </p>
+                                
+                            </div>
+                        </article>
                     <% } %>
                     
                 </div>
