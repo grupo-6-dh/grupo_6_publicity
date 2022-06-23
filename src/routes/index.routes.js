@@ -7,11 +7,13 @@ const controller = require("../controller/controller")
 //---rutas---
 routes.get("/", controller.index)
 
+routes.get("/info-pago", controller.info)
+
 routes.get("/registro", controller.registro)
 
 routes.get("/detalle-producto", controller.detalleProducto)
 
-routes.get("/products", controller.products)
+routes.get("/products", controller.listar)
 
 routes.get("/login", controller.login)
 

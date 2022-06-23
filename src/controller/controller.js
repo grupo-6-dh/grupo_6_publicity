@@ -1,6 +1,14 @@
 const path = require('path');
-
+var productos= require('../data/products.json');
 const controller = {
+    index: (req, res) => {
+        return res.render('index');
+    },
+    
+    listar: (req, res) => {
+       return res.render('products',{productos});
+    },
+
     registro: (req, res) => {
         return res.render('registro');
     },
@@ -9,13 +17,6 @@ const controller = {
         return res.render('detalle-producto');
     },
 
-    index: (req, res) => {
-        return res.render('index');
-    },
-
-    products: (req, res) => {
-       return res.render('products');
-    },
 
     login: (req, res) => {
         return res.render('login');
@@ -32,7 +33,7 @@ const controller = {
         return res.render('modificar-producto');
     },
    abml: (req,res) => {
-        return res.render('abml-productos');
+        return res.render('abml-productos',{productos});
    },
     alta:(req,res) => {
         return res.render('alta-producto');

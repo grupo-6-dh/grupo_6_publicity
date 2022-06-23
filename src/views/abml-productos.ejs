@@ -25,141 +25,37 @@
                     <i class="fa-solid fa-circle-plus"></i>
                 </div>
                 <div class="products-list">
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/bolsa_friselina.PNG" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                        <section class="contenedor-iconos-abml">
-                            <div class="boton-ocultar">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                </label>
+
+                    <% for(let i=0;i < productos.length;i++) {%>
+                        <article class="product">
+                            <div class="product-img">
+                                <img src="../<%=productos[i].imagen %>" >
                             </div>
-                            <div class="boton-eliminar" >
-                                <i class="fa-solid fa-trash-can"></i>
+                            <div class="product-info">
+                                <h2 class="product-name"><%=productos[i].nombre %> </h2>
+                                <a class="product-price"><%=productos[i].precio %></a>
+                                <a class="product-offer">Oferta 10% off a partir de 200u</a>
+                                <p>
+                                    <%=productos[i].descripcion %>
+                                </p>
+                                
                             </div>
-                            <div class="boton-editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </div>
-                        </section>
-                    </article>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/cajas_detalles.jpg" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                        <section class="contenedor-iconos-abml">
-                            <div class="boton-ocultar">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                            <div class="boton-eliminar" >
-                                <i class="fa-solid fa-trash-can"></i>
-                            </div>
-                            <div class="boton-editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </div>
-                        </section>
-                    </article>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/bolsa_plastica.jpg" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                        <section class="contenedor-iconos-abml">
-                            <div class="boton-ocultar">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                            <div class="boton-eliminar" >
-                                <i class="fa-solid fa-trash-can"></i>
-                            </div>
-                            <div class="boton-editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </div>
-                        </section>
-                    </article>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/bolsa_plastica.jpg" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                        <section class="contenedor-iconos-abml">
-                            <div class="boton-ocultar">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                            <div class="boton-eliminar" >
-                                <i class="fa-solid fa-trash-can"></i>
-                            </div>
-                            <div class="boton-editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </div>
-                        </section>
-                    </article>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/bolsa_plastica.jpg" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                        <section class="contenedor-iconos-abml">
-                            <div class="boton-ocultar">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                            <div class="boton-eliminar" >
-                                <i class="fa-solid fa-trash-can"></i>
-                            </div>
-                            <div class="boton-editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </div>
-                        </section>
-                    </article>
+                            <section class="contenedor-iconos-abml">
+                                <div class="boton-ocultar">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="boton-eliminar" >
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </div>
+                                <div class="boton-editar">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </div>
+                            </section>
+                        </article>
+                        <% } %>
                 </div>
             </section>
         </div>
