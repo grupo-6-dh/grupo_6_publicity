@@ -40,21 +40,35 @@
                     <label>Color de bolsa</label>
                     <select>
                         <% for(let i=0;i < detalle.colorBolsa.length; i++){ %>
-                        <option value="<%= detalle.colorBolsa[i] %>"><%= detalle.colorBolsa[i]%></option>
+                            <% if(detalle.colorBolsa[i]!= null) { %>
+                                <option value="<%= detalle.colorBolsa[i] %>"><%= detalle.colorBolsa[i]%></option>
+                                <% } %>
                         <% } %>
                         
                     </select>
                     <label>Color de tinta</label>
                     <select>
                         <% for(let i=0;i < detalle.colorTinta.length; i++){ %>
+                            <% if(detalle.colorTinta[i]!= null) { %>
                             <option value="<%= detalle.colorTinta[i] %>"><%= detalle.colorTinta[i]%></option>
                             <% } %>
+                        <% } %>
                     </select>
                     <label>Tamaño</label>
                     
                     <select>
-                        <option value="<%= detalle.tamaño %>"><%= detalle.tamaño%></option>   
+                        <option value="<%= detalle.tamaño %>"> <%= detalle.tamaño %> </option>   
                     </select>
+
+                    <label>Stock</label>
+                    <select>
+                        <% for(let i=0;i < detalle.stock.length; i++){ %>
+                            <% if(detalle.stock[i]!= 0) { %>
+                            <option value="<%= detalle.stock[i] %>"><%= detalle.stock[i]%></option>
+                            <% } %>  
+                        <% } %> 
+                    </select>
+
                     <label>Cantidad</label>
                     <p>Cantidad mínima de compra 100 unidades</p>
                     <input type="number">

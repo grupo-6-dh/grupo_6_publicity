@@ -49,7 +49,6 @@ const controller = {
     },
 
     crear: (req, res) => {
-        console.log(req.body.nombre);
         const newId=productos[(productos.length - 1)].id + 1;
         let colorBolsa=[];
         colorBolsa.push(req.body.bolsaBeige);
@@ -88,7 +87,7 @@ const controller = {
             descripcion: req.body.descripcion,
             colorBolsa: colorBolsa,
             colorTinta: colorTinta,
-            tamaño: req.body.tamaño,
+            tamaño: req.body.tamanio,
             precio: req.body.precio,
             imagen: `img/${img.filename}`,
             stock: stock,
