@@ -48,10 +48,12 @@
                                     </label>
                                 </div>
                                 <div class="boton-eliminar" >
-                                    <i class="fa-solid fa-trash-can"></i>
+                                    <form method="POST" action="/eliminar/<%=productos[i].id%>?_method=DELETE">
+                                        <button><i class="fa-solid fa-trash-can"></i></button> 
+                                    </form>
                                 </div>
                                 <div class="boton-editar">
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                        <button><i class="fa-solid fa-pen-to-square"></i></button>
                                 </div>
                             </section>
                         </article>

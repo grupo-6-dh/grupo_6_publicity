@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
+const upload = require ('../middlewares/multerMid');
+const controller = require("../controller/controller");
 
 const routes = express.Router();
-const controller = require("../controller/controller")
+
 
 
 //---rutas---
@@ -27,6 +29,8 @@ routes.get("/carrito", controller.carrito)
 routes.get("/modificarProducto", controller.modificarProducto)
 
 routes.get("/abml", controller.abml)
+
+routes.delete("/eliminar/:id", controller.eliminar)
 
 routes.get("/alta",controller.alta)
 
