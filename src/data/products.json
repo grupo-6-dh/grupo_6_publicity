@@ -1,12 +1,175 @@
 [
-    {"id":1,"nombre":"Bolsa Cristal","descripcion":"Estas bolsas plásticas son un éxito a la hora de publicitar tu marca","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco","Beige","Rojo","Gris"],"tamaño":"45x30","precio":"$50.05","imagen": "img/bolsa_cristal.PNG","stock":[1000,2500,3000,2500,1000,500,800],"cantMinima":100},
-    {"id":2,"nombre":"Bolsa Friselina","descripcion":"Ideales para que tu marca vaya a todos lados.","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco","Gris","Azul","Verde"],"tamaño":"40x30","precio":"$60.85","imagen": "img/friselina-sMango.jpeg","stock":[2000,4000,0,2200,1200,1000,1500], "cantMinima":100},
-    {"id":3,"nombre":"Bolsa plastica","descripcion":"Estas bolsas plásticas boutique son un éxito a la hora de publicitar tu marca, asi como también tus redes sociales 🤳🙌. Te invitamos a visitar la página de instagram de @tochycreaciones para que conozcas el excelente trabajo que hacen confeccionando.","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"tamaño ":"35x30","precio": "$48.85","imagen":"img/bolsa-plastica.jpg","stock":[1800,2500,0,1500,900,1000,800],"cantMinima":100},
-    {"id":4,"nombre":"Bolsa Aromatizada","descripcion":"Disfruta de nuestras nuevas bolsas con diversos aromas","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco", "Gris","Azul"],"tamaño":"35x30","precio":"$60.85","imagen": "img/bolsa_cristal.PNG","stock":[1000,2500,3000,2500, 1000,500,800],"cantMinima":100},
-    {"id":5,"nombre":"Bolsa Friselina C/Mango","descripcion":"Bolsa kraft con mango. Te invitamos a que visites la página de instagram @mara_velasyaromas para apreciar las hermosas cosas que venden👏","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco","Gris","Azul","Verde"],"tamaño":"40x30","precio":"$60.85","imagen": "img/bolsa_friselina.PNG","stock":[900,1500,0,3000,500,500,800], "cantMinima":100},
-    {"id":6,"nombre":"Bolsa de Papel C/Mango","descripcion":"¿Sabias que las bolsas de delivery además de usarlas para gastronomía se puede utilizar para la entrega de cualquier tipo de producto? 🤩","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"tamaño":"35x30","precio":"$48.85","imagen": "img/bolsa-papelMango.PNG","stock":[800,1500,2500,3000,500,600,0],"cantMinima":100},
-    {"id":7,"nombre":"Bolsa Cristal p/Vinos","descripcion":"Bolsas vineras de cristal para Orange.","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco","Beige","Rojo","Gris"],"tamaño":"45x30","precio":"$50.05","imagen": "img/bolsa-cristal-vinos.PNG","stock":[1000,2500,3000,2500,1000,500,800],"cantMinima":100},
-    {"id":8,"nombre":"Bolsa plastica C/Mango","descripcion":"Las bolsas de polietileno son geniales para quienes estan comenzado porque están a un precio súper accesible! Además de llevar tu logo también podes elegirlas según la medida que más se adecue a tus productos👌","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"tamaño":"35x30","precio":"$48.85","imagen": "img/bolsa_cristal.PNG","stock":[1800,2500,0,1500,900,1000,800],"cantMinima":100},
-    {"id":9,"nombre":"Bolsa Aromatizada C/Mango","descripcion":"Disfruta de nuestras nuevas bolsas con diversos aromas","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco", "Gris","Azul"],"tamaño":"35x30","precio":"$60.85","imagen": "img/creaciones.PNG","stock":[1000,2500,3000,2500, 1000,500,800],"cantMinima":100},
-    {"id":10,"nombre":"Bolsa de Papel","descripcion":"¿Sabias que las bolsas de delivery además de usarlas para gastronomía se puede utilizar para la entrega de cualquier tipo de producto? 🤩","colorBolsa":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"colorTinta":["Negro","blanco", "Beige","Rojo","Gris","Azul","Verde"],"tamaño":"35x30","precio":"$48.85","imagen": "img/bolsa-papel.PNG","stock":[800,1500,2500,3000,500,600,0],"cantMinima":100}
-    ]
+    {
+        "id": 2,
+        "nombre": "Bolsa Friselina",
+        "descripcion": "Ideales para que tu marca vaya a todos lados.",
+        "colorBolsa": [
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
+        ],
+        "colorTinta": [
+            "Negro",
+            "blanco",
+            "Gris",
+            "Azul",
+            "Verde"
+        ],
+        "tamaño": "40x30",
+        "precio": "$60.85",
+        "imagen": "img/friselina-sMango.jpeg",
+        "stock": [
+            2000,
+            4000,
+            0,
+            2200,
+            1200,
+            1000,
+            1500
+        ],
+        "cantMinima": 100
+    },
+    {
+        "id": 3,
+        "nombre": "Bolsa plastica",
+        "descripcion": "Estas bolsas plásticas boutique son un éxito a la hora de publicitar tu marca, asi como también tus redes sociales 🤳🙌. Te invitamos a visitar la página de instagram de @tochycreaciones para que conozcas el excelente trabajo que hacen confeccionando.",
+        "colorBolsa": [
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
+        ],
+        "colorTinta": [
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
+        ],
+        "tamaño ": "35x30",
+        "precio": "$48.85",
+        "imagen": "img/bolsa-plastica.jpg",
+        "stock": [
+            1800,
+            2500,
+            0,
+            1500,
+            900,
+            1000,
+            800
+        ],
+        "cantMinima": 100
+    },
+    {
+        "id": 4,
+        "nombre": "Bolsa Aromatizada",
+        "descripcion": "Disfruta de nuestras nuevas bolsas con diversos aromas",
+        "colorBolsa": [
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
+        ],
+        "colorTinta": [
+            "Negro",
+            "blanco",
+            "Gris",
+            "Azul"
+        ],
+        "tamaño": "35x30",
+        "precio": "$60.85",
+        "imagen": "img/bolsa_cristal.PNG",
+        "stock": [
+            1000,
+            2500,
+            3000,
+            2500,
+            1000,
+            500,
+            800
+        ],
+        "cantMinima": 100
+    },
+    {
+        "id": 7,
+        "nombre": "Bolsa Cristal p/Vinos",
+        "descripcion": "Bolsas vineras de cristal para Orange.",
+        "colorBolsa": [
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
+        ],
+        "colorTinta": [
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris"
+        ],
+        "tamaño": "45x30",
+        "precio": "$50.05",
+        "imagen": "img/bolsa-cristal-vinos.PNG",
+        "stock": [
+            1000,
+            2500,
+            3000,
+            2500,
+            1000,
+            500,
+            800
+        ],
+        "cantMinima": 100
+    },
+    {
+        "id": 8,
+        "nombre": "Bolsa plastica C/Mango",
+        "descripcion": "Las bolsas de polietileno son geniales para quienes estan comenzado porque están a un precio súper accesible! Además de llevar tu logo también podes elegirlas según la medida que más se adecue a tus productos👌",
+        "colorBolsa": [
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
+        ],
+        "colorTinta": [
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
+        ],
+        "tamaño": "35x30",
+        "precio": "$48.85",
+        "imagen": "img/bolsa_cristal.PNG",
+        "stock": [
+            1800,
+            2500,
+            0,
+            1500,
+            900,
+            1000,
+            800
+        ],
+        "cantMinima": 100
+    }
+]

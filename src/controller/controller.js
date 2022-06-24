@@ -1,5 +1,8 @@
+const { fstat } = require('fs');
 const path = require('path');
-var productos= require('../data/products.json');
+let productos= require('../data/products.json');
+const fs = require("fs");
+
 const controller = {
     index: (req, res) => {
         return res.render('index');
@@ -9,7 +12,6 @@ const controller = {
        return res.render('products',{productos});
     },
 
-    
     detalleProducto: (req, res) => {
         let id=req.params.id;
         let detalle=productos.find((item)=>item.id==id);
@@ -32,6 +34,13 @@ const controller = {
             return res.render('products',{productos});
         }
     },
+    eliminar:(req,res) => {
+        let id=req.params.id;
+        let nuevaListaProductos=productos.filter((producto)=>producto.id != id);
+        fs.writeFileSync(path.join(__dirname, "../data/products.json"), JSON.stringify(nuevaListaProductos, null, 4),
+        {encoding: "utf-8",});
+        res.render('abml-productos', {'productos':nuevaListaProductos});
+    },
     
     registro: (req, res) => {
         return res.render('registro');
@@ -51,9 +60,9 @@ const controller = {
     modificarProducto: (req,res) => {
         return res.render('modificar-producto');
     },
-   abml: (req,res) => {
+    abml: (req,res) => {
         return res.render('abml-productos',{productos});
-   },
+    },
     alta:(req,res) => {
         return res.render('alta-producto');
     },
