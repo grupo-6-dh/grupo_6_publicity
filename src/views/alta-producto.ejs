@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicity</title>
-    <link rel="Stylesheet" href="css/alta-producto.css" type="text/css">
-    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="Stylesheet" href="/css/alta-producto.css" type="text/css">
+    <link rel="stylesheet" href="/css/header-footer.css">
     <!--Iconos-->
     <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
     <!--Font-->
@@ -19,88 +19,91 @@
     <%-include('partials/header.ejs')%> 
 <!--Main-->
     <main>
+        <form action="/nuevo" method="POST" enctype="multipart/form-data">
+
         <article class="producto">
             <h1>Dar de alta un nuevo producto</h1>
-            <div class="titulo">
-                <input class="inputText" type="text" placeholder="Título del producto">
-            </div>
-            <section class="imagen-principal">
-                    <div class="archivo">
-                        <p class="texto">Subir imagen</p>
-                        <input class="btn-enviar" type="file" id="btnEnviar">
-                      </div>
-            </section>
-            <section class="contenedor-detalle-producto">
-                <div class="configuracion-producto">
-                    <div class="contenedor">
-                        <input class="inputText" type="number" placeholder="Precio por unidad">
-                    </div>
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Descripción del producto</h4>
-                        <input class="descripcion" type="text" maxlength="700">
-                    </div>
-                    <div class="contenedor">
-                        <div class="titulos">
-                            <h4 class="tituloColor">Colores de bolsa disponibles</h4>
-                            <h4 class="tituloStock">Stock</h4>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaBeige" value="beige">Beige</label>
-                            <label class="columna"><input class="stock" type="number" value="0"></label>
-                           
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaNegra" value="negro">Negro</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock"> 
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaBlanca" value="blanco">Blanco</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaAzul" value="azul">Azul</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaRoja" value="rojo">Rojo</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaNaranja" value="naranja">Naranja</label>
-                            <label class="columna "><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaRosa" value="rosa">Rosa</label>
-                            <label class="columna "><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaCeleste" value="celeste">Celeste</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                    </div>
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Colores de tinta disponibles</h4>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaBeige" value="beige">Beige</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaNegra" value="negro">Negro</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaBlanca" value="blanco">Blanco</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaAzul" value="azul">Azul</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaNaranja" value="naranja">Naranja</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaRoja" value="rojo">Rojo</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaRosa" value="rosa">Rosa</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaCeleste" value="celeste">Celeste</label>
-                    </div>
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Tamaño</h4>
-                        <input class="inputText" type="text">
-                    </div>
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Cantidad mínima de compra</h4>
-                        <input class="inputText" type="number">
-                    </div>
-                    <button class="boton-guardar">Guardar</button>
+                <div class="titulo">
+                    <input class="inputText" type="text" name="nombre" placeholder="Título del producto">
                 </div>
-            </section>
-        </article>
+                <section class="imagen-principal">
+                        <div class="archivo">
+                            <p class="texto">Subir imagen</p>
+                            <input class="btn-enviar" type="file" name="img" id="btnEnviar">
+                        </div>
+                </section>
+                <section class="contenedor-detalle-producto">
+                    <div class="configuracion-producto">
+                        <div class="contenedor">
+                            <input class="inputText" type="number" name="precio" placeholder="Precio por unidad">
+                        </div>
+                        <div class="contenedor">
+                            <h4 class="subtitulo">Descripción del producto</h4>
+                            <input class="descripcion" type="text" name="descripcion" maxlength="700">
+                        </div>
+                        <div class="contenedor">
+                            <div class="titulos">
+                                <h4 class="tituloColor">Colores de bolsa disponibles</h4>
+                                <h4 class="tituloStock">Stock</h4>
+                            </div>
+                            <div class="color-stock">
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaBeige" id="bolsaBeige" value="beige">Beige</label>
+                                <label class="columna"><input class="stock" type="number" name="stockBeige" value="0"></label>
+                            
+                            </div>
+                            <div class="color-stock">
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaNegra" id="bolsaNegra" value="negro">Negro</label>
+                                <label class="columna"><input class="stock" type="number" name="stockNegra"  value="0"></label>
+                            </div>
+                            <div class="color-stock"> 
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaBlanca" id="bolsaBlanca" value="blanco">Blanco</label>
+                                <label class="columna"><input class="stock" type="number" name="stockBlanca"  value="0"></label>
+                            </div>
+                            <div class="color-stock">
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaAzul" id="bolsaAzul" value="azul">Azul</label>
+                                <label class="columna"><input class="stock" type="number" name="stockAzul" value="0"></label>
+                            </div>
+                            <div class="color-stock">
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaRoja" id="bolsaRoja" value="rojo">Rojo</label>
+                                <label class="columna"><input class="stock" type="number" name="stockRoja" value="0"></label>
+                            </div>
+                            <div class="color-stock">
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaNaranja" id="bolsaNaranja" value="naranja">Naranja</label>
+                                <label class="columna "><input class="stock" type="number" name="stockNaranja" value="0"></label>
+                            </div>
+                            <div class="color-stock">
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaRosa" id="bolsaRosa" value="rosa">Rosa</label>
+                                <label class="columna "><input class="stock" type="number" name="stockRosa"  value="0"></label>
+                            </div>
+                            <div class="color-stock">
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaCeleste" id="bolsaCeleste" value="celeste">Celeste</label>
+                                <label class="columna"><input class="stock" type="number" name="stockCeleste" value="0"></label>
+                            </div>
+                        </div>
+                        <div class="contenedor">
+                            <h4 class="subtitulo">Colores de tinta disponibles</h4>
+                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaBeige" name="tintaBeige" value="beige">Beige</label>
+                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaNegra" name="tintaNegra" value="negro">Negro</label>
+                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaBlanca" name="tintaBlanca" value="blanco">Blanco</label>
+                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaAzul" name="tintaAzul" value="azul">Azul</label>
+                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaNaranja" name="tintaNaranja" value="naranja">Naranja</label>
+                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaRoja" name="tintaRoja" value="rojo">Rojo</label>
+                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaRosa" name="tintaRosa" value="rosa">Rosa</label>
+                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaCeleste" name="tintaCeleste" value="celeste">Celeste</label>
+                        </div>
+                        <div class="contenedor">
+                            <h4 class="subtitulo">Tamaño</h4>
+                            <input class="inputText"  type="text" name="tamaño">
+                        </div>
+                        <div class="contenedor">
+                            <h4 class="subtitulo">Cantidad mínima de compra</h4>
+                            <input class="inputText" type="number" name="cantMinima">
+                        </div>
+                        <button type="submit" class="boton-guardar">Guardar</button>
+                    </div>
+                </section>
+            </article>
+        </form>
        
         
     </main>

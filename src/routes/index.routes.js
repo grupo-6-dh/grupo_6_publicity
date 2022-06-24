@@ -4,6 +4,7 @@ const path = require('path');
 const routes = express.Router();
 const controller = require("../controller/controller")
 
+
 //---rutas---
 routes.get("/", controller.index)
 
@@ -29,7 +30,11 @@ routes.get("/abml", controller.abml)
 
 routes.get("/alta",controller.alta)
 
+routes.post("/nuevo", upload.single("img"), controller.crear)
+
 routes.get("/info",controller.info)
+
+
 
 
 
