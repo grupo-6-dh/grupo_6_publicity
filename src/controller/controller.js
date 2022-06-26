@@ -122,7 +122,12 @@ const controller = {
         return res.render('carrito');
     },
     modificarProducto: (req,res) => {
-        return res.render('modificar-producto');
+        let x = req.params.id;
+        let id = req.params.id
+        let index = productos.findIndex(x => x.id == id);
+        let prod = productos[index];
+
+        return res.render('modificar-producto',{prod});
     },
     abml: (req,res) => {
         return res.render('abml-productos',{productos});

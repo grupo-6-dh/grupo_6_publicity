@@ -38,7 +38,7 @@ routes.post("/nuevo", upload.single("img"), controller.crear)
 
 routes.get("/info",controller.info)
 
-
+routes.get("/products/:id/edit", controller.modificarProducto)
 
 
 
