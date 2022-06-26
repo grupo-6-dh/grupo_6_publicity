@@ -148,7 +148,7 @@ body {
     .container-products {
         display: flex;
         justify-content: center;
-        width: 85%;
+        width: 100%;
         
     }
     .product{
@@ -162,6 +162,7 @@ body {
     }
 
     .product-info{
+        font-size: 20px;
         padding: 1%;
         align-self: top;
     }

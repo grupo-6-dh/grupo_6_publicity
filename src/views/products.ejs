@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicity</title>
     <!--Estilos Grupo 6-->
-    <link rel="Stylesheet" href="css/header-footer.css" type="text/css">
-    <link rel="Stylesheet" href="css/style-products.css" type="text/css">
+    <link rel="Stylesheet" href="/css/header-footer.css" type="text/css">
+    <link rel="Stylesheet" href="/css/style-products.css" type="text/css">
     <!--Iconos-->
     <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
     <!--Font-->
@@ -19,8 +19,8 @@
     <!--Main-->
     <main>
         <div class="main-container">
-            <!--Filtros-->
-            <section class="container-filters">
+            <!--Filtros(Se implementa mas adelante)-->
+            <!-- <section class="container-filters">
                 <h3>Categorías</h3>
                 <h4>Plásticas <span class="category-quantity">(15)</span></h4>
                 <h4>Friselina <span class="category-quantity">(10)</span></h4>
@@ -34,76 +34,29 @@
                 <h3>Descuentos</h3>
                 <h4>Desde 5% OFF <span class="category-quantity">(100)</span></h4>
                 <h4>Desde 10% OFF <span class="category-quantity">(22)</span></h4>
-            </section>
+            </section> -->
             <!--Productos-->
             <section class="container-products">
                 <div class="products-list">
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/bolsa_friselina.PNG" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                    </article>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/cajas_detalles.jpg" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                    </article>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/bolsa_plastica.jpg" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                    </article>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/bolsa_plastica.jpg" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                    </article>
-                    <article class="product">
-                        <div class="product-img">
-                            <img src="/img/bolsa_plastica.jpg" alt="Bolsa de friselina con mango">
-                        </div>
-                        <div class="product-info">
-                            <h2 class="product-name">Bolsa friselina con mango</h2>
-                            <a class="product-price">$1250.50</a>
-                            <a class="product-offer">10% off a partir de 200 unidades</a>
-                            <p>
-                                Ideales para que tu marca vaya a todos lados.
-                            </p>
-                        </div>
-                    </article>
+                    <% for(let i=0;i < productos.length;i++) {%>
+                        <article class="product">
+                            <div class="product-img">
+                                <img src="../<%=productos[i].imagen %>" >
+                            </div>
+                            <div class="product-info">
+                                <a href="/detalleProducto/<%=productos[i].id %>" style="text-decoration:none; color:black">
+                                    <h2 class="product-name"><%=productos[i].nombre %> </h2>
+                                </a>
+                                <a class="product-price"><%=productos[i].precio %></a>
+                                <a class="product-offer">Oferta 10% off a partir de 200u</a>
+                                <p>
+                                    <%=productos[i].descripcion %>
+                                </p>
+                                
+                            </div>
+                        </article>
+                    <% } %>
+                    
                 </div>
             </section>
         </div>
