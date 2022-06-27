@@ -40,6 +40,8 @@ routes.get("/info",controller.info)
 
 routes.get("/products/:id/edit", controller.modificarProducto)
 
+routes.put("/products/:id/edit", controller.edit)
+
 
 
 module.exports = routes;

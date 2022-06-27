@@ -69,39 +69,37 @@
     },
     {
         "id": 3,
-        "nombre": "Bolsa plastica",
-        "descripcion": "Estas bolsas plásticas boutique son un éxito a la hora de publicitar tu marca, asi como también tus redes sociales 🤳🙌. Te invitamos a visitar la página de instagram de @tochycreaciones para que conozcas el excelente trabajo que hacen confeccionando.",
         "colorBolsa": [
-            "Negro",
-            "blanco",
-            "Beige",
-            "Rojo",
-            "Gris",
-            "Azul",
-            "Verde"
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "colorTinta": [
-            "Negro",
-            "blanco",
-            "Beige",
-            "Rojo",
-            "Gris",
-            "Azul",
-            "Verde"
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "tamaño": "35x30",
-        "precio": "$48.85",
         "imagen": "img/bolsa-plastica.jpg",
         "stock": [
-            1800,
-            2500,
-            0,
-            1500,
-            900,
-            1000,
-            800
-        ],
-        "cantMinima": 100
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "id": 4,
