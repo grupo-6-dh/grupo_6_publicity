@@ -69,6 +69,8 @@
     },
     {
         "id": 3,
+        "nombre": "Bolsa Friselina",
+        "descripcion": "Ideales para que tu marca vaya a todos lados.",
         "colorBolsa": [
             null,
             null,
@@ -89,6 +91,8 @@
             null,
             null
         ],
+        "tamaño": "40x30",
+        "precio": "$60.85",
         "imagen": "img/bolsa-plastica.jpg",
         "stock": [
             null,
@@ -99,7 +103,8 @@
             null,
             null,
             null
-        ]
+        ],
+        "cantMinima": 100
     },
     {
         "id": 4,
@@ -457,5 +462,44 @@
             "0"
         ],
         "cantMinima": "150"
+    },
+    {
+        "id": 15,
+        "colorBolsa": [
+            null,
+            null,
+            "blanco",
+            null,
+            null,
+            "naranja",
+            null,
+            null
+        ],
+        "colorTinta": [
+            null,
+            null,
+            "blanco",
+            "azul",
+            null,
+            null,
+            "rosa",
+            "celeste"
+        ],
+        "imagen": "img/1656349668528-img.jpg",
+        "stock": [
+            "",
+            "",
+            "50",
+            "",
+            "",
+            "150",
+            "",
+            ""
+        ],
+        "nombre": "Naranjuta",
+        "descripcion": "adasdas",
+        "precio": "5115",
+        "cantMinima": "150",
+        "tamaño": "30x50"
     }
 ]

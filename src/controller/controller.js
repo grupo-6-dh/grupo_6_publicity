@@ -139,6 +139,9 @@ const controller = {
         let id = req.params.id;
         let index = productos.findIndex(x => x.id == id);
         let prod = productos[index];
+        console.log("AAA");
+        console.log(prod);
+        console.log(req.body.nombre);
         let stock=[];
         stock.push(req.body.stockBeige);
         stock.push(req.body.stockNegra);
@@ -170,18 +173,22 @@ const controller = {
         colorTinta.push(req.body.tintaCeleste);
         
         let img =req.file;
+
         prod.nombre = req.body.nombre;
         prod.descripcion = req.body.descripcion;
         prod.colorBolsa = colorBolsa;
         prod.colorTinta = colorTinta;
-        prod.tamaño = req.body.tamaño;
+        prod.tamaño = req.body.tamanio;
         prod.precio = req.body.precio;
         if(img){
             prod.imagen = `img/${img.filename}`;
         }
         prod.stock = stock;
         prod.cantMinima = req.body.cantMinima;
+        console.log("BBB");
+        console.log(prod);
         productos[index] = prod;
+
         fs.writeFileSync(
             path.join(__dirname,"../data/products.json"),
             JSON.stringify(productos,null,4),
