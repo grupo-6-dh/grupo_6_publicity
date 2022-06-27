@@ -122,7 +122,11 @@ const controller = {
         return res.render('carrito');
     },
     modificarProducto: (req,res) => {
-        return res.render('modificar-producto');
+        let id = req.params.id
+        let index = productos.findIndex(x => x.id == id);
+        let prod = productos[index];
+
+        return res.render('modificar-producto',{prod});
     },
     abml: (req,res) => {
         return res.render('abml-productos',{productos});
@@ -130,7 +134,73 @@ const controller = {
     
     info:(req,res) => {
         return res.render('info-pago');
+    },
+    edit:(req,res) => {
+        let id = req.params.id;
+        let index = productos.findIndex(x => x.id == id);
+        let prod = productos[index];
+        console.log("AAA");
+        console.log(prod);
+        console.log(req.body.nombre);
+        let stock=[];
+        stock.push(req.body.stockBeige);
+        stock.push(req.body.stockNegra);
+        stock.push(req.body.stockBlanca);
+        stock.push(req.body.stockAzul);
+        stock.push(req.body.stockRoja);
+        stock.push(req.body.stockNaranja);
+        stock.push(req.body.stockRosa);
+        stock.push(req.body.stockCeleste);
+
+        let colorBolsa=[];
+        colorBolsa.push(req.body.bolsaBeige);
+        colorBolsa.push(req.body.bolsaNegra);
+        colorBolsa.push(req.body.bolsaBlanca);
+        colorBolsa.push(req.body.bolsaAzul);
+        colorBolsa.push(req.body.bolsaRoja);
+        colorBolsa.push(req.body.bolsaNaranja);
+        colorBolsa.push(req.body.bolsaRosa);
+        colorBolsa.push(req.body.bolsaCeleste);
+        
+        let colorTinta=[];
+        colorTinta.push(req.body.tintaBeige);
+        colorTinta.push(req.body.tintaNegra);
+        colorTinta.push(req.body.tintaBlanca);
+        colorTinta.push(req.body.tintaAzul);
+        colorTinta.push(req.body.tintaRoja);
+        colorTinta.push(req.body.tintaNaranja);
+        colorTinta.push(req.body.tintaRosa);
+        colorTinta.push(req.body.tintaCeleste);
+        
+        let img =req.file;
+
+        prod.nombre = req.body.nombre;
+        prod.descripcion = req.body.descripcion;
+        prod.colorBolsa = colorBolsa;
+        prod.colorTinta = colorTinta;
+        prod.tamaño = req.body.tamanio;
+        prod.precio = req.body.precio;
+        if(img){
+            prod.imagen = `img/${img.filename}`;
+        }
+        prod.stock = stock;
+        prod.cantMinima = req.body.cantMinima;
+        console.log("BBB");
+        console.log(prod);
+        productos[index] = prod;
+
+        fs.writeFileSync(
+            path.join(__dirname,"../data/products.json"),
+            JSON.stringify(productos,null,4),
+            {
+                encoding: 'utf-8',
+            }
+        );
+        return res.render('abml-productos',{productos});
     }
+
+    
+    
 }
 
 module.exports = controller;

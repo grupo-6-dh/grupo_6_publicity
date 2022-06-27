@@ -6,108 +6,125 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicity</title>
-    <link rel="Stylesheet" href="css/modificar-producto.css" type="text/css">
-    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="Stylesheet" href="/css/modificar-producto.css" type="text/css">
+    <link rel="stylesheet" href="/css/header-footer.css">
     <!--Iconos-->
     <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
     <!--Font-->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    
+
 </head>
 
 <body>
-    <%-include('partials/header.ejs')  %> 
+    <%-include('partials/header.ejs') %>
 
-<!--Main-->
-    <main>
-        <article class="producto">
-            <h1 class="subtitulo">Modificar producto</h1>
-            <div class="titulo">
-                <input class="inputText" type="text" placeholder="Bolsa friselina con mango">
-            </div>
-            <section class="imagen-principal">
-                    <div class="archivo">
-                        <p class="texto">Cambiar Imagen</p>
-                        <input class="btn-enviar" type="file" id="btnEnviar">
-                      </div>
-            </section>
-            <section class="contenedor-detalle-producto">
-                <div class="configuracion-producto">
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Precio por Unidad</h4>
-                        <input class="inputText" type="number" placeholder="$58,50">
+        <!--Main-->
+        <main>
+            <form enctype="multipart/form-data" action="/products/<%=prod.id%>/edit?_method=PUT" method="POST">
+                <article class="producto">
+                    <h1 class="subtitulo">Modificar producto</h1>
+                    <div class="titulo">
+                        <input name="nombre" class="inputText" type="text" value="<%=prod.nombre%>">
                     </div>
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Descripción del producto</h4>
-                        <input class="descripcion" type="text" maxlength="700">
-                    </div>
-                    <div class="contenedor">
-                        <div class="titulos">
-                            <h4 class="tituloColor">Colores de bolsa disponibles</h4>
-                            <h4 class="tituloStock">Stock</h4>
+                    <section class="imagen-principal" style="background-image:url('/../<%=prod.imagen%>')">
+                        <div class="archivo">
+                            <p class="texto">Cambiar Imagen</p>
+                            <input name="img" class="btn-enviar" type="file" id="btnEnviar">
                         </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaBeige" value="beige">Beige</label>
-                            <label class="columna"><input class="stock" type="number" value="0"></label>
-                           
+                    </section>
+                    <section class="contenedor-detalle-producto">
+                        <div class="configuracion-producto">
+                            <div class="contenedor">
+                                <h4 class="subtitulo">Precio por Unidad</h4>
+                                <input name="precio" class="inputText" type="number" value="<%=prod.precio%>">
+                            </div>
+                            <div class="contenedor">
+                                <h4 class="subtitulo">Descripción del producto</h4>
+                                <textarea name="descripcion" class="descripcion" maxlength="700"><%=prod.descripcion%></textarea>
+                            </div>
+                            <div class="contenedor">
+                                <div class="titulos">
+                                    <h4 class="tituloColor">Colores de bolsa disponibles</h4>
+                                    <h4 class="tituloStock">Stock</h4>
+                                </div>
+                                <div class="color-stock">
+                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
+                                             nam ="bolsaBeige" value="beige" id="bolsaBeige"<% if(prod.colorBolsa.includes("beige")){ %>checked<%}%>>Beige</label>
+                                    <label class="columna"><input name="stockBeige" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "beige")] %>"></label>
+
+                                </div>
+                                <div class="color-stock">
+                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
+                                        name="bolsaNegra" value="negro" id="bolsaNegra"<% if(prod.colorBolsa.includes("negro")){ %>checked<%}%>>Negro</label>
+                                    <label class="columna"><input name="stockNegra" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "negro")] %>"></label>
+                                </div>
+                                <div class="color-stock">
+                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
+                                        name="bolsaBlanca" value="blanco" id="bolsaBlanca" <% if(prod.colorBolsa.includes("blanco")){ %>checked<%}%>>Blanco</label>
+                                    <label class="columna"><input name="stockBlanca" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "blanco")] %>"></label>
+                                </div>
+                                <div class="color-stock">
+                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
+                                        name="bolsaAzul" value="azul" id="bolsaAzul" <% if(prod.colorBolsa.includes("azul")){ %>checked<%}%>>Azul</label>
+                                    <label class="columna"><input name="stockAzul" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "azul")] %>"></label>
+                                </div>
+                                <div class="color-stock">
+                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
+                                        name="bolsaRoja" value="rojo" id="bolsaRoja"<% if(prod.colorBolsa.includes("rojo")){ %>checked<%}%>>Rojo</label>
+                                    <label class="columna"><input name="stockRoja" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "rojo")] %>"></label>
+                                </div>
+                                <div class="color-stock">
+                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
+                                        name="bolsaNaranja" value="naranja" id="bolsaNaranja" <% if(prod.colorBolsa.includes("naranja")){ %>checked<%}%>>Naranja</label>
+                                    <label class="columna "><input name="stockNaranja" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "naranja")] %>"></label>
+                                </div>
+                                <div class="color-stock">
+                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
+                                        name="bolsaRosa" value="rosa" id="bolsaRosa" <% if(prod.colorBolsa.includes("rosa")){ %>checked<%}%>>Rosa</label>
+                                    <label class="columna "><input name="stockRosa" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "rosa")] %>"></label>
+                                </div>
+                                <div class="color-stock">
+                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
+                                        name="bolsaCeleste" value="celeste" id="bolsaCeleste" <% if(prod.colorBolsa.includes("Celeste")){ %>checked<%}%>>Celeste</label>
+                                    <label class="columna"><input name="stockCeleste" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "Celeste")] %>"></label>
+                                </div>
+                            </div>
+                            <div class="contenedor">
+                                <h4 class="subtitulo">Colores de tinta disponibles</h4>
+                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaBeige" id="tintaBeige"
+                                    value="beige" <% if(prod.colorTinta.includes("beige")){ %>checked<%}%>>Beige</label>
+                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaNegra" id="tintaNegra"
+                                    value="negro" <% if(prod.colorTinta.includes("negro")){ %>checked<%}%>>Negro</label>
+                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaBlanca" id="tintaBlanca"
+                                    value="blanco" <% if(prod.colorTinta.includes("blanco")){ %>checked<%}%>>Blanco</label>
+                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaAzul" id="tintaAzul"
+                                    value="azul"    value="azul" <% if(prod.colorTinta.includes("azul")){ %>checked<%}%>>Azul</label>
+                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaNaranja" id="tintaNaranja"
+                                    value="naranja" <% if(prod.colorTinta.includes("naranja")){ %>checked<%}%>>Naranja</label>
+                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaRoja" id="tintaRoja"
+                                    value="rojo" <% if(prod.colorTinta.includes("rojo")){ %>checked<%}%>>Rojo</label>
+                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaRosa" id="tintaRosa"
+                                    value="rosa" <% if(prod.colorTinta.includes("rosa")){ %>checked<%}%>>Rosa</label>
+                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaCeleste" id="tintaCeleste"
+                                    value="celeste" <% if(prod.colorTinta.includes("celeste")){ %>checked<%}%>>Celeste</label>
+                            </div>
+                            <div class="contenedor">
+                                <h4 class="subtitulo">Tamaño</h4>
+                                <input name="tamanio" class="inputText" type="text" value="<%=prod.tamaño%>">
+                            </div>
+                            <div class="contenedor">
+                                <h4 class="subtitulo">Cantidad mínima de compra</h4>
+                                <input name="cantMinima" class="inputText" type="number" value="<%=prod.cantMinima%>">
+                            </div>
+                            <button type="submit" class="boton-guardar">Guardar</button>
                         </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaNegra" value="negro">Negro</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock"> 
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaBlanca" value="blanco">Blanco</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaAzul" value="azul">Azul</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaRoja" value="rojo">Rojo</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaNaranja" value="naranja">Naranja</label>
-                            <label class="columna "><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaRosa" value="rosa">Rosa</label>
-                            <label class="columna "><input class="stock" type="number"  value="0"></label>
-                        </div>
-                        <div class="color-stock">
-                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" id="bolsaCeleste" value="celeste">Celeste</label>
-                            <label class="columna"><input class="stock" type="number"  value="0"></label>
-                        </div>
-                    </div>
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Colores de tinta disponibles</h4>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaBeige" value="beige">Beige</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaNegra" value="negro">Negro</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaBlanca" value="blanco">Blanco</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaAzul" value="azul">Azul</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaNaranja" value="naranja">Naranja</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaRoja" value="rojo">Rojo</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaRosa" value="rosa">Rosa</label>
-                        <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaCeleste" value="celeste">Celeste</label>
-                    </div>
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Tamaño</h4>
-                        <input class="inputText" type="text" placeholder="35X40">
-                    </div>
-                    <div class="contenedor">
-                        <h4 class="subtitulo">Cantidad mínima de compra</h4>
-                        <input class="inputText" type="number" value="100">
-                    </div>
-                    <button class="boton-guardar">Guardar</button>
-                </div>
-            </section>
-        </article>
-       
-        
-    </main>
-<!--Footer-->
-<%-include('partials/footer.ejs')  %> 
+                    </section>
+                </article>  
+            </form>
+
+        </main>
+        <!--Footer-->
+        <%-include('partials/footer.ejs') %>
 </body>
 
 </html>
