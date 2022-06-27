@@ -69,40 +69,37 @@
     },
     {
         "id": 3,
-        "nombre": "Bolsa Friselina",
-        "descripcion": "Ideales para que tu marca vaya a todos lados.",
+        "nombre": "Bolsa plastica",
+        "descripcion": "Estas bolsas plásticas boutique son un éxito a la hora de publicitar tu marca, asi como también tus redes sociales 🤳🙌. Te invitamos a visitar la página de instagram de @tochycreaciones para que conozcas el excelente trabajo que hacen confeccionando.",
         "colorBolsa": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
         ],
         "colorTinta": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            "Negro",
+            "blanco",
+            "Beige",
+            "Rojo",
+            "Gris",
+            "Azul",
+            "Verde"
         ],
-        "tamaño": "40x30",
-        "precio": "$60.85",
+        "tamaño": "35x30",
+        "precio": "$48.85",
         "imagen": "img/bolsa-plastica.jpg",
         "stock": [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+            1800,
+            2500,
+            0,
+            1500,
+            900,
+            1000,
+            800
         ],
         "cantMinima": 100
     },
@@ -462,44 +459,5 @@
             "0"
         ],
         "cantMinima": "150"
-    },
-    {
-        "id": 15,
-        "colorBolsa": [
-            null,
-            null,
-            "blanco",
-            null,
-            null,
-            "naranja",
-            null,
-            null
-        ],
-        "colorTinta": [
-            null,
-            null,
-            "blanco",
-            "azul",
-            null,
-            null,
-            "rosa",
-            "celeste"
-        ],
-        "imagen": "img/1656349668528-img.jpg",
-        "stock": [
-            "",
-            "",
-            "50",
-            "",
-            "",
-            "150",
-            "",
-            ""
-        ],
-        "nombre": "Naranjuta",
-        "descripcion": "adasdas",
-        "precio": "5115",
-        "cantMinima": "150",
-        "tamaño": "30x50"
     }
 ]

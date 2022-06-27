@@ -44,5 +44,7 @@ routes.put("/products/:id/edit", upload.single("img"), controller.edit)
 
 
 
+
+
 module.exports = routes;
 
