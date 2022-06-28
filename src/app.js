@@ -1,3 +1,4 @@
+const { application } = require('express');
 const express = require('express');
 const methodOverride= require('method-override'); //para utilizar PUT y DELETE
 const app = express();
@@ -7,7 +8,7 @@ const port = process.env.PORT || 3000;
 const routes = require("./routes/index.routes")
 
 
-
+app.set('views', path.join(__dirname,'./views'));
 app.set('view engine','ejs');
 
 app.use(methodOverride("_method"));
