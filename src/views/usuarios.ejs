@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,40 +14,52 @@
     <!--Font-->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
-<body>
-    <%- include('partials/header.ejs') %> 
-    
-    <!--Main-->
-    <main>
-        <div class="main-container">
-            <div class="tab-usuarios">
-                <div class="titulo">
-                    <h2>Listado de Ususarios</h2>
-                </div>
-                <table class="tabla">
-                    <tr>
-                        <th id="cabecera">Id</th>
-                        <th id="cabecera">Nombre</th>
-                        <th id="cabecera">Email</th>
-                        <th id="cabecera">Acción</th>
-                    </tr>
-                  
-                    <% for(let i=0;i < usuarios.length;i++) {%>
-                    <tr>
-                      <td><%= usuarios[i].id%></td>
-                      <td><%= usuarios[i].nombre%></td>
-                      <td><%= usuarios[i].email%></td>
-                      <td><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                    </tr>
-                    <%}%>
-                  </table>
 
+<body>
+    <%- include('partials/header.ejs') %>
+
+        <!--Main-->
+        <main>
+            <div class="main-container">
+                <div class="tab-usuarios">
+                    <div class="titulo">
+                        <h2>Listado de Ususarios</h2>
+                    </div>
+                    <table class="tabla">
+                        <tr>
+                            <th id="cabecera">Id</th>
+                            <th id="cabecera">Nombre</th>
+                            <th id="cabecera">Email</th>
+                            <th id="cabecera">Acción</th>
+                        </tr>
+
+                        <% for(let i=0;i < usuarios.length;i++) {%>
+                            <tr>
+                                <td>
+                                    <%= usuarios[i].id%>
+                                </td>
+                                <td>
+                                    <%= usuarios[i].nombre%>
+                                </td>
+                                <td>
+                                    <%= usuarios[i].email%>
+                                </td>
+                                <td>
+                                    <form method="POST" action="/users/eliminar/<%=usuarios[i].id%>?_method=DELETE">
+                                        <button><i class="fa-solid fa-trash-can"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <%}%>
+                    </table>
+
+                </div>
             </div>
-        </div>
-    </main>
-    <!--Footer-->
-    <%-include('partials/footer.ejs')  %> 
+        </main>
+        <!--Footer-->
+        <%-include('partials/footer.ejs') %>
 
 
 </body>
+
 </html>
