@@ -2,36 +2,41 @@
     {
         "id": 1,
         "nombre": "Bolsa Cristal",
-        "descripcion": "Estas bolsas plásticas son un éxito a la hora de publicitar tu marca",
+        "descripcion": "Esta es una descripción de ejemplo",
         "colorBolsa": [
-            "Negro",
+            null,
+            null,
             "blanco",
-            "Beige",
-            "Rojo",
-            "Gris",
-            "Azul",
-            "Verde"
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "colorTinta": [
-            "Negro",
+            null,
+            null,
             "blanco",
-            "Beige",
-            "Rojo",
-            "Gris"
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "tamaño": "45x30",
-        "precio": "$50.05",
+        "precio": "154",
         "imagen": "img/bolsa_cristal.PNG",
         "stock": [
-            1000,
-            2500,
-            3000,
-            2500,
-            1000,
-            500,
-            800
+            "",
+            "",
+            "2500",
+            "",
+            "",
+            "",
+            "",
+            ""
         ],
-        "cantMinima": 100
+        "cantMinima": "100"
     },
     {
         "id": 2,

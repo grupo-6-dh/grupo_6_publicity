@@ -4,6 +4,13 @@
     padding: 0px;
 }
 
+.is-danger{
+    color: red;
+    text-align: center;
+    font-weight: lighter;
+    padding: 1%;
+}
+
 body{
     width: 100vw;
     font-family: 'Montserrat';
