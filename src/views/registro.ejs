@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <!--CSS  -->
     <link rel="stylesheet" href="/css/style-registro.css">
-    <link rel="Stylesheet" href="css/header-footer.css" type="text/css">
+    <link rel="Stylesheet" href="/css/header-footer.css" type="text/css">
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/79b8daf391.js" crossorigin="anonymous"></script>
 
@@ -30,22 +30,22 @@
 
             <h2 class="titulo">Formulario de Registro</h2>
 
-            <form>
+            <form action="" method="post">
                 <ul>
                     <li>
-                        <input class="form" type="text" placeholder="Nombre y Apellido" minlength="3" required>
+                        <input class="form" type="text" placeholder="Nombre y Apellido" minlength="3" required name="nombre">
                     </li>
 
                     <li>
-                        <input class="form" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                        <input class="form" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
                     </li>
 
                     <li>
-                        <input class="form" type="text" placeholder="Contraseña" minlength="5" required>
+                        <input class="form" type="text" placeholder="Contraseña" minlength="5" required name="contrasenia">
                     </li>
 
                     <li>
-                        <input class="form" type="text" placeholder="Confirmar contraseña" minlength="5" required>
+                        <input class="form" type="text" placeholder="Confirmar contraseña" minlength="5" required name="contraseniaConfirmada">
                     </li>
 
                 </ul>
