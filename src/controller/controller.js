@@ -3,7 +3,9 @@ const { fstat } = require('fs');
 const path = require('path');
 let productos= require('../data/products.json');
 const fs = require("fs");
-//solicitamos la funcion body de express validator
+//Multer
+const multer  = require('multer')
+//solicitamos la funcion validationResult de express validator
 const { validationResult } = require ('express-validator');
 
 const controller = {
@@ -39,9 +41,21 @@ const controller = {
     },
     eliminar:(req,res) => {
         let id=req.params.id;
+         //busco el producto a eliminar, y obtengo su imagen, para poder borrarla del sistema
+         let producto = productos.find((item)=> item.id == id);
+         //nos devuelve la ruta de la imagen del producto
+         let imagen = path.join(__dirname, "../../public/img" + producto.img);
+         //utilizamos existsSync para preguntar si existe el archivo
+         if (fs.existsSync(imagen)){
+             //utilizamos unlinkSync para eliminar un archivo
+             fs.unlinkSync(imagen);
+         }
+        //Creo una nueva lista de productos sin el producto eliminado, y sobreescribo el archivo json
         let nuevaListaProductos=productos.filter((producto)=>producto.id != id);
         fs.writeFileSync(path.join(__dirname, "../data/products.json"), JSON.stringify(nuevaListaProductos, null, 4),
         {encoding: "utf-8",});
+       
+
         res.render('abml-productos', {'productos':nuevaListaProductos});
     },
     
@@ -110,11 +124,12 @@ const controller = {
             );
             return res.render('products',{productos});
         }else{
+            
              //si se cargo una imagen previamente la borramos
-             if(req.file.filename){
-                fs.unlinkSync(path.join(__dirname, "../../public/img/",req.file.filename));
+             if(req.file != 'undefined'){
+                fs.unlinkSync(path.join(__dirname, "../../public/img/", req.file.filename));
              }
-              //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
+            //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
              return res.render('alta-producto', { mensajeDeError: errores.mapped(), datosViejos: req.body});
         }    
     },
@@ -213,6 +228,7 @@ const controller = {
         }else{
               //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
              return res.render('modificar-producto', { mensajeDeError: errores.mapped(), datosViejos: req.body});
+           
         }
     }
 
