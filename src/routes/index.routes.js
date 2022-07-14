@@ -20,8 +20,6 @@ routes.get("/products/:categoria", controller.categoria);
 
 routes.get("/products", controller.listar)
 
-routes.get("/login", controller.login)
-
 routes.get("/recuperarPass", controller.recuperarPass)
 
 routes.get("/carrito", controller.carrito)

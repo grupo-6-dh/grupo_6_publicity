@@ -9,7 +9,9 @@ routesUsers.get("/usuarios",controller.listar);
 
 routesUsers.delete("/eliminar/:id",controller.eliminar);
 
-routesUsers.get("/registro",)
+routesUsers.get("/login", controller.login);
+
+routesUsers.post("/loginProcess",controller.loginProcess);
 
 
 module.exports = routesUsers;

@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <!--CSS  -->
     <link rel="stylesheet" href="/css/style-login.css" type="text/css">
-    <link rel="Stylesheet" href="css/header-footer.css" type="text/css">
+    <link rel="Stylesheet" href="/css/header-footer.css" type="text/css">
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/79b8daf391.js" crossorigin="anonymous"></script>
 
@@ -29,27 +29,38 @@
 
             <h2 class="titulo">Login</h2>
 
-            <form>
+            <form action="/users/loginProcess" method="post">
                 <ul>
                     <li>
-
-                        <input class="form" type="email" placeholder="Ingrese su email" required>
+                        <input class="form" type="email" name="email" placeholder="Ingrese su email" required>
+                        <% if(locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%=errors.email.msg%>
+                            </div>
+                        <%}%> 
                     </li>
 
                     <li>
 
-                        <input class="form" type="text" placeholder="Ingrese su contraseña" required>
+                        <input class="form" type="password" name="pass" placeholder="Ingrese su contraseña" required>
+                        <% if(locals.errors && errors.pass) { %>
+                            <div class="text-danger">
+                                <%=errors.pass.msg%>
+                            </div>
+                        <%}%> 
                     </li>
 
                 </ul>
 
                 <div class="check">
                     <label>Recordarme</label>
-                    <input type="checkbox" id="recordarme" required>
+                    <input type="checkbox" id="recordarme" >
                 </div>
 
                 <div class="boton">
+                    
                     <button id="btn" type="submit">Ingresar</button>
+                    
                 </div>
                 <div class="footer">
                     <p>¿Olvidaste tu contraseña? <a href="/recuperarPass">Recuperar contraseña</a></p>

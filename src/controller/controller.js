@@ -110,9 +110,6 @@ const controller = {
         return res.render('registro');
     },
     
-    login: (req, res) => {
-        return res.render('login');
-    },
 
     recuperarPass: (req, res) => {
         return res.render('recuperarPass');

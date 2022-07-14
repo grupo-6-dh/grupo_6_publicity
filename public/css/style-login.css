@@ -46,6 +46,10 @@ main {
     padding: 3%;
     height: 700px;
 }
+.text-danger{
+    color: red;
+    font-size: 12px;
+}
 
 .boton {
     text-align: center;
