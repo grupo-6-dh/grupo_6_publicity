@@ -5,6 +5,10 @@
     font-family: 'Montserrat';
 }
 
+.is-danger{
+    color: red;
+}
+
 /* CSS para el formulario de registro */
 label {
     font-size: 20px;
@@ -66,7 +70,6 @@ main {
 
 form {
     margin-top: 20px;
-    
 }
 
 .formulario {

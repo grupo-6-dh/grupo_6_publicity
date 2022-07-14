@@ -14,6 +14,8 @@ app.set('views', path.join(__dirname,'./views'));
 app.set('view engine','ejs');
 
 app.use(methodOverride("_method"));
+
+//Indicamos a Express que vamos a trabajar con JSON y que la información esté en el formato correcto
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 //---rutas---
@@ -21,6 +23,9 @@ app.use("/", routes);
 app.use("/users", usersRoutes);
 
 
+//---rutas---
+app.use("/", routes);
+app.use("/users", routesUsers);
 //---archivos estaticos---
 app.use(express.static(publicPath));
 

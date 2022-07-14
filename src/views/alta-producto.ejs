@@ -23,23 +23,43 @@
 
         <article class="producto">
             <h1>Dar de alta un nuevo producto</h1>
+                <% if(locals.mensajeDeError && mensajeDeError.nombre){ %>
+                    <div class="feedback is-danger">
+                        <%= mensajeDeError.nombre.msg %>
+                    </div>
+                <% } %>
                 <div class="titulo">
-                    <input class="inputText" type="text" name="nombre" placeholder="Título del producto">
+                    <input class="inputText" type="text" name="nombre" placeholder="Título del producto" value="<%= locals.datosViejos && datosViejos.nombre? datosViejos.nombre : ''%>">
                 </div>
+                <% if(locals.mensajeDeError && mensajeDeError.img){ %>
+                    <div class="feedback is-danger">
+                        <%= mensajeDeError.img.msg %>
+                    </div>
+                <% } %>
                 <section class="imagen-principal">
                         <div class="archivo">
                             <p class="texto">Subir imagen</p>
-                            <input class="btn-enviar" type="file" name="img" id="btnEnviar">
+                            <input class="btn-enviar" type="file" name="img" id="btnEnviar" value="<%= locals.datosViejos && datosViejos.img? datosViejos.img : ''%>">
                         </div>
                 </section>
                 <section class="contenedor-detalle-producto">
                     <div class="configuracion-producto">
                         <div class="contenedor">
-                            <input class="inputText" type="number" name="precio" placeholder="Precio por unidad">
+                            <% if(locals.mensajeDeError && mensajeDeError.precio){ %>
+                                <div class="feedback is-danger">
+                                    <%= mensajeDeError.precio.msg %>
+                                </div>
+                            <% } %>
+                            <input class="inputText" type="number" name="precio" placeholder="Precio por unidad" value="<%= locals.datosViejos && datosViejos.precio? datosViejos.precio : ''%>">
                         </div>
                         <div class="contenedor">
                             <h4 class="subtitulo">Descripción del producto</h4>
-                            <input class="descripcion" type="text" name="descripcion" maxlength="700">
+                            <% if(locals.mensajeDeError && mensajeDeError.descripcion){ %>
+                                <div class="feedback is-danger">
+                                    <%= mensajeDeError.descripcion.msg %>
+                                </div>
+                            <% } %>
+                            <input class="descripcion" type="text" name="descripcion" maxlength="700" value="<%= locals.datosViejos && datosViejos.descripcion? datosViejos.descripcion : ''%>">
                         </div>
                         <div class="contenedor">
                             <div class="titulos">
@@ -93,11 +113,21 @@
                         </div>
                         <div class="contenedor">
                             <h4 class="subtitulo">Tamaño</h4>
-                            <input class="inputText"  type="text" name="tamanio">
+                            <% if(locals.mensajeDeError && mensajeDeError.tamanio){ %>
+                                <div class="feedback is-danger">
+                                    <%= mensajeDeError.tamanio.msg %>
+                                </div>
+                            <% } %>
+                            <input class="inputText"  type="text" name="tamanio" value="<%= locals.datosViejos && datosViejos.tamanio? datosViejos.tamanio : ''%>">
                         </div>
                         <div class="contenedor">
                             <h4 class="subtitulo">Cantidad mínima de compra</h4>
-                            <input class="inputText" type="number" name="cantMinima">
+                            <% if(locals.mensajeDeError && mensajeDeError.cantMinima){ %>
+                                <div class="feedback is-danger">
+                                    <%= mensajeDeError.cantMinima.msg %>
+                                </div>
+                            <% } %>
+                            <input class="inputText" type="number" name="cantMinima" value="<%= locals.datosViejos && datosViejos.cantMinima? datosViejos.cantMinima : ''%>">
                         </div>
                         <button type="submit" class="boton-guardar">Guardar</button>
                     </div>

@@ -3,7 +3,12 @@
     margin: 0px;
     padding: 0px;
 }
-
+.is-danger{
+    color: red;
+    text-align: center;
+    font-weight: lighter;
+    padding: 1%;
+}
 body{
     width: 100vw;
     font-family: 'Montserrat';
@@ -55,7 +60,7 @@ body{
 }
 
 .titulo{
-    margin: 2%;
+    margin-bottom: 2%;
     display: flex;
     text-align: left;
     max-width: 600px;
