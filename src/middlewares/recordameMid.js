@@ -1,9 +1,10 @@
+const path = require('path');
 let usuarios = require('../data/users.json');
 
 function recordameMiddleware(req,res,next){
     
 
-    if (req.cookie != undefined &&
+    if (req.cookies.recordame != undefined &&
         req.session.usuarioLogueado == undefined){
         let encontrado = usuarios.find(unUsuario => unUsuario.email == req.cookies.recordame);
         if (encontrado) {
@@ -11,9 +12,7 @@ function recordameMiddleware(req,res,next){
         } 
     }
 
-    
     next();
-    
 }
 
 module.exports = recordameMiddleware;

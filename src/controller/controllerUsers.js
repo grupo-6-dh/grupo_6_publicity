@@ -25,7 +25,7 @@ const controllerUsers = {
                 if (verificarPass = bcrypt.compareSync(req.body.pass, encontrado.contrasenia)) {
                     req.session.usuarioLogueado = encontrado;
                     if(req.body.recordame != undefined){
-                        res.cookie('recordame', encontrado.email, {maxAge : 6000000 })
+                        res.cookie('recordame', encontrado.email, {maxAge : 60000000 })
                     }
                     res.redirect('/')
                 }else{ //error de contraseña no coincide

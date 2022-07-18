@@ -26,6 +26,10 @@ app.use(express.urlencoded({extended:false}));
 
 //---middleware de session---
 app.use(session({ secret: "the secret message xd" }));
+
+//---middleware de recuerdame con cookies---
+app.use(recordameMid);
+
 app.use((req, res, next) => {
     res.locals.logueado = 0;
     if (req.session.usuarioLogueado){
@@ -36,8 +40,9 @@ app.use((req, res, next) => {
 });
 
 
-//---middleware de recuerdame con cookies---
-app.use(recordameMid);
+
+
+
 
 //---rutas---
 app.use("/", routes);
