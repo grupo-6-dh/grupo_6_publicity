@@ -15,6 +15,9 @@
         <!--Usuario y carrito--> 
         <div class="lista-usuario">
             <ul>
+                <% if(locals.logueado) { %>
+                    <li class="usuario">Bienvenid@, <b><%=locals.nombreUsuario %></b></li>
+                <% } %>
                 <li><a href="/users/login"><i class="fa-solid fa-user"></i></a></li>
                 <li><a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>

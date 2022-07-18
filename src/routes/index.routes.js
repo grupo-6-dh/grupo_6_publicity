@@ -3,6 +3,8 @@ const path = require('path');
 const upload = require ('../middlewares/multerMid');
 const controller = require("../controller/controller");
 
+const authMid = require('../middlewares/authMid')
+
 const routes = express.Router();
 
 const { body } = require ('express-validator');
@@ -51,7 +53,7 @@ routes.get("/products", controller.listar)
 
 routes.get("/recuperarPass", controller.recuperarPass)
 
-routes.get("/carrito", controller.carrito)
+routes.get("/carrito", authMid, controller.carrito)
 
 routes.get("/modificarProducto", controller.modificarProducto)
 

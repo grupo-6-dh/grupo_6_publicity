@@ -1,6 +1,8 @@
 const path = require('path');
 let usuarios= require('../data/users.json');
 const fs = require("fs");
+const bcrypt = require("bcryptjs");
+
 //solicitamos la funcion body de express validator
 const { validationResult } = require ('express-validator');
 
@@ -10,16 +12,37 @@ const controllerUsers = {
     },
 
     login: (req, res) => {
+        // poddemos preguntar si ya se encuentra logueado por json y mandarlo al home si es así
         return res.render('login');
     },
 
     loginProcess: (req,res) => {
-         
+        let errores = validationResult(req);
         let encontrado=usuarios.find(unUsuario=> unUsuario.email==req.body.email);
-        // para cuando tengamos hash en las pass
-        //let verificarPass=bcryptjs.compareSync(req.body.pass,encontrado.contrasenia);
         
-        if(encontrado){
+        if (errores.isEmpty()) {
+            if (encontrado) {
+                if (verificarPass = bcrypt.compareSync(req.body.pass, encontrado.contrasenia)) {
+                    req.session.usuarioLogueado = encontrado;
+                    if(req.body.recordame != undefined){
+                        res.cookie('recordame', encontrado.email, {maxAge : 6000000 })
+                    }
+                    res.redirect('/')
+                }else{ //error de contraseña no coincide
+                    res.render('login', { errors: { pass: { msg: '*Contraseña incorrecta' } }, datosViejos: req.body });
+                }
+            }else{ //error de usuario no encontrado
+                res.render('login', { errors: { email: { msg: '*Email incorrecto' } }, datosViejos: req.body });
+                
+            }
+            
+        }else { //error en validación
+            //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
+            return res.render('login', { mensajeDeError: errores.mapped(), datosViejos: req.body });
+        }   
+
+        //Deprecado por uso de session
+        /*if(encontrado){
             if(encontrado.contrasenia==req.body.pass){
                 return res.redirect('/');
 
@@ -31,14 +54,9 @@ const controllerUsers = {
                     }
                 }
             });
-        }
-        res.render('login',{
-            errors:{
-                email: {
-                    msg: '*Email incorrecto'
-                }
-            }
-        });
+        } */
+
+        
     },
 
     registro: (req, res) => {
@@ -62,7 +80,8 @@ const controllerUsers = {
                 id: usuarios[(usuarios.length - 1)].id + 1,
                 nombre : req.body.nombre,
                 email : req.body.email,
-                contrasenia : req.body.contrasenia
+                //guardamos la contraseña hasheada
+                contrasenia: bcrypt.hashSync(req.body.contrasenia, 10)
            }        
            usuarios.push(nuevoUsuario);
            fs.writeFileSync(

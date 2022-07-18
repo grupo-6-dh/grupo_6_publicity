@@ -32,7 +32,7 @@
             <form action="/users/loginProcess" method="post">
                 <ul>
                     <li>
-                        <input class="form" type="email" name="email" placeholder="Ingrese su email" required>
+                        <input class="form" type="email" name="email" placeholder="Ingrese su email" required value="<%= locals.datosViejos && datosViejos.email? datosViejos.email : ''%>">
                         <% if(locals.errors && errors.email) { %>
                             <div class="text-danger">
                                 <%=errors.email.msg%>
@@ -42,7 +42,7 @@
 
                     <li>
 
-                        <input class="form" type="password" name="pass" placeholder="Ingrese su contraseña" required>
+                        <input class="form" type="password" name="pass" placeholder="Ingrese su contraseña" required value="<%= locals.datosViejos && datosViejos.pass? datosViejos.pass : ''%>">
                         <% if(locals.errors && errors.pass) { %>
                             <div class="text-danger">
                                 <%=errors.pass.msg%>
@@ -54,7 +54,7 @@
 
                 <div class="check">
                     <label>Recordarme</label>
-                    <input type="checkbox" id="recordarme" >
+                    <input type="checkbox" name="recordame" id="recordarme" >
                 </div>
 
                 <div class="boton">

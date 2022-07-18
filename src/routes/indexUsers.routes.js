@@ -4,6 +4,9 @@ const routesUsers = express.Router();
 const controllerUsers = require('../controller/controllerUsers');
 const controller = require('../controller/controller');
 
+const guestMid = require('../middlewares/guestMid')
+
+
 //solicitamos la funcion body de express validator
 const { body } = require ('express-validator');
 
@@ -18,11 +21,19 @@ const validacionRegistro = [
     body('contrasenia')
                 .notEmpty().withMessage('Debes ingresar una contraseña')
                 .isLength({ min: 5 }).withMessage('La contraseña debe tener como mínimo 5 caracteres'),
-    body('contraseniaConfirmada')
-                .matches('contrasenia').withMessage('Las contraseñas deben coincidir'),
+    body('contraseniaConfirmada').custom(async (contraseniaConfirmada, { req }) => {
+        const contrasenia = req.body.contrasenia
+
+        // Si la contraseña no es la misma
+        if (contrasenia !== contraseniaConfirmada) {
+            throw new Error('Las contraseña deben coincidir')
+        }}), 
+        //        .matches('contrasenia').withMessage('Las contraseñas deben coincidir'),
 ]
+
+
 //---rutas---
-routesUsers.get("/registro", controllerUsers.registro)
+routesUsers.get("/registro", guestMid, controllerUsers.registro)
 
 routesUsers.post("/registro", validacionRegistro, controllerUsers.crearUsuario)
 
