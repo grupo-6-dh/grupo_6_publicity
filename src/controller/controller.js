@@ -14,7 +14,7 @@ const controller = {
     },
     
     listar: (req, res) => {
-       return res.render('products',{productos});
+       return res.render('productos/products',{productos});
     },
 
     detalleProducto: (req, res) => {
@@ -34,9 +34,9 @@ const controller = {
             }
         }
         if(bool==true){
-            return res.render('products',{'productos':contienen});
+            return res.render('productos/products',{'productos':contienen});
         }else{
-            return res.render('products',{productos});
+            return res.render('productos/products',{productos});
         }
     },
     eliminar:(req,res) => {
@@ -122,7 +122,7 @@ const controller = {
                     encoding: 'utf-8',
                 }
             );
-            return res.render('products',{productos});
+            return res.render('productos/products',{productos});
         }else{
             
              //si se cargo una imagen previamente la borramos
@@ -143,7 +143,7 @@ const controller = {
     },
 
     recuperarPass: (req, res) => {
-        return res.render('recuperarPass');
+        return res.render('usuarios/recuperarPass');
     },
 
     carrito: (req, res) => {
