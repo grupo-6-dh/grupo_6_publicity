@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+.is-danger{
+    color: red;
+}
+
+/* CSS para el formulario de registro */
+label {
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.titulo {
+    margin-top: 5px;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ruta {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.footer {
+    margin: 10px;
+    padding: 10px;
+}
+
+.footer a {
+    color: #212f3da3;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: rgb(165, 16, 16);
+    text-decoration: none;
+}
+
+main {
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 700px;
+    background-color: #EBEBEB;
+}
+
+.boton {
+    text-align: center;
+    margin: 15px;
+}
+
+.check {
+    border: solid 1px rgba(128, 128, 128, 0.300);
+    border-radius: 5px;
+    width: 50%;
+    margin: auto;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.formulario {
+    box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.5);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 70%;
+    border: solid 2px rgba(128, 128, 128, 0.237);
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 15px ;
+    background-color: white;
+}
+
+.formulario ul {
+    list-style: none;
+    width: 90%;
+    margin: auto;
+    padding: 0;
+}
+
+.formulario li {
+    margin: 20px;
+}
+
+.formulario label {
+    margin-bottom: 10px;
+}
+
+.form {
+    border-radius: 5px;
+    border-color: rgba(169, 169, 169, 0.392);
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#btn {
+    width: 200px;
+    box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.5);
+    background-color: #212F3D;
+    color: #ebebeb;
+    padding: 10px;
+}
+
+@media (min-width:340px) {
+
+    .titulo {
+        width: 200px;
+        font-size: 20px;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+    }
+
+    .formulario input {
+        width: 100%;
+    }
+
+    .formulario form {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .formulario li {
+        margin: auto;
+        text-align: left;
+    }
+
+    .boton {
+        text-align: center;
+        margin: 15px;
+        text-align: center;
+    }
+
+    #btn {
+        font-size: 15px;
+        font-weight: 400;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .check label {
+        font-size: 10px;
+        margin: 0;
+    }
+
+    .check {
+        display: inline-block;
+        margin-top: 15px;
+        width: 100px;
+        box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.5);
+    }
+
+    #robot {
+        margin: 0;
+    }
+
+    ul label {
+        font-size: 15px;
+    }
+
+    .footer {
+        font-size: 15px;
+        font-weight: 300;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .ruta {
+        font-size: 10px;
+        font-style: italic;
+    }
+
+    .ruta p {
+        margin-bottom: 5px;
+    }
+}
+
+@media (min-width:700px) {
+    .formulario {
+        width: 450px;
+    }
+}
+
+@media (min-width:1200px) {
+
+    .formulario {
+        width: 650px;
+    }
+
+    .formulario form {
+        width: 100%;
+    }
+
+    .formulario li {
+        margin: 0 5px;
+        text-align: left;
+    }
+
+    .formulario input {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .formulario label {
+        margin: 5px;
+    }
+
+    .check {
+        margin-top: 15px;
+    }
+
+    #btn {
+        padding: 10px;
+    }
+
+    .titulo {
+        width: 400px;
+        font-size: 25px;
+    }
+
+}
