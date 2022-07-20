@@ -23,9 +23,6 @@ app.use("/", routes);
 app.use("/users", usersRoutes);
 
 
-//---rutas---
-app.use("/", routes);
-app.use("/users", routesUsers);
 //---archivos estaticos---
 app.use(express.static(publicPath));
 
