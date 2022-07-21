@@ -1,8 +1,12 @@
 * {
     box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Montserrat';
+}
+
+.is-danger{
+    color: red;
 }
 
 /* CSS para el formulario de registro */
@@ -29,8 +33,13 @@ label {
     margin-top: 20px;
 }
 
+.footer {
+    margin: 10px;
+    padding: 10px;
+}
+
 .footer a {
-    color: rgba(113, 15, 15, 0.734);
+    color: #212f3da3;
     text-decoration: none;
 }
 
@@ -42,18 +51,14 @@ label {
 main {
     justify-content: center;
     align-items: center;
-    background-color: #EBEBEB;
-    padding: 3%;
+    margin: 10px;
     height: 700px;
+    background-color: #EBEBEB;
 }
 
 .boton {
     text-align: center;
     margin: 15px;
-}
-
-#btn {
-    padding: 10px;
 }
 
 .check {
@@ -76,8 +81,8 @@ form {
     border: solid 2px rgba(128, 128, 128, 0.237);
     border-radius: 10px;
     margin: auto;
+    margin-bottom: 15px ;
     background-color: white;
-    
 }
 
 .formulario ul {
@@ -103,6 +108,14 @@ form {
     margin-bottom: 10px;
 }
 
+#btn {
+    width: 200px;
+    box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.5);
+    background-color: #212F3D;
+    color: #ebebeb;
+    padding: 10px;
+}
+
 @media (min-width:340px) {
 
     .titulo {
@@ -114,7 +127,6 @@ form {
         display: flex;
         flex-direction: column;
         width: 300px;
-
     }
 
     .formulario input {
@@ -138,13 +150,10 @@ form {
     }
 
     #btn {
-        width: 200px;
         font-size: 15px;
         font-weight: 400;
         border-radius: 5px;
-        box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.5);
-        background-color: #212F3D;
-        color: #ebebeb;
+        padding: 10px;
     }
 
     .check label {
@@ -159,7 +168,7 @@ form {
         box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.5);
     }
 
-    #recordarme {
+    #robot {
         margin: 0;
     }
 
@@ -171,8 +180,6 @@ form {
         font-size: 15px;
         font-weight: 300;
         font-family: 'Montserrat', sans-serif;
-        padding: 10px;
-        margin-bottom: 10px;
     }
 
     .ruta {
@@ -183,7 +190,6 @@ form {
     .ruta p {
         margin-bottom: 5px;
     }
-
 }
 
 @media (min-width:700px) {
@@ -205,7 +211,6 @@ form {
     .formulario li {
         margin: 0 5px;
         text-align: left;
-
     }
 
     .formulario input {
@@ -215,15 +220,19 @@ form {
 
     .formulario label {
         margin: 5px;
-
     }
 
     .check {
         margin-top: 15px;
     }
 
+    #btn {
+        padding: 10px;
+    }
+
     .titulo {
         width: 400px;
         font-size: 25px;
     }
+
 }

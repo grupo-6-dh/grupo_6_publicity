@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicity</title>
-    <link rel="Stylesheet" href="/css/modificar-producto.css" type="text/css">
+    <link rel="Stylesheet" href="/css/modificar.css" type="text/css">
     <link rel="stylesheet" href="/css/header-footer.css">
     <!--Iconos-->
     <script src="https://kit.fontawesome.com/41f3340cce.js" crossorigin="anonymous"></script>
@@ -16,16 +16,26 @@
 </head>
 
 <body>
-    <%-include('partials/header.ejs') %>
+    <%-include('../partials/header.ejs') %>
 
         <!--Main-->
         <main>
             <form enctype="multipart/form-data" action="/products/<%=prod.id%>/edit?_method=PUT" method="POST">
                 <article class="producto">
                     <h1 class="subtitulo">Modificar producto</h1>
+                    <% if(locals.mensajeDeError && mensajeDeError.nombre){ %>
+                        <div class="feedback is-danger">
+                            <%= mensajeDeError.nombre.msg %>
+                        </div>
+                    <% } %>
                     <div class="titulo">
                         <input name="nombre" class="inputText" type="text" value="<%=prod.nombre%>">
                     </div>
+                    <% if(locals.mensajeDeError && mensajeDeError.img){ %>
+                        <div class="feedback is-danger">
+                            <%= mensajeDeError.img.msg %>
+                        </div>
+                    <% } %>
                     <section class="imagen-principal" style="background-image:url('/../<%=prod.imagen%>')">
                         <div class="archivo">
                             <p class="texto">Cambiar Imagen</p>
@@ -36,10 +46,20 @@
                         <div class="configuracion-producto">
                             <div class="contenedor">
                                 <h4 class="subtitulo">Precio por Unidad</h4>
+                                <% if(locals.mensajeDeError && mensajeDeError.precio){ %>
+                                    <div class="feedback is-danger">
+                                        <%= mensajeDeError.precio.msg %>
+                                    </div>
+                                <% } %>
                                 <input name="precio" class="inputText" type="number" value="<%=prod.precio%>">
                             </div>
                             <div class="contenedor">
                                 <h4 class="subtitulo">Descripción del producto</h4>
+                                <% if(locals.mensajeDeError && mensajeDeError.descripcion){ %>
+                                    <div class="feedback is-danger">
+                                        <%= mensajeDeError.descripcion.msg %>
+                                    </div>
+                                <% } %>
                                 <textarea name="descripcion" class="descripcion" maxlength="700"><%=prod.descripcion%></textarea>
                             </div>
                             <div class="contenedor">
@@ -109,10 +129,20 @@
                                     value="celeste" <% if(prod.colorTinta.includes("celeste")){ %>checked<%}%>>Celeste</label>
                             </div>
                             <div class="contenedor">
+                                <% if(locals.mensajeDeError && mensajeDeError.tamanio){ %>
+                                    <div class="feedback is-danger">
+                                        <%= mensajeDeError.tamanio.msg %>
+                                    </div>
+                                <% } %>
                                 <h4 class="subtitulo">Tamaño</h4>
                                 <input name="tamanio" class="inputText" type="text" value="<%=prod.tamaño%>">
                             </div>
                             <div class="contenedor">
+                                <% if(locals.mensajeDeError && mensajeDeError.cantMinima){ %>
+                                    <div class="feedback is-danger">
+                                        <%= mensajeDeError.cantMinima.msg %>
+                                    </div>
+                                <% } %>
                                 <h4 class="subtitulo">Cantidad mínima de compra</h4>
                                 <input name="cantMinima" class="inputText" type="number" value="<%=prod.cantMinima%>">
                             </div>
@@ -124,7 +154,7 @@
 
         </main>
         <!--Footer-->
-        <%-include('partials/footer.ejs') %>
+        <%-include('../partials/footer.ejs') %>
 </body>
 
 </html>

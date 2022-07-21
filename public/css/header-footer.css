@@ -36,6 +36,7 @@ header{
     display: flex;
     list-style:none;
     text-align: center;
+    align-items: center;
     padding: 0%;
 }
 
@@ -237,6 +238,11 @@ footer{
     font-size: 10px;
 }
 
+.usuario{
+    display: none;
+    font-size: small;
+}
+
 @media (min-width:800px){
     .contacto-redes{
         display: flex;
@@ -276,5 +282,9 @@ footer{
     .barra-de-busqueda{
         display: flex;
         max-width: 500px;
+    }
+
+    .usuario {
+        display: block;
     }
 }
