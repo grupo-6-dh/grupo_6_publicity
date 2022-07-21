@@ -14,13 +14,13 @@ const controller = {
     },
     
     listar: (req, res) => {
-       return res.render('products',{productos});
+       return res.render('productos/products',{productos});
     },
 
     detalleProducto: (req, res) => {
         let id=req.params.id;
         let detalle=productos.find((item)=>item.id==id);
-        return res.render('detalle-producto',{detalle});
+        return res.render('productos/detalle',{detalle});
     },
     
     categoria: (req, res) => {
@@ -34,9 +34,9 @@ const controller = {
             }
         }
         if(bool==true){
-            return res.render('products',{'productos':contienen});
+            return res.render('productos/products',{'productos':contienen});
         }else{
-            return res.render('products',{productos});
+            return res.render('productos/products',{productos});
         }
     },
     eliminar:(req,res) => {
@@ -56,11 +56,11 @@ const controller = {
         {encoding: "utf-8",});
        
 
-        res.render('abml-productos', {'productos':nuevaListaProductos});
+        res.render('productos/abml', {'productos':nuevaListaProductos});
     },
     
     alta:(req,res) => {
-        return res.render('alta-producto');
+        return res.render('productos/alta');
        
     },
 
@@ -122,7 +122,7 @@ const controller = {
                     encoding: 'utf-8',
                 }
             );
-            return res.render('products',{productos});
+            return res.render('productos/products',{productos});
         }else{
             
              //si se cargo una imagen previamente la borramos
@@ -130,7 +130,7 @@ const controller = {
                 fs.unlinkSync(path.join(__dirname, "../../public/img/", req.file.filename));
              }
             //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-             return res.render('alta-producto', { mensajeDeError: errores.mapped(), datosViejos: req.body});
+             return res.render('productos/alta', { mensajeDeError: errores.mapped(), datosViejos: req.body});
         }    
     },
 
@@ -143,7 +143,7 @@ const controller = {
     },
 
     recuperarPass: (req, res) => {
-        return res.render('recuperarPass');
+        return res.render('usuarios/recuperarPass');
     },
 
     carrito: (req, res) => {
@@ -154,10 +154,10 @@ const controller = {
         let index = productos.findIndex(x => x.id == id);
         let prod = productos[index];
 
-        return res.render('modificar-producto',{prod});
+        return res.render('productos/modificar',{prod});
     },
     abml: (req,res) => {
-        return res.render('abml-productos',{productos});
+        return res.render('productos/abml',{productos});
    },
     
     info:(req,res) => {
@@ -228,10 +228,10 @@ const controller = {
                     encoding: 'utf-8',
                 }
             );
-            return res.render('abml-productos',{productos});
+            return res.render('productos/abml',{productos});
         }else{
               //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-             return res.render('modificar-producto', { mensajeDeError: errores.mapped(), datosViejos: req.body});
+             return res.render('productos/modificar', { mensajeDeError: errores.mapped(), datosViejos: req.body});
            
         }
     }

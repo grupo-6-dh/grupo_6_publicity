@@ -8,12 +8,12 @@ const { validationResult } = require ('express-validator');
 
 const controllerUsers = {
     listar: (req, res) => {
-        return res.render('usuarios',{usuarios});
+        return res.render('usuarios/usuarios',{usuarios});
     },
 
     login: (req, res) => {
         // poddemos preguntar si ya se encuentra logueado por json y mandarlo al home si es así
-        return res.render('login');
+        return res.render('usuarios/login');
     },
 
     loginProcess: (req,res) => {
@@ -29,16 +29,16 @@ const controllerUsers = {
                     }
                     res.redirect('/')
                 }else{ //error de contraseña no coincide
-                    res.render('login', { errors: { pass: { msg: '*Contraseña incorrecta' } }, datosViejos: req.body });
+                    res.render('usuarios/login', { errors: { pass: { msg: '*Contraseña incorrecta' } }, datosViejos: req.body });
                 }
             }else{ //error de usuario no encontrado
-                res.render('login', { errors: { email: { msg: '*Email incorrecto' } }, datosViejos: req.body });
+                res.render('usuarios/login', { errors: { email: { msg: '*Email incorrecto' } }, datosViejos: req.body });
                 
             }
             
         }else { //error en validación
             //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-            return res.render('login', { mensajeDeError: errores.mapped(), datosViejos: req.body });
+            return res.render('usuarios/login', { mensajeDeError: errores.mapped(), datosViejos: req.body });
         }   
 
         //Deprecado por uso de session
@@ -47,7 +47,7 @@ const controllerUsers = {
                 return res.redirect('/');
 
             }
-            res.render('login',{
+            res.render('usuarios/login',{
                 errors:{
                     pass: {
                         msg: '*Contraseña incorrecta'
@@ -60,7 +60,7 @@ const controllerUsers = {
     },
 
     registro: (req, res) => {
-        return res.render('registro');
+        return res.render('usuarios/registro');
     },
 
     eliminar:(req,res) => {
@@ -68,7 +68,7 @@ const controllerUsers = {
         let nuevaListaUsuarios=usuarios.filter((item)=>item.id != id);
         fs.writeFileSync(path.join(__dirname, "../data/users.json"), JSON.stringify(nuevaListaUsuarios, null, 4),
         {encoding: "utf-8",});
-        res.render('usuarios', {'usuarios':nuevaListaUsuarios});
+        res.render('usuarios/usuarios', {'usuarios':nuevaListaUsuarios});
     },
     
     crearUsuario: (req, res) => {
@@ -94,7 +94,7 @@ const controllerUsers = {
            return res.render(''); 
         }else{
             //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-            return res.render('registro', { mensajeDeError: errores.mapped(), datosViejos: req.body});
+            return res.render('usuarios/registro', { mensajeDeError: errores.mapped(), datosViejos: req.body});
         }
        
     }
