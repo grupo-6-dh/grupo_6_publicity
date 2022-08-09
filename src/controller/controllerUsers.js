@@ -12,7 +12,6 @@ const controllerUsers = {
     },
 
     login: (req, res) => {
-        // poddemos preguntar si ya se encuentra logueado por json y mandarlo al home si es así
         return res.render('usuarios/login');
     },
 
@@ -57,6 +56,22 @@ const controllerUsers = {
         } */
 
         
+    },
+    logout: (req, res) => {
+        if (req.session) {
+            req.session.destroy(err => {
+                if (err) {
+                    res.status(400).send('Unable to log out')
+                } else {
+                    if(req.cookies.recordame){
+                        res.clearCookie("recordame");
+                    }
+                    res.redirect('/')
+                }
+            });
+        } else {
+            res.end()
+        }
     },
 
     registro: (req, res) => {
