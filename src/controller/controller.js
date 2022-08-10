@@ -65,6 +65,7 @@ const controller = {
     },
 
     crear: (req, res) => {
+
         //le enviamos a express validator el objeto req, para que controle si todos los campos son correctos
         let errores = validationResult(req);
         //si hay errores, renderizamos la vista registro enviandole el objeto mensajeError con los errores encontrados
