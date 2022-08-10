@@ -25,6 +25,8 @@ routesUsers.get("/login", guestMid, controller.login);
 
 routesUsers.post("/loginProcess", guestMid, validacionLogin, controller.loginProcess);
 
+routesUsers.get('/logout', controller.logout)
+
 
 module.exports = routesUsers;
 
