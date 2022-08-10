@@ -11,7 +11,8 @@ const indexUsersRoutes = require("./routes/indexUsers.routes");
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
-const recordameMid = require('./middlewares/recordameMid')
+const recordameMid = require('./middlewares/recordameMid');
+
 
 app.set('views', path.join(__dirname,'./views'));
 app.set('view engine','ejs');
@@ -41,9 +42,6 @@ app.use((req, res, next) => {
 
 
 
-
-
-
 //---rutas---
 app.use("/", routes);
 app.use("/users", usersRoutes); 
@@ -57,5 +55,10 @@ app.use(express.static(publicPath));
 //---middleware---
 app.listen(port, () => {
     console.log('Servidor corriendo en el puerto ' + port);
+});
+
+// error 404
+app.use((req,res,next)=>{
+  res.status(404).render("error404");
 });
 
