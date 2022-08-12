@@ -67,8 +67,7 @@ idProductCategory INT,
 idInkColor INT,
 PRIMARY KEY (id),
 FOREIGN KEY (idSize) REFERENCES publicity.bag_sizes(id),
-FOREIGN KEY (idProductCategory) REFERENCES publicity.product_categorys(id),
-FOREIGN KEY (idInkColor) REFERENCES publicity.ink_colors(id)
+FOREIGN KEY (idProductCategory) REFERENCES publicity.product_categorys(id)
 );
 
 
@@ -90,3 +89,12 @@ PRIMARY KEY (id),
 FOREIGN KEY (idProduct) REFERENCES publicity.products(id),
 FOREIGN KEY (idCart) REFERENCES publicity.carts(id)
 );
+
+CREATE TABLE product_ink(
+idProduct INT NOT NULL, 
+idInkColor INT NOT NULL,
+PRIMARY KEY (idProduct, idInkColor),
+FOREIGN KEY (idProduct) REFERENCES publicity.products(id),
+FOREIGN KEY (idInkColor) REFERENCES publicity.ink_colors(id)
+);
+

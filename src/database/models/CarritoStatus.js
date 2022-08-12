@@ -15,5 +15,13 @@ module.exports = (sequelize, DataTypes) => {
         timestamps : false
     }
     const CarritoStatus = sequelize.define(alias, cols, config);
+
+    CarritoStatus.associate = function (models){
+        CarritoStatus.hasMany(models.Carrito, {
+            as: "carrito",
+            foreignKey: "idStatus"
+        });
+
+    }
     return CarritoStatus;
 } 

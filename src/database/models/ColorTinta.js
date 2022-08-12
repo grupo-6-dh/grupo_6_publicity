@@ -15,5 +15,16 @@ module.exports = (sequelize, DataTypes) => {
         timestamps : false
     }
     const ColorTinta = sequelize.define(alias, cols, config);
+
+ColorTinta.associate = function (models){
+    ColorTinta.belongsToMany(models.Producto, {
+    as: "productos",
+    through: "product_ink",
+    foreignKey: "idInkColor",
+    otherKey: "idProduct", 
+    timestamps : false
+    });
+}
+
     return ColorTinta;
 } 

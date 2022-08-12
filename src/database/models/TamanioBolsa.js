@@ -15,5 +15,13 @@ module.exports = (sequelize, DataTypes) => {
         timestamps : false
     }
     const TamanioBolsa = sequelize.define(alias, cols, config);
+    
+    TamanioBolsa.associate = function (models){
+        TamanioBolsa.hasMany(models.Productos, {
+            as: "productos",
+            foreignKey: "idSize"
+        });
+    }
+
     return TamanioBolsa;
 } 
