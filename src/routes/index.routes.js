@@ -8,9 +8,11 @@ const authMid = require('../middlewares/authMid')
 const routes = express.Router();
 
 const { body } = require ('express-validator');
+const { DefaultDeserializer } = require('v8');
 
 //validaciones
 const validacionDatosProducto = [
+    
     body('nombre')
                 .notEmpty().withMessage('Debes ingresar el nombre del producto')
                 .isLength({ min: 3 }).withMessage('El nombre debe tener como mínimo 3 caracteres'),
@@ -25,16 +27,24 @@ const validacionDatosProducto = [
     body('img')
     .custom((value , { req })=> {
         let file = req.file;
-        let extensionAceptada = ['.png', ',jpg', '.gif'];
+        
+        let extensionAceptada = ['.png', '.jpg', '.gif'];
         //controlamos que se suba una imagen
         if(!file){
             throw new Error ('Debes subir una imágen')
         }else{
             //controlamos que sea valida la extension del archivo subido
             let extension = path.extname(file.originalname);
+            
             if(!extensionAceptada.includes(extension)){
                 throw new Error (`Los tipos de archivo permitidos son ${extensionAceptada.join(', ')}`);
             }
+            //verifica que la imagen no sea mayor a 1.5MB        
+            if (file.size > 1500000) {
+                throw new Error('El archivo es demasiado grande');
+            }
+ 
+            
         }
         return true;
     })
@@ -63,7 +73,7 @@ routes.delete("/eliminar/:id", controller.eliminar)
 
 routes.get("/alta",controller.alta)
 
-routes.post("/nuevo", upload.single("img"), validacionDatosProducto, controller.crear)
+routes.post("/nuevo", upload.single("img"),  validacionDatosProducto, controller.crear)
 
 routes.get("/info",controller.info)
 
