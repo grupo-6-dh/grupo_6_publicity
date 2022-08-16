@@ -1,6 +1,3 @@
-const { DataTypes } = require("sequelize/types");
-const { sequelize } = require(".");
-
 module.exports = (sequelize, DataTypes) => {
     let alias = "Producto";
     let cols = {
@@ -25,9 +22,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         },
         idProductCategory:{
-            type: DataTypes.INTEGER
-        },
-        idInkColor:{
             type: DataTypes.INTEGER
         }
     };
@@ -56,14 +50,6 @@ module.exports = (sequelize, DataTypes) => {
         Producto.hasMany(models.CarritoProducto, {
             as: "carrito",
             foreignKey: "idCart"
-        });
-
-        Producto.belongsToMany(models.ColorTinta, {
-            as: "coloresTinta",
-            through: "product_ink",
-            foreignKey: "idProduct",
-            otherKey: "idInkColor", 
-            timestamps : false
         });
 
     }

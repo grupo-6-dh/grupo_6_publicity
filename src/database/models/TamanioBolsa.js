@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     const TamanioBolsa = sequelize.define(alias, cols, config);
     
     TamanioBolsa.associate = function (models){
-        TamanioBolsa.hasMany(models.Productos, {
+        TamanioBolsa.hasMany(models.Producto, {
             as: "productos",
             foreignKey: "idSize"
         });
