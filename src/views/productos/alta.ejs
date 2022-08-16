@@ -39,18 +39,19 @@
                 <section class="imagen-principal">
                         <div class="archivo">
                             <p class="texto">Subir imagen</p>
-                            <input class="btn-enviar" type="file" name="img" id="btnEnviar" value="<%= locals.datosViejos && datosViejos.img? datosViejos.img : ''%>">
+                            <input class="btn-enviar" type="file" name="img" id="btnEnviar">
                         </div>
                 </section>
                 <section class="contenedor-detalle-producto">
                     <div class="configuracion-producto">
+                       
                         <div class="contenedor">
                             <% if(locals.mensajeDeError && mensajeDeError.precio){ %>
                                 <div class="feedback is-danger">
                                     <%= mensajeDeError.precio.msg %>
                                 </div>
                             <% } %>
-                            <input class="inputText" type="number" name="precio" placeholder="Precio por unidad" value="<%= locals.datosViejos && datosViejos.precio? datosViejos.precio : ''%>">
+                            <input class="inputText" type="number" name="precio" placeholder="Precio por unidad" >
                         </div>
                         <div class="contenedor">
                             <h4 class="subtitulo">Descripción del producto</h4>
@@ -59,58 +60,21 @@
                                     <%= mensajeDeError.descripcion.msg %>
                                 </div>
                             <% } %>
-                            <input class="descripcion" type="text" name="descripcion" maxlength="700" value="<%= locals.datosViejos && datosViejos.descripcion? datosViejos.descripcion : ''%>">
+                            <input class="descripcion" type="text" name="descripcion" maxlength="700" >
                         </div>
                         <div class="contenedor">
                             <div class="titulos">
                                 <h4 class="tituloColor">Colores de bolsa disponibles</h4>
                                 <h4 class="tituloStock">Stock</h4>
                             </div>
+                            <% for(let i=0;i <bolsaColores.length; i++) { %>
                             <div class="color-stock">
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaBeige" id="bolsaBeige" value="beige">Beige</label>
-                                <label class="columna"><input class="stock" type="number" name="stockBeige" value="0"></label>
-                            
+                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[i].id%>"> <%= bolsaColores[i].color%></label>
+                                <label class="columna"><input class="stock" type="number" name="stock" value="0"></label> 
                             </div>
-                            <div class="color-stock">
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaNegra" id="bolsaNegra" value="negro">Negro</label>
-                                <label class="columna"><input class="stock" type="number" name="stockNegra"  value="0"></label>
-                            </div>
-                            <div class="color-stock"> 
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaBlanca" id="bolsaBlanca" value="blanco">Blanco</label>
-                                <label class="columna"><input class="stock" type="number" name="stockBlanca"  value="0"></label>
-                            </div>
-                            <div class="color-stock">
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaAzul" id="bolsaAzul" value="azul">Azul</label>
-                                <label class="columna"><input class="stock" type="number" name="stockAzul" value="0"></label>
-                            </div>
-                            <div class="color-stock">
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaRoja" id="bolsaRoja" value="rojo">Rojo</label>
-                                <label class="columna"><input class="stock" type="number" name="stockRoja" value="0"></label>
-                            </div>
-                            <div class="color-stock">
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaNaranja" id="bolsaNaranja" value="naranja">Naranja</label>
-                                <label class="columna "><input class="stock" type="number" name="stockNaranja" value="0"></label>
-                            </div>
-                            <div class="color-stock">
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaRosa" id="bolsaRosa" value="rosa">Rosa</label>
-                                <label class="columna "><input class="stock" type="number" name="stockRosa"  value="0"></label>
-                            </div>
-                            <div class="color-stock">
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="bolsaCeleste" id="bolsaCeleste" value="celeste">Celeste</label>
-                                <label class="columna"><input class="stock" type="number" name="stockCeleste" value="0"></label>
-                            </div>
+                            <% } %>
                         </div>
-                        <div class="contenedor">
-                            <h4 class="subtitulo">Colores de tinta disponibles</h4>
-                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaBeige" name="tintaBeige" value="beige">Beige</label>
-                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaNegra" name="tintaNegra" value="negro">Negro</label>
-                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaBlanca" name="tintaBlanca" value="blanco">Blanco</label>
-                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaAzul" name="tintaAzul" value="azul">Azul</label>
-                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaNaranja" name="tintaNaranja" value="naranja">Naranja</label>
-                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaRoja" name="tintaRoja" value="rojo">Rojo</label>
-                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaRosa" name="tintaRosa" value="rosa">Rosa</label>
-                            <label class="nombreColor"><input class="checkbox" type="checkbox" id="tintaCeleste" name="tintaCeleste" value="celeste">Celeste</label>
-                        </div>
+                       
                         <div class="contenedor">
                             <h4 class="subtitulo">Tamaño</h4>
                             <% if(locals.mensajeDeError && mensajeDeError.tamanio){ %>
@@ -118,16 +82,24 @@
                                     <%= mensajeDeError.tamanio.msg %>
                                 </div>
                             <% } %>
-                            <input class="inputText"  type="text" name="tamanio" value="<%= locals.datosViejos && datosViejos.tamanio? datosViejos.tamanio : ''%>">
+                            <select class="inputText">
+                                <% for(let i=0;i < tamanios.length; i++){ %>
+                                        <option name="tam" value="<%= tamanios[i].size %>"><%= tamanios[i].size%></option>
+                                <% } %>
+                            </select>
                         </div>
                         <div class="contenedor">
-                            <h4 class="subtitulo">Cantidad mínima de compra</h4>
-                            <% if(locals.mensajeDeError && mensajeDeError.cantMinima){ %>
+                            <h4 class="subtitulo">Categoría del producto</h4>
+                            <% if(locals.mensajeDeError && mensajeDeError.categoria){ %>
                                 <div class="feedback is-danger">
-                                    <%= mensajeDeError.cantMinima.msg %>
+                                    <%= mensajeDeError.categoria.msg %>
                                 </div>
                             <% } %>
-                            <input class="inputText" type="number" name="cantMinima" value="<%= locals.datosViejos && datosViejos.cantMinima? datosViejos.cantMinima : ''%>">
+                            <select class="inputText">
+                                <% for(let i=0;i < categorias.length; i++){ %>
+                                        <option name="categoria" value="<%=categorias[i].id%>"><%= categorias[i].productCategory%></option>
+                                <% } %>
+                            </select>
                         </div>
                         <button type="submit" class="boton-guardar">Guardar</button>
                     </div>

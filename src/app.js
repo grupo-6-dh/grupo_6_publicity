@@ -12,17 +12,17 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
 const recordameMid = require('./middlewares/recordameMid')
-
 app.set('views', path.join(__dirname,'./views'));
 app.set('view engine','ejs');
 
 app.use(methodOverride("_method"));
-app.use(cookieParser())
 
 
 //Indicamos a Express que vamos a trabajar con JSON y que la información esté en el formato correcto
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use(cookieParser())
+
 
 //---middleware de session---
 app.use(session({ secret: "the secret message xd" }));

@@ -20,10 +20,6 @@ const validacionDatosProducto = [
                 .notEmpty().withMessage('Debes ingresar el precio del producto'),
     body('descripcion')
                 .notEmpty().withMessage('Debes agregar una descripcion del producto'),
-    body('tamanio')
-                .notEmpty().withMessage('Debes ingresar el tamaño del producto'),
-    body('cantMinima')
-                .notEmpty().withMessage('Debes ingresar la cantidad mínima de compra'),
     body('img')
     .custom((value , { req })=> {
         let file = req.file;
