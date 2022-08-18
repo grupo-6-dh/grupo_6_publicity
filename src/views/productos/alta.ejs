@@ -22,26 +22,32 @@
         <form action="/nuevo" method="POST" enctype="multipart/form-data">
 
         <article class="producto">
+
             <h1>Dar de alta un nuevo producto</h1>
+
                 <% if(locals.mensajeDeError && mensajeDeError.nombre){ %>
                     <div class="feedback is-danger">
                         <%= mensajeDeError.nombre.msg %>
                     </div>
                 <% } %>
+
                 <div class="titulo">
                     <input class="inputText" type="text" name="nombre" placeholder="Título del producto" value="<%= locals.datosViejos && datosViejos.nombre? datosViejos.nombre : ''%>">
                 </div>
+
                 <% if(locals.mensajeDeError && mensajeDeError.img){ %>
                     <div class="feedback is-danger">
                         <%= mensajeDeError.img.msg %>
                     </div>
                 <% } %>
+
                 <section class="imagen-principal">
                         <div class="archivo">
                             <p class="texto">Subir imagen</p>
                             <input class="btn-enviar" type="file" name="img" id="btnEnviar">
                         </div>
                 </section>
+
                 <section class="contenedor-detalle-producto">
                     <div class="configuracion-producto">
                        
@@ -53,6 +59,7 @@
                             <% } %>
                             <input class="inputText" type="number" name="precio" placeholder="Precio por unidad" >
                         </div>
+
                         <div class="contenedor">
                             <h4 class="subtitulo">Descripción del producto</h4>
                             <% if(locals.mensajeDeError && mensajeDeError.descripcion){ %>
@@ -62,6 +69,7 @@
                             <% } %>
                             <input class="descripcion" type="text" name="descripcion" maxlength="700" >
                         </div>
+
                         <div class="contenedor">
                             <div class="titulos">
                                 <h4 class="tituloColor">Colores de bolsa disponibles</h4>
@@ -82,12 +90,13 @@
                                     <%= mensajeDeError.tamanio.msg %>
                                 </div>
                             <% } %>
-                            <select class="inputText">
+                            <select class="inputText" name="tamanio">
                                 <% for(let i=0;i < tamanios.length; i++){ %>
-                                        <option name="tam" value="<%= tamanios[i].size %>"><%= tamanios[i].size%></option>
+                                        <option value="<%= tamanios[i].id%>"><%= tamanios[i].size%></option>
                                 <% } %>
                             </select>
                         </div>
+
                         <div class="contenedor">
                             <h4 class="subtitulo">Categoría del producto</h4>
                             <% if(locals.mensajeDeError && mensajeDeError.categoria){ %>
@@ -95,12 +104,14 @@
                                     <%= mensajeDeError.categoria.msg %>
                                 </div>
                             <% } %>
-                            <select class="inputText">
+
+                            <select class="inputText" name="categoria">
                                 <% for(let i=0;i < categorias.length; i++){ %>
-                                        <option name="categoria" value="<%=categorias[i].id%>"><%= categorias[i].productCategory%></option>
+                                        <option value="<%=categorias[i].id%>"><%= categorias[i].productCategory%></option>
                                 <% } %>
                             </select>
                         </div>
+                        
                         <button type="submit" class="boton-guardar">Guardar</button>
                     </div>
                 </section>

@@ -19,31 +19,29 @@ const validacionDatosProducto = [
     body('precio')
                 .notEmpty().withMessage('Debes ingresar el precio del producto'),
     body('descripcion')
-                .notEmpty().withMessage('Debes agregar una descripcion del producto'),
-    body('img')
-    .custom((value , { req })=> {
-        let file = req.file;
+                .notEmpty().withMessage('Debes agregar una descripcion del producto')
+    // body('img')
+    // .custom((value , { req })=> {
+    //     let file = req.file;
         
-        let extensionAceptada = ['.png', '.jpg', '.gif'];
-        //controlamos que se suba una imagen
-        if(!file){
-            throw new Error ('Debes subir una imágen')
-        }else{
-            //controlamos que sea valida la extension del archivo subido
-            let extension = path.extname(file.originalname);
+    //    // let extensionAceptada = ['.PNG', '.JPG','.JPEG', '.GIF'];
+    //     //controlamos que se suba una imagen
+    //     if(!file){
+    //         throw new Error ('Debes subir una imágen')
+    //     }else{
+    //         //controlamos que sea valida la extension del archivo subido
+    //         let extension = path.extname(file.originalname);
             
-            if(!extensionAceptada.includes(extension)){
-                throw new Error (`Los tipos de archivo permitidos son ${extensionAceptada.join(', ')}`);
-            }
-            //verifica que la imagen no sea mayor a 1.5MB        
-            if (file.size > 1500000) {
-                throw new Error('El archivo es demasiado grande');
-            }
- 
-            
-        }
-        return true;
-    })
+    //         // if(!extensionAceptada.includes(extension)){
+    //         //     throw new Error (`Los tipos de archivo permitidos son ${extensionAceptada.join(', ')}`);
+    //         // }
+    //         //verifica que la imagen no sea mayor a 1.5MB        
+    //         if (file.size > 1500000) {
+    //             throw new Error('El archivo es demasiado grande');
+    //         }
+    
+    //     }
+        
 ]
 
 //---rutas---
@@ -76,9 +74,6 @@ routes.get("/info",controller.info)
 routes.get("/products/:id/edit", controller.modificarProducto)
 
 routes.put("/products/:id/edit", upload.single("img"), validacionDatosProducto, controller.edit)
-
-
-
 
 
 module.exports = routes;
