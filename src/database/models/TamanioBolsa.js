@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     let cols = {
         id:{
             type: DataTypes.INTEGER,
-            primaryKey : true, 
+            primaryKey : true,
+            autoIncrement: true, 
             allowNull: false,
         },
         size:{
@@ -17,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     const TamanioBolsa = sequelize.define(alias, cols, config);
     
     TamanioBolsa.associate = function (models){
-        TamanioBolsa.hasMany(models.Productos, {
+        TamanioBolsa.hasMany(models.Producto, {
             as: "productos",
             foreignKey: "idSize"
         });

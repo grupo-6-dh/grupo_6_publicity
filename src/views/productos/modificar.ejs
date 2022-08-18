@@ -20,7 +20,7 @@
 
         <!--Main-->
         <main>
-            <form enctype="multipart/form-data" action="/products/<%=prod.id%>/edit?_method=PUT" method="POST">
+            <form  action="/products/<%=producto.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                 <article class="producto">
                     <h1 class="subtitulo">Modificar producto</h1>
                     <% if(locals.mensajeDeError && mensajeDeError.nombre){ %>
@@ -29,14 +29,14 @@
                         </div>
                     <% } %>
                     <div class="titulo">
-                        <input name="nombre" class="inputText" type="text" value="<%=prod.nombre%>">
+                        <input name="nombre" class="inputText" type="text" value="<%=producto.name%>">
                     </div>
                     <% if(locals.mensajeDeError && mensajeDeError.img){ %>
                         <div class="feedback is-danger">
                             <%= mensajeDeError.img.msg %>
                         </div>
                     <% } %>
-                    <section class="imagen-principal" style="background-image:url('/../<%=prod.imagen%>')">
+                    <section class="imagen-principal" style="background-image:url('/../<%=producto.image%>')">
                         <div class="archivo">
                             <p class="texto">Cambiar Imagen</p>
                             <input name="img" class="btn-enviar" type="file" id="btnEnviar">
@@ -51,7 +51,7 @@
                                         <%= mensajeDeError.precio.msg %>
                                     </div>
                                 <% } %>
-                                <input name="precio" class="inputText" type="number" value="<%=prod.precio%>">
+                                <input name="precio" class="inputText" type="number" value="<%=producto.price%>">
                             </div>
                             <div class="contenedor">
                                 <h4 class="subtitulo">Descripción del producto</h4>
@@ -60,73 +60,7 @@
                                         <%= mensajeDeError.descripcion.msg %>
                                     </div>
                                 <% } %>
-                                <textarea name="descripcion" class="descripcion" maxlength="700"><%=prod.descripcion%></textarea>
-                            </div>
-                            <div class="contenedor">
-                                <div class="titulos">
-                                    <h4 class="tituloColor">Colores de bolsa disponibles</h4>
-                                    <h4 class="tituloStock">Stock</h4>
-                                </div>
-                                <div class="color-stock">
-                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
-                                             nam ="bolsaBeige" value="beige" id="bolsaBeige"<% if(prod.colorBolsa.includes("beige")){ %>checked<%}%>>Beige</label>
-                                    <label class="columna"><input name="stockBeige" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "beige")] %>"></label>
-
-                                </div>
-                                <div class="color-stock">
-                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
-                                        name="bolsaNegra" value="negro" id="bolsaNegra"<% if(prod.colorBolsa.includes("negro")){ %>checked<%}%>>Negro</label>
-                                    <label class="columna"><input name="stockNegra" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "negro")] %>"></label>
-                                </div>
-                                <div class="color-stock">
-                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
-                                        name="bolsaBlanca" value="blanco" id="bolsaBlanca" <% if(prod.colorBolsa.includes("blanco")){ %>checked<%}%>>Blanco</label>
-                                    <label class="columna"><input name="stockBlanca" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "blanco")] %>"></label>
-                                </div>
-                                <div class="color-stock">
-                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
-                                        name="bolsaAzul" value="azul" id="bolsaAzul" <% if(prod.colorBolsa.includes("azul")){ %>checked<%}%>>Azul</label>
-                                    <label class="columna"><input name="stockAzul" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "azul")] %>"></label>
-                                </div>
-                                <div class="color-stock">
-                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
-                                        name="bolsaRoja" value="rojo" id="bolsaRoja"<% if(prod.colorBolsa.includes("rojo")){ %>checked<%}%>>Rojo</label>
-                                    <label class="columna"><input name="stockRoja" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "rojo")] %>"></label>
-                                </div>
-                                <div class="color-stock">
-                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
-                                        name="bolsaNaranja" value="naranja" id="bolsaNaranja" <% if(prod.colorBolsa.includes("naranja")){ %>checked<%}%>>Naranja</label>
-                                    <label class="columna "><input name="stockNaranja" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "naranja")] %>"></label>
-                                </div>
-                                <div class="color-stock">
-                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
-                                        name="bolsaRosa" value="rosa" id="bolsaRosa" <% if(prod.colorBolsa.includes("rosa")){ %>checked<%}%>>Rosa</label>
-                                    <label class="columna "><input name="stockRosa" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "rosa")] %>"></label>
-                                </div>
-                                <div class="color-stock">
-                                    <label class="columna nombreColor"><input class="checkbox" type="checkbox"
-                                        name="bolsaCeleste" value="celeste" id="bolsaCeleste" <% if(prod.colorBolsa.includes("Celeste")){ %>checked<%}%>>Celeste</label>
-                                    <label class="columna"><input name="stockCeleste" class="stock" type="number" value="<%= prod.stock[prod.colorBolsa.findIndex(color => color == "Celeste")] %>"></label>
-                                </div>
-                            </div>
-                            <div class="contenedor">
-                                <h4 class="subtitulo">Colores de tinta disponibles</h4>
-                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaBeige" id="tintaBeige"
-                                    value="beige" <% if(prod.colorTinta.includes("beige")){ %>checked<%}%>>Beige</label>
-                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaNegra" id="tintaNegra"
-                                    value="negro" <% if(prod.colorTinta.includes("negro")){ %>checked<%}%>>Negro</label>
-                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaBlanca" id="tintaBlanca"
-                                    value="blanco" <% if(prod.colorTinta.includes("blanco")){ %>checked<%}%>>Blanco</label>
-                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaAzul" id="tintaAzul"
-                                    value="azul"    value="azul" <% if(prod.colorTinta.includes("azul")){ %>checked<%}%>>Azul</label>
-                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaNaranja" id="tintaNaranja"
-                                    value="naranja" <% if(prod.colorTinta.includes("naranja")){ %>checked<%}%>>Naranja</label>
-                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaRoja" id="tintaRoja"
-                                    value="rojo" <% if(prod.colorTinta.includes("rojo")){ %>checked<%}%>>Rojo</label>
-                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaRosa" id="tintaRosa"
-                                    value="rosa" <% if(prod.colorTinta.includes("rosa")){ %>checked<%}%>>Rosa</label>
-                                <label class="nombreColor"><input class="checkbox" type="checkbox" name="tintaCeleste" id="tintaCeleste"
-                                    value="celeste" <% if(prod.colorTinta.includes("celeste")){ %>checked<%}%>>Celeste</label>
+                                <textarea name="descripcion" class="descripcion" maxlength="700"><%=producto.description%></textarea>
                             </div>
                             <div class="contenedor">
                                 <% if(locals.mensajeDeError && mensajeDeError.tamanio){ %>
@@ -135,17 +69,57 @@
                                     </div>
                                 <% } %>
                                 <h4 class="subtitulo">Tamaño</h4>
-                                <input name="tamanio" class="inputText" type="text" value="<%=prod.tamaño%>">
+                                <select class="inputText" >
+                                <% for(let i=0;i < tamanios.length; i++){ %>
+                                    <% if(tamanios[i].id==producto.idSize) { %>
+                                        <option value="<%= tamanios[i].id %>" selected><%= tamanios[i].size%></option>
+                                    <% } %>
+                                        <option value="<%= tamanios[i].id %>" ><%= tamanios[i].size%></option>
+                                <% } %>
+                               </select> 
+                               
                             </div>
+
                             <div class="contenedor">
-                                <% if(locals.mensajeDeError && mensajeDeError.cantMinima){ %>
+                                <h4 class="subtitulo">Categoría del producto</h4>
+                                <% if(locals.mensajeDeError && mensajeDeError.categoria){ %>
                                     <div class="feedback is-danger">
-                                        <%= mensajeDeError.cantMinima.msg %>
+                                        <%= mensajeDeError.categoria.msg %>
                                     </div>
                                 <% } %>
-                                <h4 class="subtitulo">Cantidad mínima de compra</h4>
-                                <input name="cantMinima" class="inputText" type="number" value="<%=prod.cantMinima%>">
+                                <select class="inputText" name="categoria">
+                                    <% for(let i=0;i < categorias.length; i++){ %>
+                                        <% if(categorias[i].id==producto.idProductCategory) { %>
+                                            <option value="<%= categorias[i].id %>"><%= categorias[i].productCategory%></option>
+                                        <% } %>
+                                    <% } %>
+                                </select>
                             </div>
+
+                            <div class="contenedor">
+                                <div class="titulos">
+                                    <h4 class="tituloColor">Colores de bolsa disponibles</h4>
+                                    <h4 class="tituloStock">Stock</h4>
+                                </div>
+
+                                <% for(let i=0;i < stock.length; i++){ %>
+                                    <% for(let j=0;j < bolsaColores.length; j++){ %>
+                                        <% if(stock[i].idProduct==producto.id) { %>
+                                            <div class="color-stock">
+                                            <% if(stock[i].idBagColor == bolsaColores[j].id) { %>
+                                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[j].id%>" checked> <%= bolsaColores[j].color%></label>
+                                                <label class="columna"><input class="stock" type="number" name="stock" value="<%= stock[i].stock %>"></label> 
+                                            <% } else {%>
+                                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[j].id%>"> <%= bolsaColores[j].color%></label>
+                                                <label class="columna"><input class="stock" type="number" name="stock" value="0"></label> 
+                                            <%  } %>
+                                            </div>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+
+                            </div>
+                            
                             <button type="submit" class="boton-guardar">Guardar</button>
                         </div>
                     </section>
