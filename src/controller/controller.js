@@ -6,8 +6,6 @@ const fs = require("fs");
 
 //Multer
 const multer = require('multer')
-//solicitamos la funcion validationResult de express validator
-const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const { brotliDecompress } = require('zlib');
 
@@ -108,57 +106,42 @@ const controller = {
     },
 
     crear: (req, res) => {
-        //le enviamos a express validator el objeto req, para que controle si todos los campos son correctos
-        let errores = validationResult(req);
-       
-        if (errores.isEmpty()) {
+        // obtenemos los datos
+        let img = req.file;
+        let imagen = `img/${img.filename}`;
+        let nombre = req.body.nombre;
+        let descripcion = req.body.descripcion;
+        let precio = req.body.precio;
+        let idTamanio = req.body.tamanio;
+        let idCategoria = req.body.categoria;
 
-            // obtenemos los datos
-            let img = req.file;
-            let imagen = `img/${img.filename}`;
-            let nombre = req.body.nombre;
-            let descripcion = req.body.descripcion;
-            let precio = req.body.precio;
-            let idTamanio = req.body.tamanio;
-            let idCategoria = req.body.categoria;
-
-            //damos de alta el producto           
-            let producto = db.Producto.create({
-                    name: nombre,
-                    description: descripcion,
-                    price: precio,
-                    image: imagen,
-                    idSize: idTamanio,
-                    idProductCategory: idCategoria
-                }).then(function (producto){
-                    let id = producto.id;
-                    //obtenemos el id del producto creado
-                    let color = req.body.color;  //me devuelve un array con los id de los colores seleccionados
-                        // damos de alta el stock utilizando el id del producto creado
-                        //por cada color seleccionado, creamos un stock con el valor del stock ingresado 
-                        for (let i = 0; i < color.length; i++) {
-                            db.Stock.create({
-                                stock: req.body.stock[color[i] - 1],
-                                idBagColor: color[i],
-                                idProduct: id
-                            });
-                        }
-                        
-                        db.Producto.findAll().then(function(result){ 
-                            return res.render('productos/abml',{'productos':result});
+        //damos de alta el producto           
+        let producto = db.Producto.create({
+                name: nombre,
+                description: descripcion,
+                price: precio,
+                image: imagen,
+                idSize: idTamanio,
+                idProductCategory: idCategoria
+            }).then(function (producto){
+                let id = producto.id;
+                //obtenemos el id del producto creado
+                let color = req.body.color;  //me devuelve un array con los id de los colores seleccionados
+                    // damos de alta el stock utilizando el id del producto creado
+                    //por cada color seleccionado, creamos un stock con el valor del stock ingresado 
+                    for (let i = 0; i < color.length; i++) {
+                        db.Stock.create({
+                            stock: req.body.stock[color[i] - 1],
+                            idBagColor: color[i],
+                            idProduct: id
                         });
-    
-                    })
+                    }
 
-        } else {
-            //si se cargo una imagen previamente la borramos
-            if (req.file != 'undefined') {
-                fs.unlinkSync(path.join(__dirname, "../../public/img/", req.file.filename));
-            }
-            // si hay errores, renderizamos la vista registro enviandole el objeto mensajeError con los errores encontrados
-            //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-            return res.render('productos/alta', { mensajeDeError: errores.mapped(), datosViejos: req.body});
-        }
+                    db.Producto.findAll().then(function(result){ 
+                        return res.render('productos/abml',{'productos':result});
+                    });
+
+                })
     },
 
     registro: (req, res) => {
@@ -200,111 +183,99 @@ const controller = {
     info: (req, res) => {
         return res.render('info-pago');
     },
-    edit: (req, res) => {
-        //le enviamos a express validator el objeto req, para que controle si todos los campos son correctos
-        let errores = validationResult(req);
-        //si hay errores, renderizamos la vista registro enviandole el objeto mensajeError con los errores encontrados
-        if (errores.isEmpty()) {
 
-            let idProducto = req.params.id;
-             // obtenemos los datos
-             let img = req.file;
-             let nombre = req.body.nombre;
-             let descripcion = req.body.descripcion;
-             let precio = req.body.precio;
-             let idTamanio = req.body.tamanio;
-             let idCategoria = req.body.categoria;
-             if(img != undefined){
-                let imagen = `img/${img.filename}`;
-                
-                db.Producto.update({
-                    name: nombre,
-                    description: descripcion,
-                    price: precio,
-                    image: imagen,
-                    idSize: idTamanio,
-                    idProductCategory: idCategoria
-                },{
-                where: {
-                    id: idProducto
-                }
-                }).then(function(){
-                    // damos de alta el stock utilizando el id del producto creado
-                 let color = req.body.color;
- 
-                 for (let i = 0; i < color.length; i++) {
-                     db.Stock.update({
-                         stock: req.body.stock[color[i] - 1],
-                         idBagColor: color[i],
-                         idProduct: idProducto
-                     },{
-                        where: {
-                            idProduct : idProducto
-                        }
-                     })
+    edit:(req,res) => {
+        let idProducto = req.params.id;
+         // obtenemos los datos
+         let img = req.file;
+         let nombre = req.body.nombre;
+         let descripcion = req.body.descripcion;
+         let precio = req.body.precio;
+         let idTamanio = req.body.tamanio;
+         let idCategoria = req.body.categoria;
+         if(img != undefined){
+            let imagen = `img/${img.filename}`;
+
+            db.Producto.update({
+                name: nombre,
+                description: descripcion,
+                price: precio,
+                image: imagen,
+                idSize: idTamanio,
+                idProductCategory: idCategoria
+            },{
+            where: {
+                id: idProducto
+            }
+            }).then(function(){
+                // damos de alta el stock utilizando el id del producto creado
+             let color = req.body.color;
+
+             for (let i = 0; i < color.length; i++) {
+                 db.Stock.update({
+                     stock: req.body.stock[color[i] - 1],
+                     idBagColor: color[i],
+                     idProduct: idProducto
+                 },{
+                    where: {
+                        idProduct : idProducto
                     }
-                    
-                    let stock = db.Stock.findAll();                   
-                    let categorias = db.CategoriaProducto.findAll();
-                    let bolsaColores = db.ColorBolsa.findAll();
-                    let tamanios = db.TamanioBolsa.findAll();
-                    let prod=db.Producto.findByPk(idProducto);
-
-                    Promise.all([stock, prod, bolsaColores, tamanios, categorias])
-                        .then(function ([stock, prod, bolsaColores, tamanios, categorias]) {
-                            return res.render('productos/detalle', { 'detalle': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias });
-                        })
-                })
-
-             }else{
-                
-                db.Producto.update({
-                    name: nombre,
-                    description: descripcion,
-                    price: precio,
-                    idSize: idTamanio,
-                    idProductCategory: idCategoria
-                },{
-                where: {
-                    id: idProducto
+                 })
                 }
-                }).then(function(){
-                    // damos de alta el stock utilizando el id del producto creado
-                 let color = req.body.color;
-                 for (let i = 0; i < color.length; i++) {
-                     db.Stock.update({
-                         stock: req.body.stock[color[i] - 1],
-                         idBagColor: color[i],
-                         idProduct: idProducto
-                     },{
-                        where: {
-                            idProduct : idProducto
-                        }
-                     })
+
+                let stock = db.Stock.findAll();                   
+                let categorias = db.CategoriaProducto.findAll();
+                let bolsaColores = db.ColorBolsa.findAll();
+                let tamanios = db.TamanioBolsa.findAll();
+                let prod=db.Producto.findByPk(idProducto);
+
+                Promise.all([stock, prod, bolsaColores, tamanios, categorias])
+                    .then(function ([stock, prod, bolsaColores, tamanios, categorias]) {
+                        return res.render('productos/detalle', { 'detalle': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias });
+                    })
+            })
+
+         }else{
+
+            db.Producto.update({
+                name: nombre,
+                description: descripcion,
+                price: precio,
+                idSize: idTamanio,
+                idProductCategory: idCategoria
+            },{
+            where: {
+                id: idProducto
+            }
+            }).then(function(){
+                // damos de alta el stock utilizando el id del producto creado
+             let color = req.body.color;
+             for (let i = 0; i < color.length; i++) {
+                 db.Stock.update({
+                     stock: req.body.stock[color[i] - 1],
+                     idBagColor: color[i],
+                     idProduct: idProducto
+                 },{
+                    where: {
+                        idProduct : idProducto
                     }
-                    
-                    let stock = db.Stock.findAll();                   
-                    let categorias = db.CategoriaProducto.findAll();
-                    let bolsaColores = db.ColorBolsa.findAll();
-                    let tamanios = db.TamanioBolsa.findAll();
-                    let prod=db.Producto.findByPk(idProducto);
+                 })
+                }
 
-                    Promise.all([stock, prod, bolsaColores, tamanios, categorias])
-                        .then(function ([stock, prod, bolsaColores, tamanios, categorias]) {
-                            return res.render('productos/detalle', { 'detalle': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias });
-                        })
-                })
+                let stock = db.Stock.findAll();                   
+                let categorias = db.CategoriaProducto.findAll();
+                let bolsaColores = db.ColorBolsa.findAll();
+                let tamanios = db.TamanioBolsa.findAll();
+                let prod=db.Producto.findByPk(idProducto);
 
-             }
-        
-                 
-                    
-             }else {
-            //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-            //return res.render('productos/modificar', { mensajeDeError: errores.mapped() });
-            return console.log('no anda')
+                Promise.all([stock, prod, bolsaColores, tamanios, categorias])
+                    .then(function ([stock, prod, bolsaColores, tamanios, categorias]) {
+                        return res.render('productos/detalle', { 'detalle': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias });
+                    })
+            })
 
         }
+        
     }
 
 
