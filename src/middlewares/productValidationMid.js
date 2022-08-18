@@ -5,7 +5,8 @@ const { body, validationResult } = require('express-validator');
 
 //--validaciones--
 
-exports.validacionDatosProducto = [
+
+exports.validacionDatosProductoEditar = [
 
     body('nombre')
         .notEmpty().withMessage('Debes ingresar el nombre del producto')
@@ -44,13 +45,13 @@ exports.validacionDatosProducto = [
         }),
     (req, res, next) => {
         const errors = validationResult(req);
-        if (!errors.isEmpty()){ //error en validación
+        if (!errors.isEmpty()) { //error en validación
             //si se cargo una imagen previamente la borramos
             if (req.file != 'undefined') {
                 fs.unlinkSync(path.join(__dirname, "../../public/img/", req.file.filename));
             }
             //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-            return res.render('productos/alta', { mensajeDeError: errores.mapped(), datosViejos: req.body });
+            return res.render('productos/edit', { mensajeDeError: errores.mapped(), datosViejos: req.body });
         }
         next();
     },
