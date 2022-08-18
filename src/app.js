@@ -34,7 +34,7 @@ app.use((req, res, next) => {
     res.locals.logueado = 0;
     if (req.session.usuarioLogueado){
         res.locals.logueado = 1;
-        res.locals.nombreUsuario = req.session.usuarioLogueado.nombre;
+        res.locals.nombreUsuario = req.session.usuarioLogueado.name;
     }
     next();
 });
