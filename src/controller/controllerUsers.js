@@ -2,11 +2,14 @@ const path = require('path');
 let usuarios= require('../data/users.json');
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
-
+const db = require('../database/models');
+const { brotliDecompress } = require('zlib');
 
 const controllerUsers = {
     listar: (req, res) => {
-        return res.render('usuarios/usuarios',{usuarios});
+        db.Usuario.findAll().then(function (result) {
+            return res.render('usuarios/usuarios', { 'usuarios': result });
+        });
     },
 
     login: (req, res) => {
@@ -14,37 +17,25 @@ const controllerUsers = {
     },
 
     loginProcess: (req,res) => {
-        let encontrado=usuarios.find(unUsuario=> unUsuario.email==req.body.email);
-        
-        if (encontrado) {
-            if (verificarPass = bcrypt.compareSync(req.body.pass, encontrado.contrasenia)) {
-                req.session.usuarioLogueado = encontrado;
-                if(req.body.recordame != undefined){
-                    res.cookie('recordame', encontrado.email, {maxAge : 60000000 })
-                }
-                res.redirect('/')
-            }else{ //error de contraseña no coincide
-                res.render('usuarios/login', { errors: { pass: { msg: '*Contraseña incorrecta' } }, datosViejos: req.body });
+        db.Usuario.findOne({
+            where: {
+                email: req.body.email,
             }
-        }else{ //error de usuario no encontrado
-            res.render('usuarios/login', { errors: { email: { msg: '*Email incorrecto' } }, datosViejos: req.body });
-        }
-            
-
-        //Deprecado por uso de session
-        /*if(encontrado){
-            if(encontrado.contrasenia==req.body.pass){
-                return res.redirect('/');
-
-            }
-            res.render('usuarios/login',{
-                errors:{
-                    pass: {
-                        msg: '*Contraseña incorrecta'
+        }).then((encontrado) => {
+            if (encontrado) {
+                if (verificarPass = bcrypt.compareSync(req.body.pass, encontrado.password)) {
+                    req.session.usuarioLogueado = encontrado;
+                    if (req.body.recordame != undefined) {
+                        res.cookie('recordame', encontrado.email, { maxAge: 60000000 })
                     }
+                    res.redirect('/')
+                } else { //error de contraseña no coincide
+                    res.render('usuarios/login', { errors: { pass: { msg: '*Contraseña incorrecta' } }, datosViejos: req.body });
                 }
-            });
-        } */ 
+            } else { //error de usuario no encontrado
+                res.render('usuarios/login', { errors: { email: { msg: '*Email incorrecto' } }, datosViejos: req.body });
+            }
+        });
     },
     logout: (req, res) => {
         if (req.session) {
@@ -68,30 +59,66 @@ const controllerUsers = {
     },
 
     eliminar:(req,res) => {
-        let id=req.params.id;
-        let nuevaListaUsuarios=usuarios.filter((item)=>item.id != id);
-        fs.writeFileSync(path.join(__dirname, "../data/users.json"), JSON.stringify(nuevaListaUsuarios, null, 4),
-        {encoding: "utf-8",});
-        res.render('usuarios/usuarios', {'usuarios':nuevaListaUsuarios});
+        let id = req.params.id;
+        db.Usuario.destroy({
+            where: {
+                id: id,
+            }
+        }).then(function(){
+            db.Usuario.findAll().then(function (result) {
+                return res.render('usuarios/usuarios', { 'usuarios': result });
+            });
+        })
+        
     },
     
     crearUsuario: (req, res) => {
-        let nuevoUsuario = {
-            id: usuarios[(usuarios.length - 1)].id + 1,
-            nombre : req.body.nombre,
-            email : req.body.email,
-            //guardamos la contraseña hasheada
-            contrasenia: bcrypt.hashSync(req.body.contrasenia, 10)
-        }        
-        usuarios.push(nuevoUsuario);
-        fs.writeFileSync(
-            path.join(__dirname,"../data/users.json"),
-            JSON.stringify(usuarios,null,4),
-            {
-                encoding: 'utf-8',
+        // obtenemos los datos
+        let nombre = req.body.nombre;
+        let email = req.body.email;
+        // guardamos la contraseña hasheada
+        let contrasenia = bcrypt.hashSync(req.body.contrasenia, 10)
+
+        let usuario = db.Usuario.create({
+            name: nombre,
+            email: email,
+            password: contrasenia,
+            idUserCategory: 1,
+        }).then(function (usuario){
+            return res.render('')
+        })
+    },
+
+    makeAdmin: (req, res) => {
+        // obtenemos los datos
+        let id = req.params.id
+        db.Usuario.update({
+            idUserCategory: 2,
+        },{
+            where: {
+                id: id,
             }
-        );
-        return res.render(''); 
+        }).then(function(){
+            db.Usuario.findAll().then(function (result) {
+                return res.render('usuarios/usuarios', { 'usuarios': result });
+            });
+        });
+    },
+
+    makeNormalUser: (req, res) => {
+        // obtenemos los datos
+        let id = req.params.id
+        db.Usuario.update({
+            idUserCategory: 1,
+        }, {
+            where: {
+                id: id,
+            }
+        }).then(function () {
+            db.Usuario.findAll().then(function (result) {
+                return res.render('usuarios/usuarios', { 'usuarios': result });
+            });
+        });
     },
 
 }

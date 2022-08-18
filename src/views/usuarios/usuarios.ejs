@@ -30,6 +30,7 @@
                             <th id="cabecera">Id</th>
                             <th id="cabecera">Nombre</th>
                             <th id="cabecera">Email</th>
+                            <th id="cabecera">Rol</th>
                             <th id="cabecera">Acción</th>
                         </tr>
 
@@ -39,14 +40,29 @@
                                     <%= usuarios[i].id%>
                                 </td>
                                 <td>
-                                    <%= usuarios[i].nombre%>
+                                    <%= usuarios[i].name%>
                                 </td>
                                 <td>
                                     <%= usuarios[i].email%>
                                 </td>
                                 <td>
+                                    <%if(usuarios[i].idUserCategory == 1){%><span>-</span><%}%>
+                                    <%if(usuarios[i].idUserCategory == 2){%><span style="color:green">ADMIN</span><%}%>
+                                </td>
+                                <td >
+                                    <%if(usuarios[i].idUserCategory==1){%>
+                                        <form method="GET" action="/users/upgrade/<%=usuarios[i].id%>">
+                                            <button title="Hacer admin"><i class="fa-solid fa-angles-up"></i></button>
+                                        </form>
+                                        <%}%>
+                                    <%if(usuarios[i].idUserCategory==2){%>
+                                        <form method="GET" action="/users/downgrade/<%=usuarios[i].id%>">
+                                            <button title="Hacer usuario normal"><i class="fa-solid fa-angles-down"></i></button>
+                                        </form>
+                                    <%}%>
+                                    
                                     <form method="POST" action="/users/eliminar/<%=usuarios[i].id%>?_method=DELETE">
-                                        <button><i class="fa-solid fa-trash-can"></i></button>
+                                        <button title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
                                     </form>
                                 </td>
                             </tr>

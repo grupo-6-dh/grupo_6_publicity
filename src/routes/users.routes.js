@@ -16,6 +16,10 @@ routesUsers.post("/loginProcess", guestMid, userValidationMid.validacionLogin, c
 
 routesUsers.get('/logout', controller.logout)
 
+routesUsers.get("/upgrade/:id",controller.makeAdmin)
+
+routesUsers.get("/downgrade/:id", controller.makeNormalUser)
+
 
 module.exports = routesUsers;
 
