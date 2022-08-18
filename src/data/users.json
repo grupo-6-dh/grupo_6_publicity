@@ -124,5 +124,11 @@
         "nombre": "Nuria Vega",
         "email": "nuriavega.nv@gmail.com",
         "contrasenia": "12345"
+    },
+    {
+        "id": 22,
+        "nombre": "Hernan",
+        "email": "hernan_c_94@hotmail.com",
+        "contrasenia": "$2a$10$7vbPDeGbcE/OvEN6TBnDAO40qsMsfwFWnd40pjt019SEpO.h5ad3K"
     }
 ]
