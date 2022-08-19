@@ -31,13 +31,13 @@ routes.delete("/eliminar/:id", controller.eliminar)
 
 routes.get("/alta",controller.alta)
 
-routes.post("/nuevo", upload.single("img"), productValidationMid.validacionDatosProducto, controller.crear)
+routes.post("/nuevo", upload.single("img"),controller.crear)
 
 routes.get("/info",controller.info)
 
 routes.get("/products/:id/edit", controller.modificarProducto)
 
-routes.put("/products/:id/edit", upload.single("img"), productValidationMid.validacionDatosProductoEditar, controller.edit)
+routes.put("/products/:id/edit", upload.single("img"),controller.edit)
 
 
 module.exports = routes;
