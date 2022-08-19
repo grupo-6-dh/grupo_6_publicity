@@ -34,9 +34,13 @@ app.use(recordameMid);
 
 app.use((req, res, next) => {
     res.locals.logueado = 0;
+    res.locals.admin = 0;
     if (req.session.usuarioLogueado){
         res.locals.logueado = 1;
         res.locals.nombreUsuario = req.session.usuarioLogueado.name;
+    }
+    if (req.session.admin) {
+        res.locals.admin = 1;
     }
     next();
 });
