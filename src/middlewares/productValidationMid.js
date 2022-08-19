@@ -102,7 +102,7 @@ exports.validacionDatosProductoEditar = [
                 fs.unlinkSync(path.join(__dirname, "../../public/img/", req.file.filename));
             }
             //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-            return res.render('productos/modificar', { mensajeDeError: errors.mapped(), datosViejos: req.body });
+            return res.render('productos/modificar', { mensajeDeError: errors.mapped(), datosViejos: req.body});
         }
         next();
     },
