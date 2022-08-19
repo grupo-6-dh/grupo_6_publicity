@@ -40,3 +40,8 @@ El proyecto se lleva a cabo siguiendo el marco de trabajo para desarrollo ágil 
 **Sprint actual :arrows_counterclockwise:--> Sprint 6**
 
 
+## Guía de implementación
+Primero debemos levantar en nuestra base de datos y ejecutar el script structure.sql
+Usuario administrador:
+email: admin@admin.com
+pass: admin
