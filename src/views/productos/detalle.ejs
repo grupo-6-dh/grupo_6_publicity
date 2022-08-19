@@ -23,52 +23,49 @@
 
         <article class="producto">
             <section class="imagen-principal">
-                    <img src="/<%=detalle.imagen %>" alt="Bolsa de friselina con mango">
+                    <img src="/<%=detalle.image %>" alt="Bolsa de friselina con mango">
             </section>
             <section class="contenedor-detalle-producto">
                 <div class="info-producto">
-                    <h3 class="nombre"><%= detalle.nombre%></h3>
-                    <a class="precio"><%= detalle.precio %>c/u</a>
+                    <h3 class="nombre"><%= detalle.name%></h3>
+                    <a class="precio"><%= detalle.price %>c/u</a>
                     <a class="oferta">Ahorrá llevando 250 unidades o más</a>
                     <p>
-                        <%= detalle.descripcion%>
+                        <%= detalle.description%>
                     </p>
                     
                 </div>
                 <div class="configuracion-producto">
-                    </select>
                     <label>Color de bolsa</label>
                     <select>
-                        <% for(let i=0;i < detalle.colorBolsa.length; i++){ %>
-                            <% if(detalle.colorBolsa[i]!= null) { %>
-                                <option value="<%= detalle.colorBolsa[i] %>"><%= detalle.colorBolsa[i]%></option>
+                        <% for(let i=0;i < stock.length; i++){ %>
+                            <% for(let j=0;j < bolsaColores.length; j++){ %>
+                                <% if(stock[i].idProduct==detalle.id) { %>
+                                    <% if(stock[i].idBagColor == bolsaColores[j].id) { %>
+                                        <option value="<%= bolsaColores[j].id %>"><%= bolsaColores[j].color%></option>
+                                    <% } %>
                                 <% } %>
-                        <% } %>
-                        
-                    </select>
-                    <label>Color de tinta</label>
-                    <select>
-                        <% for(let i=0;i < detalle.colorTinta.length; i++){ %>
-                            <% if(detalle.colorTinta[i]!= null) { %>
-                            <option value="<%= detalle.colorTinta[i] %>"><%= detalle.colorTinta[i]%></option>
                             <% } %>
                         <% } %>
                     </select>
-                    <label>Tamaño</label>
-                    
-                    <select>
-                        <option value="<%= detalle.tamaño %>"> <%= detalle.tamaño %> </option>   
-                    </select>
-
                     <label>Stock</label>
                     <select>
-                        <% for(let i=0;i < detalle.stock.length; i++){ %>
-                            <% if(detalle.stock[i]!= 0) { %>
-                            <option value="<%= detalle.stock[i] %>"><%= detalle.stock[i]%></option>
-                            <% } %>  
-                        <% } %> 
-                    </select>
+                        <% for(let i=0;i < stock.length; i++){ %> 
 
+                            <% if(stock[i].idProduct==detalle.id) { %>
+                                <option value="<%= stock[i].id %>"><%= stock[i].stock%></option>
+                            <% } %>
+                            
+                        <% } %>
+
+                    </select>
+                    <label>Tamaño</label>
+                        <% for(let i=0;i < tamanios.length; i++){ %>
+                            <% if(tamanios[i].id==detalle.idSize) { %>
+                                    <input type="text" value="<%= tamanios[i].size%>" disabled>
+                            <% } %> 
+                        <% } %>
+                    
                     <label>Cantidad</label>
                     <p>Cantidad mínima de compra 100 unidades</p>
                     <input type="number">

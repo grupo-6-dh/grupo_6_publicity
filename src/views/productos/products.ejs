@@ -41,16 +41,16 @@
                     <% for(let i=0;i < productos.length;i++) {%>
                         <article class="product">
                             <div class="product-img">
-                                <img src="../<%=productos[i].imagen %>" >
+                                <img src="../<%=productos[i].image %>" >
                             </div>
                             <div class="product-info">
                                 <a href="/detalleProducto/<%=productos[i].id %>" style="text-decoration:none; color:black">
-                                    <h2 class="product-name"><%=productos[i].nombre %> </h2>
+                                    <h2 class="product-name"><%=productos[i].name %> </h2>
                                 </a>
-                                <a class="product-price"><%=productos[i].precio %></a>
+                                <a class="product-price"><%=productos[i].price %></a>
                                 <a class="product-offer">Oferta 10% off a partir de 200u</a>
                                 <p>
-                                    <%=productos[i].descripcion %>
+                                    <%=productos[i].description %>
                                 </p>
                                 
                             </div>

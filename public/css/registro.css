@@ -51,9 +51,9 @@ label {
 main {
     justify-content: center;
     align-items: center;
-    margin: 10px;
-    height: 700px;
     background-color: #EBEBEB;
+    padding: 3%;
+    height: 700px;
 }
 
 .boton {

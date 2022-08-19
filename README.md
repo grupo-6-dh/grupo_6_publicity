@@ -36,12 +36,7 @@ A modo de inspiracion para el diseño, se tomaron como referencia las siguientes
 El proyecto se encuentra en las etapas iniciales del ciclo de vida de desarrollo, a medida que el mismo avance, se realizarán las actualizaciones correspondientes sobre este documento :memo:
 :pencil:.
 El proyecto se lleva a cabo siguiendo el marco de trabajo para desarrollo ágil de Scrum. El mismo cuenta con un total de 8 Spritnts.
-Se ha avanzado con el diseño UX/UI de la página, se crearon las vistas home, login, recupero de contraseña, registro, productos, detalle de producto, y carrito.
 
-**Sprint actual :arrows_counterclockwise:--> Sprint 3**
+**Sprint actual :arrows_counterclockwise:--> Sprint 6**
 
-### Objetivos del Sprint
-Durante esta iteración su foco será el de modificar el sitio para que:
-● Reutilizar los componentes compartidos: header, menu, footer, etc.
-● Muestrar contenido dinámicamente a través de un motor de templates (Express+EJS).
 
