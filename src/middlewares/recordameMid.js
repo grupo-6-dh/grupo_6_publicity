@@ -14,6 +14,9 @@ function recordameMiddleware(req,res,next){
         }).then((encontrado) =>{
             if(encontrado) {
                 req.session.usuarioLogueado = encontrado;
+                if (encontrado.idUserCategory == 2) {
+                    req.session.admin = true;
+                }
             } 
         })
         

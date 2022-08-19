@@ -25,6 +25,9 @@ const controllerUsers = {
             if (encontrado) {
                 if (verificarPass = bcrypt.compareSync(req.body.pass, encontrado.password)) {
                     req.session.usuarioLogueado = encontrado;
+                    if(encontrado.idUserCategory == 2){
+                        req.session.admin = true;
+                    }
                     if (req.body.recordame != undefined) {
                         res.cookie('recordame', encontrado.email, { maxAge: 60000000 })
                     }

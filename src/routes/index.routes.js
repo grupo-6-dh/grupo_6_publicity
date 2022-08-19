@@ -3,6 +3,7 @@ const path = require('path');
 const upload = require ('../middlewares/multerMid');
 const controller = require("../controller/controller");
 const authMid = require('../middlewares/authMid')
+const adminMid = require('../middlewares/adminMid')
 const routes = express.Router();
 const productValidationMid = require('../middlewares/productValidationMid');
 const { DefaultDeserializer } = require('v8');
@@ -25,13 +26,13 @@ routes.get("/carrito", authMid, controller.carrito)
 
 routes.get("/modificarProducto", controller.modificarProducto)
 
-routes.get("/abml", controller.abml)
+routes.get("/abml", adminMid, controller.abml)
 
-routes.delete("/eliminar/:id", controller.eliminar)
+routes.delete("/eliminar/:id", adminMid, controller.eliminar)
 
-routes.get("/alta",controller.alta)
+routes.get("/alta", adminMid, controller.alta)
 
-routes.post("/nuevo", upload.single("img"),controller.crear)
+routes.post("/nuevo", adminMid, upload.single("img"),controller.crear)
 
 routes.get("/info",controller.info)
 
