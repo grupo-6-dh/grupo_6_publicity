@@ -1,5 +1,7 @@
 const path = require('path');
 
+const fs = require('fs');
+
 //solicitamos la funcion body de express validator, y validationResult para guardar y controlar errores de validación
 const { body, validationResult } = require('express-validator');
 
@@ -21,7 +23,7 @@ exports.validacionDatosProducto = [
         .custom((value, { req }) => {
             let file = req.file;
 
-            let extensionAceptada = ['.png', '.jpg', '.gif'];
+            let extensionAceptada = ['.png', '.jpg', '.gif','.JPG','.PNG','.JPEG','.GIF','.jpeg'];
             //controlamos que se suba una imagen
             if (!file) {
                 throw new Error('Debes subir una imágen')
@@ -49,7 +51,7 @@ exports.validacionDatosProducto = [
                 fs.unlinkSync(path.join(__dirname, "../../public/img/", req.file.filename));
             }
             //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-            return res.render('productos/alta', { mensajeDeError: errores.mapped(), datosViejos: req.body });
+           // return res.render('productos/alta', { mensajeDeError: errors.mapped(), datosViejos: req.body });
         }
         next();
     },
@@ -72,7 +74,7 @@ exports.validacionDatosProductoEditar = [
         .custom((value, { req }) => {
             let file = req.file;
 
-            let extensionAceptada = ['.png', '.jpg', '.gif'];
+            let extensionAceptada = ['.png', '.jpg', '.gif','.JPG','.PNG','.JPEG','.GIF','.jpeg'];
             //controlamos que se suba una imagen
             if (!file) {
                 throw new Error('Debes subir una imágen')
@@ -100,7 +102,7 @@ exports.validacionDatosProductoEditar = [
                 fs.unlinkSync(path.join(__dirname, "../../public/img/", req.file.filename));
             }
             //podemos enviar errores.array o errores.mapped dependiendo de si queremos utilizarlo en la vista como array o como objeto, en este caso enviamos un objeto
-            return res.render('productos/edit', { mensajeDeError: errores.mapped(), datosViejos: req.body });
+            return res.render('productos/modificar', { mensajeDeError: errors.mapped(), datosViejos: req.body });
         }
         next();
     },
