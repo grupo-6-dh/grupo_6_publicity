@@ -97,9 +97,10 @@
                             </div>
 
                             <div class="contenedor">
+                                
                                 <div class="titulos">
-                                    <h4 class="tituloColor">Colores de bolsa disponibles</h4>
-                                    <h4 class="tituloStock">Stock</h4>
+                                    <h4 class="tituloColor">Colores de bolsa asignados</h4>
+                                    <h4 class="tituloStock">Modificar stock</h4>
                                 </div>
 
                                 <% for(let i=0;i < stock.length; i++){ %>
@@ -109,15 +110,25 @@
                                             <% if(stock[i].idBagColor == bolsaColores[j].id) { %>
                                                 <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[j].id%>" checked> <%= bolsaColores[j].color%></label>
                                                 <label class="columna"><input class="stock" type="number" name="stock" value="<%= stock[i].stock %>"></label> 
-                                            <% } else {%>
-                                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[j].id%>"> <%= bolsaColores[j].color%></label>
-                                                <label class="columna"><input class="stock" type="number" name="stock" value="0"></label> 
                                             <%  } %>
                                             </div>
                                         <% } %>
                                     <% } %>
                                 <% } %>
+                                <i class="instruccion">Para eliminar un color de bolsa, haga a click sobre el check del color asignado</i>
+                            </div>
 
+                            <div class="contenedor">
+                                <div class="titulos">
+                                    <h4 class="tituloColor">Agregar nuevo color de bolsa</h4>
+                                    <h4 class="tituloStock">Stock</h4>
+                                </div>
+                                <% for(let i=0; i < coloresNoAsignados.length; i++){ %>
+                                    <div class="color-stock">
+                                            <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= coloresNoAsignados[i].id%>" > <%= coloresNoAsignados[i].color%></label>
+                                            <label class="columna"><input class="stock" type="number" name="stock" value="0"></label> 
+                                    </div>   
+                                <% } %>
                             </div>
                             
                             <button type="submit" class="boton-guardar">Guardar</button>

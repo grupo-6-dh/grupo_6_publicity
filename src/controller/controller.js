@@ -166,10 +166,28 @@ const controller = {
         let categorias = db.CategoriaProducto.findAll();
         let bolsaColores = db.ColorBolsa.findAll();
         let tamanios = db.TamanioBolsa.findAll();
+        let coloresNoAsignados = [];
+
+
+       
 
         Promise.all([stock, prod, bolsaColores, tamanios, categorias])
             .then(function ([stock, prod, bolsaColores, tamanios, categorias]) {
-                return res.render('productos/modificar', { 'producto': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias });
+                 //buscamos los colores de bolsa que no fueron asignados al producto y se lo pasamos a la vista
+                for(let j=0;j < bolsaColores.length; j++){
+                    coloresNoAsignados.push(bolsaColores[j]);
+                    for(let i=0;i < stock.length; i++){ 
+                        if(stock[i].idProduct==prod.id) {  
+                            if(stock[i].idBagColor == bolsaColores[j].id) { 
+                                coloresNoAsignados.pop();
+                            }  
+                        }
+                    }
+                }
+                console.log(coloresNoAsignados)
+
+
+                return res.render('productos/modificar', { 'producto': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias, 'coloresNoAsignados': coloresNoAsignados });
             })
     },
     abml: (req, res) => {

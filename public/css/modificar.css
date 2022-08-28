@@ -4,6 +4,12 @@
     padding: 0px;
 }
 
+.instruccion{
+    color :forestgreen;
+    padding: 10%;
+    margin: auto;
+}
+
 .is-danger{
     color: red;
     text-align: center;
