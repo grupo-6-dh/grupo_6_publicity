@@ -168,9 +168,6 @@ const controller = {
         let tamanios = db.TamanioBolsa.findAll();
         let coloresNoAsignados = [];
 
-
-       
-
         Promise.all([stock, prod, bolsaColores, tamanios, categorias])
             .then(function ([stock, prod, bolsaColores, tamanios, categorias]) {
                  //buscamos los colores de bolsa que no fueron asignados al producto y se lo pasamos a la vista
@@ -184,8 +181,6 @@ const controller = {
                         }
                     }
                 }
-                console.log(coloresNoAsignados)
-
 
                 return res.render('productos/modificar', { 'producto': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias, 'coloresNoAsignados': coloresNoAsignados });
             })
@@ -201,17 +196,20 @@ const controller = {
     info: (req, res) => {
         return res.render('info-pago');
     },
-
+  
     edit:(req,res) => {
+        
+        // obtenemos los datos
         let idProducto = req.params.id;
-         // obtenemos los datos
-         let img = req.file;
-         let nombre = req.body.nombre;
-         let descripcion = req.body.descripcion;
-         let precio = req.body.precio;
-         let idTamanio = req.body.tamanio;
-         let idCategoria = req.body.categoria;
-         if(img != undefined){
+        let img = req.file;
+        let nombre = req.body.nombre;
+        let descripcion = req.body.descripcion;
+        let precio = req.body.precio;
+        let idTamanio = req.body.tamanio;
+        let idCategoria = req.body.categoria;
+         
+
+        if(img != undefined){
             let imagen = `img/${img.filename}`;
 
             db.Producto.update({
@@ -222,25 +220,12 @@ const controller = {
                 idSize: idTamanio,
                 idProductCategory: idCategoria
             },{
-            where: {
-                id: idProducto
-            }
+                where: {
+                    id: idProducto
+                }
             }).then(function(){
                 // damos de alta el stock utilizando el id del producto creado
-             let color = req.body.color;
-
-             for (let i = 0; i < color.length; i++) {
-                 db.Stock.update({
-                     stock: req.body.stock[color[i] - 1],
-                     idBagColor: color[i],
-                     idProduct: idProducto
-                 },{
-                    where: {
-                        idProduct : idProducto
-                    }
-                 })
-                }
-
+                
                 let stock = db.Stock.findAll();                   
                 let categorias = db.CategoriaProducto.findAll();
                 let bolsaColores = db.ColorBolsa.findAll();
@@ -249,12 +234,61 @@ const controller = {
 
                 Promise.all([stock, prod, bolsaColores, tamanios, categorias])
                     .then(function ([stock, prod, bolsaColores, tamanios, categorias]) {
+                        
+                        //verifica si el check de agregar nuevos colores se selecciono para poder agregar nuevos
+                        if(req.body.agregar==1){
+                            //agrega nuevo color
+                            let colorNoAsignado = req.body.colorNoAsignado;
+                            for (let i = 0; i < stock.length; i++) {
+                                
+                                if(stock[i].idProduct==idProducto) {
+                                                            
+                                    if(stock[i].idBagColor!=colorNoAsignado){
+                                        
+                                        db.Stock.create({
+                                            stock: req.body.stockNuevo,
+                                            idBagColor: colorNoAsignado,
+                                            idProduct: idProducto
+                                        });
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        //modificar los stocks
+                        let idStock=req.body.idStock;
+                        let cantidadStock=req.body.stock;
+                        for (let i = 0; i < stock.length; i++) {
+                                
+                            for(let j = 0; j< idStock.length; j++){
+                                
+                                if(stock[i].id==idStock[j]){
+                    
+                                    db.Stock.create({
+                                        stock: cantidadStock[j],
+                                        idBagColor: stock[i].idBagColor,
+                                        idProduct: idProducto
+                                    });
+
+                                    db.Stock.destroy({
+                                        where:{
+                                            id: idStock[j]
+                                        }
+                                    })
+
+                                }
+                            } 
+
+                        }
+                        
+
                         return res.render('productos/detalle', { 'detalle': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias });
                     })
             })
 
          }else{
-
+            
             db.Producto.update({
                 name: nombre,
                 description: descripcion,
@@ -262,24 +296,11 @@ const controller = {
                 idSize: idTamanio,
                 idProductCategory: idCategoria
             },{
-            where: {
-                id: idProducto
-            }
-            }).then(function(){
-                // damos de alta el stock utilizando el id del producto creado
-             let color = req.body.color;
-             for (let i = 0; i < color.length; i++) {
-                 db.Stock.update({
-                     stock: req.body.stock[color[i] - 1],
-                     idBagColor: color[i],
-                     idProduct: idProducto
-                 },{
-                    where: {
-                        idProduct : idProducto
-                    }
-                 })
+                where: {
+                    id: idProducto
                 }
-
+            }).then(function(){
+ 
                 let stock = db.Stock.findAll();                   
                 let categorias = db.CategoriaProducto.findAll();
                 let bolsaColores = db.ColorBolsa.findAll();
@@ -288,16 +309,57 @@ const controller = {
 
                 Promise.all([stock, prod, bolsaColores, tamanios, categorias])
                     .then(function ([stock, prod, bolsaColores, tamanios, categorias]) {
+                        
+                        if(req.body.agregar==1){
+                            //agrega nuevo color
+                            let colorNoAsignado = req.body.colorNoAsignado;
+                            for (let i = 0; i < stock.length; i++) {
+                                
+                                if(stock[i].idProduct==idProducto) {
+                                                            
+                                    if(stock[i].idBagColor!=colorNoAsignado){
+                                        
+                                        db.Stock.create({
+                                            stock: req.body.stockNuevo,
+                                            idBagColor: colorNoAsignado,
+                                            idProduct: idProducto
+                                        });
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        //modificar los stocks
+                        let idStock=req.body.idStock;
+                        let cantidadStock=req.body.stock;
+                         for (let i = 0; i < stock.length; i++) {
+                                
+                            for(let j = 0; j< idStock.length; j++){
+                                
+                                if(stock[i].id==idStock[j]){
+                    
+                                    db.Stock.create({
+                                        stock: cantidadStock[j],
+                                        idBagColor: stock[i].idBagColor,
+                                        idProduct: idProducto
+                                    });
+
+                                    db.Stock.destroy({
+                                        where:{
+                                            id: idStock[j]
+                                        }
+                                    })
+                                }
+                            } 
+
+                        }
+
                         return res.render('productos/detalle', { 'detalle': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias });
                     })
             })
-
-        }
-        
+        }   
     }
-
-
-
 }
 
 module.exports = controller;
