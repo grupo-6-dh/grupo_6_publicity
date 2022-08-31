@@ -6,13 +6,14 @@ let inputEmail = document.querySelector("#email");
 let inputPassword = document.querySelector('#password');
 let inputConfirmPassword = document.querySelector('#confirmarpass');
 let parrafo = document.querySelector("#warnings");
-
+let Campos = [inputNombre,inputEmail,inputPassword,inputConfirmPassword];
 
 formulario.addEventListener("submit",(e)=>{
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     e.preventDefault(); 
     let warnings = "";
     let entrar = false;
+    //Validacion Nombre
     if(inputNombre.value.length == ""){
         inputNombre.classList.add("is-invalid");
         warnings += `<li>*Campo nombre obligatorio.</li>`
@@ -23,6 +24,7 @@ formulario.addEventListener("submit",(e)=>{
         warnings += `<li>*Campo nombre debe contener mas de 2 caracteres.</li>`
         entrar = true;
     }
+    //Validacion Email
     if(inputEmail.value.length == ""){
         inputEmail.classList.add("is-invalid");
         warnings += `<li>*Campo email es obligatorio.</li>`
@@ -33,6 +35,7 @@ formulario.addEventListener("submit",(e)=>{
         warnings += `<li>*Ingrese una direccion de correo electronico valida.</li>`
         entrar = true;
     }
+    //Validacion Contraseña
     if(inputPassword.value.length == ""){
         inputNombre.classList.add("is-invalid");
         warnings += `<li>*Campo contraseña obligatoria!!.</li>`
@@ -47,6 +50,7 @@ formulario.addEventListener("submit",(e)=>{
         inputConfirmPassword.classList.add("is-invalid");
         entrar = true;
     }
+    //Confirmar contraseña 
     if(inputConfirmPassword.value != inputPassword.value){
         inputConfirmPassword.classList.add("is-invalid");
         warnings += `<li>Las contraseñas no coinciden</li>`
@@ -61,28 +65,28 @@ formulario.addEventListener("submit",(e)=>{
 });
 
 //Recorro mi array para agregarle el evento a cada input
-/*input.addEventListener("blur", function() {
+Campos.forEach(function(input){
+    
+    input.addEventListener("blur", () => {
+        //campos no vacios al salir del input 
     if(input.value == "") {
         input.classList.add("is-invalid");
-        input.classList.remove("is-valid");
-        input.nextElementSibling.innerHTML = "El campo no puede estar vacío";
+        input.nextElementSibling.innerHTML = "No te olvides de completar este campo";
     }
     if(input.value != ""){
         input.classList.remove("is-invalid");
-        input.classList.add("is-valid")
         input.nextElementSibling.innerHTML = "";
     }
-   /* if((input.dataset.nombre == "awards" || input.dataset.nombre == "rating")  && (input.value < 0 || input.value >10)){
+    //longitud de campos al salir del input
+    if((input.dataset.nombre == "nombre")  && (input.value.length < 2)){
         input.classList.add("is-invalid");
-        input.classList.remove("is-valid")
-        input.nextElementSibling.innerHTML = "El valor ingresado debe estar entre 0 y 10";
+        input.nextElementSibling.innerHTML = "Este campo debe contener al menos 2 caracteres";
+        return;
+    }else{
+        input.classList.remove("is-invalid");
     }
     
-    if((input.dataset.nombre == "length")  && (input.value < 60 || input.value > 360)){
-        input.classList.add("is-invalid");
-        input.classList.remove("is-valid")
-        input.nextElementSibling.innerHTML = "El valor ingresado debe estar entre 60 y 360";
-    }
-
-});*/
+       
+})
+})
 

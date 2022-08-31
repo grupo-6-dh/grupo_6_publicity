@@ -3,6 +3,7 @@ let formulario = document.querySelector("form");
 let inputEmail = document.querySelector("#email");
 let inputPassword = document.querySelector("#pass");
 let parrafo = document.querySelector("#warnings");
+let Campos = [inputEmail,inputPassword];
 
 formulario.addEventListener("submit",(e)=>{
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -30,3 +31,28 @@ formulario.addEventListener("submit",(e)=>{
         parrafo.innerHTML = warnings;
     }
 });
+
+Campos.forEach(function(input){
+    
+    input.addEventListener("blur", () => {
+        //campos no vacios al salir del input 
+    if(input.value == "") {
+        input.classList.add("is-invalid");
+        input.nextElementSibling.innerHTML = "No te olvides de completar este campo";
+    }
+    if(input.value != ""){
+        input.classList.remove("is-invalid");
+        input.nextElementSibling.innerHTML = "";
+    }
+    //longitud de campos al salir del input
+    if((input.dataset.nombre == "nombre")  && (input.value.length < 2)){
+        input.classList.add("is-invalid");
+        input.nextElementSibling.innerHTML = "Este campo debe contener al menos 2 caracteres";
+        return;
+    }else{
+        input.classList.remove("is-invalid");
+    }
+    
+       
+})
+})
