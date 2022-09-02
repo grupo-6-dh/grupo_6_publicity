@@ -10,12 +10,12 @@ let Campos = [inputNombre,inputEmail,inputPassword,inputConfirmPassword];
 
 formulario.addEventListener("submit",(e)=>{
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    e.preventDefault(); 
     let warnings = "";
     let entrar = false;
     //Validacion Nombre
     if(inputNombre.value.length == ""){
         inputNombre.classList.add("is-invalid");
+        //e.preventDefault(); 
         warnings += `<li>*Campo nombre obligatorio.</li>`
         entrar = true;
     }
@@ -58,6 +58,7 @@ formulario.addEventListener("submit",(e)=>{
     }
 
     if(entrar){
+        e.preventDefault();
         parrafo.innerHTML = warnings;
     }
    
@@ -86,7 +87,8 @@ Campos.forEach(function(input){
         input.classList.remove("is-invalid");
     }
     
-       
+   
 })
+
 })
 
