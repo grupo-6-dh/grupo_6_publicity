@@ -13,7 +13,7 @@ routesUsers.delete("/eliminar/:id", adminMid, controller.eliminar);
 
 routesUsers.get("/login", guestMid, controller.login);
 
-routesUsers.post("/loginProcess", guestMid, userValidationMid.validacionLogin, controller.loginProcess);
+routesUsers.post("/loginProcess", guestMid, controller.loginProcess);
 
 routesUsers.get('/logout', controller.logout)
 

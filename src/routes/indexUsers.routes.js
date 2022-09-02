@@ -9,7 +9,7 @@ const userValidationMid = require('../middlewares/userValidationMid');
 //---rutas---
 routesUsers.get("/registro", guestMid, controllerUsers.registro)
 
-routesUsers.post("/registro", userValidationMid.validacionRegistro, controllerUsers.crearUsuario)
+routesUsers.post("/registro", controllerUsers.crearUsuario)
 
 routesUsers.get("/", controller.index)
 

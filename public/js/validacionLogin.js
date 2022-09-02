@@ -7,7 +7,7 @@ let Campos = [inputEmail,inputPassword];
 
 formulario.addEventListener("submit",(e)=>{
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    e.preventDefault();
+    
     let warnings = "";
     let entrar = false;
 
@@ -28,6 +28,7 @@ formulario.addEventListener("submit",(e)=>{
     }
 
     if(entrar){
+        e.preventDefault();
         parrafo.innerHTML = warnings;
     }
 });
