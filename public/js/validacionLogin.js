@@ -1,4 +1,4 @@
-document.querySelector("#email").focus();
+document.querySelector("#email").focus(); // Le hago fucus al primer campo del email
 let formulario = document.querySelector("form"); 
 let inputEmail = document.querySelector("#email");
 let inputPassword = document.querySelector("#pass");
