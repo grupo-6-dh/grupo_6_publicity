@@ -240,6 +240,20 @@ body{
 .boton-agregar:hover{
     background-color: green;
 }
+.is-invalid{
+    color: red;
+    border-color: red;
+}
+
+.warnings{
+    width:200px;
+    font-weight: normal;
+    text-align: center;
+    text-decoration: none;
+    margin: auto;
+    color:red;
+    padding-top:5px;
+}
 
 
 

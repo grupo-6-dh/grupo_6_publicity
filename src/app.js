@@ -7,7 +7,6 @@ const publicPath = path.resolve(__dirname, '../public');
 const port = process.env.PORT || 3000;
 const routes = require("./routes/index.routes")
 const usersRoutes = require("./routes/users.routes");
-const indexUsersRoutes = require("./routes/indexUsers.routes");
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
@@ -50,7 +49,6 @@ app.use((req, res, next) => {
 //---rutas---
 app.use("/", routes);
 app.use("/users", usersRoutes); 
-app.use("/users", indexUsersRoutes); //PREGUNTAR QUE ONDA PORQUE ESTA SEPARADO EN DOS RUTESO
 
 
 
