@@ -21,6 +21,10 @@ routesUsers.get("/upgrade/:id", adminMid,controller.makeAdmin)
 
 routesUsers.get("/downgrade/:id", adminMid, controller.makeNormalUser)
 
+routesUsers.get("/registro", guestMid, controller.registro)
+
+routesUsers.post("/registro", userValidationMid.validacionRegistro, controller.crearUsuario)
+
 
 module.exports = routesUsers;
 

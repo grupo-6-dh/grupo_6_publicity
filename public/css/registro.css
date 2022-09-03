@@ -115,6 +115,20 @@ form {
     color: #ebebeb;
     padding: 10px;
 }
+.is-invalid{
+    color: red;
+    border-color: red;
+}
+.warnings{
+    width:500px;
+    text-align: left;
+    margin: auto;
+    color:red;
+    padding-top:5px;
+}
+  .alert-warning {
+    background-color: crimson;
+  }
 
 @media (min-width:340px) {
 

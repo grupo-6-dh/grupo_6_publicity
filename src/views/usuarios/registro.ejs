@@ -16,7 +16,7 @@
     <link rel="Stylesheet" href="/css/header-footer.css" type="text/css">
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/79b8daf391.js" crossorigin="anonymous"></script>
-
+    
 </head>
 
 <body>
@@ -30,48 +30,31 @@
             <h2 class="titulo">Formulario de Registro</h2>
             <form action="" method="post">
                 <ul>
-                    <li> 
-                        <input class="form <%= locals.mensajeDeError && mensajeDeError.nombre ? 'is-invalid' : null %>" type="text" placeholder="Nombre y Apellido" name="nombre" value="<%= locals.datosViejos && datosViejos.nombre? datosViejos.nombre : ''%>">
-                        <% if(locals.mensajeDeError && mensajeDeError.nombre){ %>
-                            <div class="feedback is-danger">
-                                <%= mensajeDeError.nombre.msg %>
-                            </div>
-                        <% } %>
-                    </li>
                     
-                    <li>
-                        <input class="form <%= locals.mensajeDeError && mensajeDeError.email ? 'is-invalid' : null %>" type="email" placeholder="Email" name="email" value="<%= locals.datosViejos && datosViejos.nombre? datosViejos.email : ''%>">
-                        <% if(locals.mensajeDeError && mensajeDeError.email){ %>
-                            <div class="feedback is-danger">
-                                <%= mensajeDeError.email.msg %>
-                            </div>
-                        <% } %>
+                    <li> 
+                        <input id="nombre" class="form" type="text" placeholder="Nombre">
+                        <span></span>
                     </li>
-
                     <li>
-                        <input class="form <%= locals.mensajeDeError && mensajeDeError.contrasenia ? 'is-invalid' : null %>" type="password" placeholder="Contraseña"  name="contrasenia" value="<%= locals.datosViejos && datosViejos.nombre? datosViejos.contrasenia : ''%>">
-                        <% if(locals.mensajeDeError && mensajeDeError.contrasenia){ %>
-                            <div class="feedback is-danger">
-                                <%= mensajeDeError.contrasenia.msg %>
-                            </div>
-                        <% } %>
+                        <input id="email" class="form" type="email" placeholder="Email" name="email">
+                        <span></span>
                     </li>
-
                     <li>
-                        <input class="form <%= locals.mensajeDeError && mensajeDeError.contraseniaConfirmada ? 'is-invalid' : null %>" type="password" placeholder="Confirmar contraseña" name="contraseniaConfirmada" value="<%= locals.datosViejos && datosViejos.nombre? datosViejos.contraseniaConfirmada : ''%>" >
-                        <% if(locals.mensajeDeError && mensajeDeError.contraseniaConfirmada){ %>
-                            <div class="feedback is-danger">
-                                <%= mensajeDeError.contraseniaConfirmada.msg %>
-                            </div>
-                        <% } %>
+                        <input id="password" class="form" type="password" placeholder="Contraseña"  name="contrasenia">
+                        <span></span>    
                     </li>
-
+                    <li>
+                        <input id="confirmarpass" class="form" type="password" placeholder="Confirmar contraseña" name="contraseniaConfirmada">
+                        <span></span>    
+                    </li>
                 </ul>
 
                 <div class="check">
                     <label>No soy un Robot <i class="fa-solid fa-arrows-rotate"></i></label>
-                    <input type="checkbox" id="robot" required>
+                    <input type="checkbox" id="robot">
                 </div>
+                
+                <p class="warnings" id="warnings"></p>
 
                 <div class="boton">
                     <button id="btn" type="submit">Registrarme</button>
@@ -91,5 +74,5 @@
     <%- include('../partials/footer.ejs') %> 
 
 </body>
-
 </html>
+<script src="/js/validacionRegistro.js"></script>

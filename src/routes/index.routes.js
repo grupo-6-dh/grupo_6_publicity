@@ -24,7 +24,7 @@ routes.get("/recuperarPass", controller.recuperarPass)
 
 routes.get("/carrito", authMid, controller.carrito)
 
-routes.get("/modificarProducto", controller.modificarProducto)
+routes.get("/modificarProducto", adminMid, productValidationMid.validacionDatosProductoEditar, controller.modificarProducto)
 
 routes.get("/abml", adminMid, controller.abml)
 
@@ -32,9 +32,9 @@ routes.delete("/eliminar/:id", adminMid, controller.eliminar)
 
 routes.get("/alta", adminMid, controller.alta)
 
-routes.post("/nuevo", adminMid, upload.single("img"),controller.crear)
+routes.post("/nuevo", adminMid, upload.single("img"), productValidationMid.validacionDatosProducto, controller.crear)
 
-routes.get("/info",controller.info)
+routes.get("/info", controller.info)
 
 routes.get("/products/:id/edit", controller.modificarProducto)
 

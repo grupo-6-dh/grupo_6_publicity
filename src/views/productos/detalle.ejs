@@ -48,17 +48,6 @@
                             <% } %>
                         <% } %>
                     </select>
-                    <label>Stock</label>
-                    <select>
-                        <% for(let i=0;i < stock.length; i++){ %> 
-
-                            <% if(stock[i].idProduct==detalle.id) { %>
-                                <option value="<%= stock[i].id %>"><%= stock[i].stock%></option>
-                            <% } %>
-                            
-                        <% } %>
-
-                    </select>
                     <label>Tamaño</label>
                         <% for(let i=0;i < tamanios.length; i++){ %>
                             <% if(tamanios[i].id==detalle.idSize) { %>
