@@ -10,7 +10,7 @@ formulario.addEventListener("submit",(e)=>{
     
     let warnings = "";
     let entrar = false;
-
+    ///Validacion email
     if(inputEmail.value.length == ""){
         inputEmail.classList.add("is-invalid");
         warnings += `<li>*Campo email obligatorio.</li>`
