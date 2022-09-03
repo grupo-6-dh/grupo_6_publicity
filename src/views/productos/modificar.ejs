@@ -29,8 +29,9 @@
                         </div>
                     <% } %>
                     <div class="titulo">
-                        <input name="nombre" class="inputText" type="text" value="<%=producto.name%>">
+                        <input id="titulo" name="nombre" class="inputText" type="text" value="<%=producto.name%>">
                     </div>
+                    <span class="warnings" id="errorTitulo"></span>
                     <% if(locals.mensajeDeError && mensajeDeError.img){ %>
                         <div class="feedback is-danger">
                             <%= mensajeDeError.img.msg %>
@@ -42,6 +43,7 @@
                             <input name="img" class="btn-enviar" type="file" id="btnEnviar">
                         </div>
                     </section>
+                    <span id="errorImagen" class="warnings"></span>
                     <section class="contenedor-detalle-producto">
                         <div class="configuracion-producto">
                             <div class="contenedor">
@@ -60,7 +62,8 @@
                                         <%= mensajeDeError.descripcion.msg %>
                                     </div>
                                 <% } %>
-                                <textarea name="descripcion" class="descripcion" maxlength="700"><%=producto.description%></textarea>
+                                <textarea id="descripcion" name="descripcion" class="descripcion" maxlength="700"><%=producto.description%></textarea>
+                                <span class="warnings"></span>
                             </div>
                             <div class="contenedor">
                                 <% if(locals.mensajeDeError && mensajeDeError.tamanio){ %>
@@ -165,6 +168,7 @@
 </body>
 
 </html>
+<script src="/js/ValidacionModificar.js"></script>
 
 <script>
 
