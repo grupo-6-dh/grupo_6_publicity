@@ -30,14 +30,24 @@
 
             <form action="/users/loginProcess" method="post">
                 <ul>
-                    <p class="warnings" id="warnings"></p>
+                    
                     <li>
                         <input class="form" type="email" name="email" id="email" placeholder="Ingrese su email">
-                        <span></span>
+                        <p class="warnings" id="warnings"></p>
+                        <% if(locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%=errors.email.msg%>
+                            </div>
+                        <%}%>
                     </li>
                     <li>
                         <input class="form" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
                         <span></span>
+                        <% if(locals.errors && errors.pass) { %>
+                            <div class="text-danger">
+                                <%=errors.pass.msg%>
+                            </div>
+                        <%}%>
                     </li>
                 </ul>
 

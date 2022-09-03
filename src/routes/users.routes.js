@@ -13,7 +13,7 @@ routesUsers.delete("/eliminar/:id", adminMid, controller.eliminar);
 
 routesUsers.get("/login", guestMid, controller.login);
 
-routesUsers.post("/loginProcess", guestMid, controller.loginProcess);
+routesUsers.post("/loginProcess", guestMid, userValidationMid.validacionLogin, controller.loginProcess);
 
 routesUsers.get('/logout', controller.logout)
 
@@ -23,10 +23,7 @@ routesUsers.get("/downgrade/:id", adminMid, controller.makeNormalUser)
 
 routesUsers.get("/registro", guestMid, controller.registro)
 
-routesUsers.post("/registro", controller.crearUsuario)
-
-
-
+routesUsers.post("/registro", userValidationMid.validacionRegistro, controller.crearUsuario)
 
 
 module.exports = routesUsers;

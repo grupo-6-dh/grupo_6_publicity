@@ -36,9 +36,6 @@ formulario.addEventListener("submit",(e)=>{
         } else {
             document.querySelector("#errorImagen").innerHTML = "";
         }
-    }else{
-        document.querySelector("#errorImagen").innerHTML = "Debe cargar una imagen"
-        entrar = true;
     }
     
     
@@ -53,14 +50,23 @@ Arrayinput.forEach((input) => {
     input.addEventListener("blur", () => {
         if (input.value == "") {
             input.classList.add("is-invalid");
-            document.querySelector("#errorTitulo").innerHTML = "No te olvides de completar este campo";
-            document.querySelector("#errorImagen").innerHTML = "No te olvides de subir una imagen";
-            input.nextElementSibling.innerHTML = "No te olvides de completar este campo";
-            
-            
+            if (input.id == 'titulo') {
+                document.querySelector("#errorTitulo").innerHTML = "No te olvides de completar el nombre";
+            } else if (input.id == 'btnEnviar') {
+                document.querySelector("#errorImagen").innerHTML = "No te olvides de subir una imagen";
+            } else {
+                input.nextElementSibling.innerHTML = "No te olvides de completar este campo";
+            }
+
         } else {
             input.classList.remove("is-invalid");
-            input.nextElementSibling.innerHTML = "";
+            if (input.id == 'titulo') {
+                document.querySelector("#errorTitulo").innerHTML = "";
+            } else if (input.id == 'btnEnviar') {
+                document.querySelector("#errorImagen").innerHTML = "";
+            } else {
+                input.nextElementSibling.innerHTML = "";
+            }
         }
 
     })

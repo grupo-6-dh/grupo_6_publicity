@@ -8,7 +8,7 @@ exports.validacionLogin = [
         .isEmail().withMessage('Debes ingresar un email válido'),
     (req, res, next) => {
         const errors = validationResult(req);
-        if (errors.isEmpty()) //error en validación
+        if (!errors.isEmpty()) //error en validación
             return res.render('usuarios/login', { mensajeDeError: errors.mapped(), datosViejos: req.body });
         next();
     },

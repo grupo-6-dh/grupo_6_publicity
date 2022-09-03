@@ -38,12 +38,6 @@
                 
                 
 
-                <% if(locals.mensajeDeError && mensajeDeError.img){ %>
-                    <div class="feedback is-danger">
-                        <%= mensajeDeError.img.msg %>
-                    </div>
-                <% } %>
-
                 <section class="imagen-principal">
                         <div class="archivo">
                             <p class="texto">Subir imagen</p>
@@ -51,6 +45,11 @@
                         </div>
                 </section>
                 <span class="warnings" id="errorImagen"></span>
+                <% if(locals.mensajeDeError && mensajeDeError.img){ %>
+                    <div class="feedback is-danger">
+                        <%= mensajeDeError.img.msg %>
+                    </div>
+                <% } %>
 
                 <section class="contenedor-detalle-producto">
                     <div class="configuracion-producto">
@@ -62,6 +61,7 @@
                                 </div>
                             <% } %>
                             <input class="inputText" id="precio" type="number" name="precio" placeholder="Precio por unidad" >
+                            <span class="warnings"></span>
                         </div>
 
                         <div class="contenedor">
@@ -80,7 +80,7 @@
                                 <h4 class="tituloColor">Colores de bolsa disponibles</h4>
                                 <h4 class="tituloStock">Stock</h4>
                             </div>
-                            <% for(let i=0;i <bolsaColores.length; i++) { %>
+                            <% for(let i=0;i < bolsaColores.length; i++) { %>
                             <div class="color-stock">
                                 <label class="columna nombreColor"><input id="color" class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[i].id%>"> <%= bolsaColores[i].color%></label>
                                 <label class="columna"><input class="stock" id="stock" type="number" name="stock" value="0"></label> 

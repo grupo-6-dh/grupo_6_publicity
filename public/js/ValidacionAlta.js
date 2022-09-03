@@ -3,8 +3,9 @@ let inputTitulo = document.querySelector("#titulo");
 let inputDescripcion = document.querySelector("#descripcion");
 let inputImg = document.querySelector("#btnEnviar");
 let inputColor = document.querySelectorAll("#color");
+let inputPrecio = document.querySelector('#precio');
 
-let Arrayinput = [inputTitulo, inputDescripcion, inputImg];
+let Arrayinput = [inputTitulo, inputDescripcion, inputImg, inputPrecio];
 let formulario = document.querySelector("form");
 
 formulario.addEventListener('submit', (e) => {
@@ -34,7 +35,6 @@ formulario.addEventListener('submit', (e) => {
         if (extension != ("jpg" || "png" || "jpeg" || "gif")) {
             document.querySelector("#errorImagen").innerHTML = "Ese formato de imagen no esta permitido. \n Por favor ingresá una imagen .jpeg/.jpg/.gif/.png";
             entrar = true;
-            return;
         } else {
             document.querySelector("#errorImagen").innerHTML = "";
         }
@@ -52,6 +52,7 @@ formulario.addEventListener('submit', (e) => {
     })
     if(!existeColor){
         document.querySelector("#errorColor").innerHTML = "Debe seleccionar por lo menos un color";
+        entrar = true;
     }else{
         document.querySelector("#errorColor").innerHTML = "";
     }
@@ -72,14 +73,23 @@ Arrayinput.forEach((input) => {
     input.addEventListener("blur", () => {
         if (input.value == "") {
             input.classList.add("is-invalid");
-            document.querySelector("#errorTitulo").innerHTML = "No te olvides de completar este campo";
-            document.querySelector("#errorImagen").innerHTML = "No te olvides de subir una imagen";
-            input.nextElementSibling.innerHTML = "No te olvides de completar este campo";
-            
+            if (input.id == 'titulo'){
+                document.querySelector("#errorTitulo").innerHTML = "No te olvides de completar el nombre";
+            } else if (input.id == 'btnEnviar'){
+                document.querySelector("#errorImagen").innerHTML = "No te olvides de subir una imagen";
+            }else{
+                input.nextElementSibling.innerHTML = "No te olvides de completar este campo";
+            }
             
         } else {
             input.classList.remove("is-invalid");
-            input.nextElementSibling.innerHTML = "";
+            if (input.id == 'titulo') {
+                document.querySelector("#errorTitulo").innerHTML = "";
+            } else if (input.id == 'btnEnviar') {
+                document.querySelector("#errorImagen").innerHTML = "";
+            } else {
+                input.nextElementSibling.innerHTML = "";
+            }
         }
 
     })

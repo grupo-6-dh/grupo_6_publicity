@@ -32,11 +32,7 @@
                         <input id="titulo" name="nombre" class="inputText" type="text" value="<%=producto.name%>">
                     </div>
                     <span class="warnings" id="errorTitulo"></span>
-                    <% if(locals.mensajeDeError && mensajeDeError.img){ %>
-                        <div class="feedback is-danger">
-                            <%= mensajeDeError.img.msg %>
-                        </div>
-                    <% } %>
+                    
                     <section class="imagen-principal" style="background-image:url('/../<%=producto.image%>')">
                         <div class="archivo">
                             <p class="texto">Cambiar Imagen</p>
@@ -44,6 +40,11 @@
                         </div>
                     </section>
                     <span id="errorImagen" class="warnings"></span>
+                    <% if(locals.mensajeDeError && mensajeDeError.img){ %>
+                        <div class="feedback is-danger">
+                            <%= mensajeDeError.img.msg %>
+                        </div>
+                    <% } %>
                     <section class="contenedor-detalle-producto">
                         <div class="configuracion-producto">
                             <div class="contenedor">
