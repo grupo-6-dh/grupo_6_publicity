@@ -41,12 +41,12 @@ formulario.addEventListener("submit",(e)=>{
         warnings += `<li>*Campo contraseña obligatoria!!.</li>`
         entrar = true;
     }
-    if(inputPassword.value.length < 8){
+    if(inputPassword.value.length < 2){
         inputPassword.classList.add("is-invalid");
         warnings += `<li>*La contraseña debe contener mas de 8 caracteres.</li>`
         entrar = true;
     }
-    if(inputConfirmPassword.value.length < 8){
+    if(inputConfirmPassword.value.length < 2){
         inputConfirmPassword.classList.add("is-invalid");
         entrar = true;
     }
