@@ -359,7 +359,58 @@ const controller = {
                     })
             })
         }   
-    }
+    },
+
+    apiList: (req, res) => {
+        let productos = db.Producto.findAll();
+        let categorias = db.CategoriaProducto.findAll();
+
+        Promise.all([productos, categorias]).then(function ([productos, categorias]) {
+            let categoriesData = [];
+
+            categorias.forEach((categoria) => {
+                let productCount = 0;
+                productos.forEach((producto) => {
+                    if(producto.idProductCategory == categoria.id){
+                        productCount++;
+                    }
+                })
+                let categoryData = {
+                    id: categoria.id,
+                    productCategory: categoria.productCategory,
+                    productCount: productCount,
+                }
+
+                categoriesData.push(categoryData);
+            })
+            
+            let productsData = []
+            
+            productos.forEach((product) => {
+                let category = ''; 
+                categorias.forEach((categoria) =>{
+                    if(categoria.id == product.idProductCategory){
+                        category = categoria.productCategory;
+                    }
+                })
+                let productData = {
+                    id: product.id,
+                    name: product.name,
+                    description: product.description,
+                    category: category,
+                    detail: 'localhost:3000/api/products/' + product.id,
+                }
+                productsData.push(productData);
+            })
+
+            return res.json({
+                count: productos.length,
+                countByCategory: categoriesData,
+                products: productsData,
+                status: 200,
+            });
+        });
+    },
 }
 
 module.exports = controller;
