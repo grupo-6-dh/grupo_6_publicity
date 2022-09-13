@@ -14,8 +14,13 @@ const cookieParser = require('cookie-parser');
 
 const recordameMid = require('./middlewares/recordameMid')
 
+
+//---archivos estaticos---
+app.use(express.static(publicPath));
+
 app.set('views', path.join(__dirname,'./views'));
 app.set('view engine','ejs');
+
 
 app.use(methodOverride("_method"));
 
@@ -52,10 +57,6 @@ app.use("/", routes);
 app.use("/users", usersRoutes); 
 app.use("/api", apiRoutes); 
 
-
-
-//---archivos estaticos---
-app.use(express.static(publicPath));
 
 //---middleware---
 app.listen(port, () => {
