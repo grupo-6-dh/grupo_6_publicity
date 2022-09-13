@@ -25,6 +25,5 @@ routesUsers.get("/registro", guestMid, controller.registro)
 
 routesUsers.post("/registro", userValidationMid.validacionRegistro, controller.crearUsuario)
 
-
 module.exports = routesUsers;
 
