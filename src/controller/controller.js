@@ -411,6 +411,46 @@ const controller = {
             });
         });
     },
+
+    apiGetOne: (req, res) =>{
+        let product = db.Producto.findByPk(req.params.id).then((product) => {
+            let category = db.CategoriaProducto.findByPk(product.idProductCategory);
+            let size = db.TamanioBolsa.findByPk(product.idSize);
+            let stock = db.Stock.findAll({
+                where: {
+                    idProduct: product.id,
+                }
+            })
+            let colors = db.ColorBolsa.findAll();
+
+            Promise.all([category, size, stock, colors]).then(([category, size, stock, colors]) => {
+                let stock_by_color = [];
+                stock.forEach((colorStock) => {
+                    colors.forEach((color) => {
+                        if(color.id == colorStock.idBagColor){
+                            let aux = {
+                                bagColor: color.color,
+                                stock: colorStock.stock,
+                            }
+                            stock_by_color.push(aux)
+                        }
+                    })
+                })
+                return res.json({
+                    id: product.id,
+                    name: product.name,
+                    description: product.descrpiption,
+                    price: product.price,
+                    bag_size: size.size,
+                    category: category.productCategory,
+                    stock_by_color: stock_by_color,
+                    image: 'localhost:3000/public/' + product.image,
+                    status: 200,
+                })
+            })
+            ;
+        })
+    }
 }
 
 module.exports = controller;
