@@ -4,6 +4,8 @@
     padding: 0px;
 }
 
+
+
 .is-danger{
     color: red;
     text-align: center;
@@ -186,7 +188,7 @@ body{
     align-self: center;
     width: 90%;
     height: 50px;
-    margin: 6%;
+    margin: 10%;
     border: #ebebeb;
     background-color: #212F3D;
     border-radius: 5px;
@@ -198,6 +200,62 @@ body{
 .configuracion-producto .boton-guardar:hover{
     background-color: #1459b9;
 }
+
+.boton-cancelar{
+    text-align: center;
+    font-size: large;
+    color: #ebebeb;
+    align-self: center;
+    width: 43%;
+    height: 50px;
+    margin: 3%;
+    border: #ebebeb;
+    background-color: #212F3D;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(100, 100, 100,0.5);
+    transition-property: all;
+    transition-duration: 450ms
+}
+
+.boton-cancelar:hover{
+    background-color: red;
+}
+
+.boton-agregar{
+    text-align: center;
+    font-size: large;
+    color: #ebebeb;
+    align-self: center;
+    width: 43%;
+    height: 50px;
+    margin: 3%;
+    border: #ebebeb;
+    background-color: #212F3D;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(100, 100, 100,0.5);
+    transition-property: all;
+    transition-duration: 450ms
+}
+
+.boton-agregar:hover{
+    background-color: green;
+}
+.is-invalid{
+    color: red;
+    border-color: red;
+}
+
+.warnings{
+    width:200px;
+    font-weight: normal;
+    text-align: center;
+    text-decoration: none;
+    margin: auto;
+    color:red;
+    padding-top:5px;
+}
+
+
 
 /* boton agregar archivo */
 .archivo p{

@@ -16,7 +16,6 @@
     <link rel="Stylesheet" href="/css/header-footer.css" type="text/css">
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/79b8daf391.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -31,25 +30,25 @@
 
             <form action="/users/loginProcess" method="post">
                 <ul>
+                    
                     <li>
-                        <input class="form" type="email" name="email" placeholder="Ingrese su email" required value="<%= locals.datosViejos && datosViejos.email? datosViejos.email : ''%>">
+                        <input class="form" type="email" name="email" id="email" placeholder="Ingrese su email">
+                        <p class="warnings" id="warnings"></p>
                         <% if(locals.errors && errors.email) { %>
                             <div class="text-danger">
                                 <%=errors.email.msg%>
                             </div>
-                        <%}%> 
+                        <%}%>
                     </li>
-
                     <li>
-
-                        <input class="form" type="password" name="pass" placeholder="Ingrese su contraseña" required value="<%= locals.datosViejos && datosViejos.pass? datosViejos.pass : ''%>">
+                        <input class="form" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+                        <span></span>
                         <% if(locals.errors && errors.pass) { %>
                             <div class="text-danger">
                                 <%=errors.pass.msg%>
                             </div>
-                        <%}%> 
+                        <%}%>
                     </li>
-
                 </ul>
 
                 <div class="check">
@@ -75,8 +74,9 @@
 
     </main>
 
-    <%-include('../partials/footer.ejs')%> 
-
+    <script src="/js/validacionLogin.js"></script>
 </body>
 
 </html>
+<%-include('../partials/footer.ejs')%> 
+ 

@@ -32,14 +32,11 @@
                 <% } %>
 
                 <div class="titulo">
-                    <input class="inputText" type="text" name="nombre" placeholder="Título del producto" value="<%= locals.datosViejos && datosViejos.nombre? datosViejos.nombre : ''%>">
+                    <input class="inputText" id="titulo" type="text" name="nombre" placeholder="Título del producto" value="<%= locals.datosViejos && datosViejos.nombre? datosViejos.nombre : ''%>">
                 </div>
-
-                <% if(locals.mensajeDeError && mensajeDeError.img){ %>
-                    <div class="feedback is-danger">
-                        <%= mensajeDeError.img.msg %>
-                    </div>
-                <% } %>
+                <span class="warnings" id="errorTitulo"></span>
+                
+                
 
                 <section class="imagen-principal">
                         <div class="archivo">
@@ -47,6 +44,12 @@
                             <input class="btn-enviar" type="file" name="img" id="btnEnviar">
                         </div>
                 </section>
+                <span class="warnings" id="errorImagen"></span>
+                <% if(locals.mensajeDeError && mensajeDeError.img){ %>
+                    <div class="feedback is-danger">
+                        <%= mensajeDeError.img.msg %>
+                    </div>
+                <% } %>
 
                 <section class="contenedor-detalle-producto">
                     <div class="configuracion-producto">
@@ -57,7 +60,8 @@
                                     <%= mensajeDeError.precio.msg %>
                                 </div>
                             <% } %>
-                            <input class="inputText" type="number" name="precio" placeholder="Precio por unidad" >
+                            <input class="inputText" id="precio" type="number" name="precio" placeholder="Precio por unidad" >
+                            <span class="warnings"></span>
                         </div>
 
                         <div class="contenedor">
@@ -67,7 +71,8 @@
                                     <%= mensajeDeError.descripcion.msg %>
                                 </div>
                             <% } %>
-                            <input class="descripcion" type="text" name="descripcion" maxlength="700" >
+                            <input class="descripcion" id="descripcion" type="text" name="descripcion" maxlength="700" >
+                            <span class="warnings"></span>
                         </div>
 
                         <div class="contenedor">
@@ -75,12 +80,13 @@
                                 <h4 class="tituloColor">Colores de bolsa disponibles</h4>
                                 <h4 class="tituloStock">Stock</h4>
                             </div>
-                            <% for(let i=0;i <bolsaColores.length; i++) { %>
+                            <% for(let i=0;i < bolsaColores.length; i++) { %>
                             <div class="color-stock">
-                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[i].id%>"> <%= bolsaColores[i].color%></label>
-                                <label class="columna"><input class="stock" type="number" name="stock" value="0"></label> 
+                                <label class="columna nombreColor"><input id="color" class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[i].id%>"> <%= bolsaColores[i].color%></label>
+                                <label class="columna"><input class="stock" id="stock" type="number" name="stock" value="0"></label> 
                             </div>
                             <% } %>
+                            <span class="warnings" id="errorColor" style="text-align: left;"></span>
                         </div>
                        
                         <div class="contenedor">
@@ -92,7 +98,7 @@
                             <% } %>
                             <select class="inputText" name="tamanio">
                                 <% for(let i=0;i < tamanios.length; i++){ %>
-                                        <option value="<%= tamanios[i].id%>"><%= tamanios[i].size%></option>
+                                        <option id="tamanio" value="<%= tamanios[i].id%>"><%= tamanios[i].size%></option>
                                 <% } %>
                             </select>
                         </div>
@@ -107,7 +113,7 @@
 
                             <select class="inputText" name="categoria">
                                 <% for(let i=0;i < categorias.length; i++){ %>
-                                        <option value="<%=categorias[i].id%>"><%= categorias[i].productCategory%></option>
+                                        <option id="categoria" value="<%=categorias[i].id%>"><%= categorias[i].productCategory%></option>
                                 <% } %>
                             </select>
                         </div>
@@ -122,6 +128,7 @@
     </main>
 <!--Footer-->
     <%-include('../partials/footer.ejs')%> 
+    <script src="/js/ValidacionAlta.js"></script>
 </body>
 
 </html>

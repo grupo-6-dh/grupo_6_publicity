@@ -1,15 +1,25 @@
 const path = require('path');
-let usuarios = require('../data/users.json');
+const db = require('../database/models');
+const { brotliDecompress } = require('zlib');
 
 function recordameMiddleware(req,res,next){
     
 
     if (req.cookies.recordame != undefined &&
         req.session.usuarioLogueado == undefined){
-        let encontrado = usuarios.find(unUsuario => unUsuario.email == req.cookies.recordame);
-        if (encontrado) {
-            req.session.usuarioLogueado = encontrado;                  
-        } 
+        db.Usuario.findOne({
+            where: {
+                email: req.cookies.recordame,
+            }
+        }).then((encontrado) =>{
+            if(encontrado) {
+                req.session.usuarioLogueado = encontrado;
+                if (encontrado.idUserCategory == 2) {
+                    req.session.admin = true;
+                }
+            } 
+        })
+        
     }
 
     next();

@@ -37,6 +37,11 @@ El proyecto se encuentra en las etapas iniciales del ciclo de vida de desarrollo
 :pencil:.
 El proyecto se lleva a cabo siguiendo el marco de trabajo para desarrollo ágil de Scrum. El mismo cuenta con un total de 8 Spritnts.
 
-**Sprint actual :arrows_counterclockwise:--> Sprint 6**
+**Sprint actual :arrows_counterclockwise:--> Sprint 8**
 
 
+## Guía de implementación
+Primero debemos levantar en nuestra base de datos y ejecutar el script structure.sql
+Usuario administrador:
+email: admin@admin.com
+pass: admin

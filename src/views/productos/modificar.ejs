@@ -29,19 +29,22 @@
                         </div>
                     <% } %>
                     <div class="titulo">
-                        <input name="nombre" class="inputText" type="text" value="<%=producto.name%>">
+                        <input id="titulo" name="nombre" class="inputText" type="text" value="<%=producto.name%>">
                     </div>
-                    <% if(locals.mensajeDeError && mensajeDeError.img){ %>
-                        <div class="feedback is-danger">
-                            <%= mensajeDeError.img.msg %>
-                        </div>
-                    <% } %>
+                    <span class="warnings" id="errorTitulo"></span>
+                    
                     <section class="imagen-principal" style="background-image:url('/../<%=producto.image%>')">
                         <div class="archivo">
                             <p class="texto">Cambiar Imagen</p>
                             <input name="img" class="btn-enviar" type="file" id="btnEnviar">
                         </div>
                     </section>
+                    <span id="errorImagen" class="warnings"></span>
+                    <% if(locals.mensajeDeError && mensajeDeError.img){ %>
+                        <div class="feedback is-danger">
+                            <%= mensajeDeError.img.msg %>
+                        </div>
+                    <% } %>
                     <section class="contenedor-detalle-producto">
                         <div class="configuracion-producto">
                             <div class="contenedor">
@@ -60,7 +63,8 @@
                                         <%= mensajeDeError.descripcion.msg %>
                                     </div>
                                 <% } %>
-                                <textarea name="descripcion" class="descripcion" maxlength="700"><%=producto.description%></textarea>
+                                <textarea id="descripcion" name="descripcion" class="descripcion" maxlength="700"><%=producto.description%></textarea>
+                                <span class="warnings"></span>
                             </div>
                             <div class="contenedor">
                                 <% if(locals.mensajeDeError && mensajeDeError.tamanio){ %>
@@ -97,9 +101,10 @@
                             </div>
 
                             <div class="contenedor">
+                                
                                 <div class="titulos">
-                                    <h4 class="tituloColor">Colores de bolsa disponibles</h4>
-                                    <h4 class="tituloStock">Stock</h4>
+                                    <h4 class="tituloColor">Colores de bolsa asignados</h4>
+                                    <h4 class="tituloStock">Modificar stock</h4>
                                 </div>
 
                                 <% for(let i=0;i < stock.length; i++){ %>
@@ -107,20 +112,52 @@
                                         <% if(stock[i].idProduct==producto.id) { %>
                                             <div class="color-stock">
                                             <% if(stock[i].idBagColor == bolsaColores[j].id) { %>
-                                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[j].id%>" checked> <%= bolsaColores[j].color%></label>
-                                                <label class="columna"><input class="stock" type="number" name="stock" value="<%= stock[i].stock %>"></label> 
-                                            <% } else {%>
-                                                <label class="columna nombreColor"><input class="checkbox" type="checkbox" name="color" value="<%= bolsaColores[j].id%>"> <%= bolsaColores[j].color%></label>
-                                                <label class="columna"><input class="stock" type="number" name="stock" value="0"></label> 
+                                                <label class="columna nombreColor" name="color" value="<%= bolsaColores[j].id%>"> <%= bolsaColores[j].color%></label>
+                                                <label class="columna" ><input class="stock" type="number" name="stock" value="<%= stock[i].stock %>" ></label> 
+                                                <label class="columna" style="display: none;" ><input class="stock" type="number" name="idStock" value="<%= stock[i].id %>" ></label> 
                                             <%  } %>
                                             </div>
                                         <% } %>
                                     <% } %>
                                 <% } %>
-
+                               
+                            </div>
+                           
+                            <div class="titulos">
+                                <label><input class="checkbox" type="radio" id="modificar" > Agregar nuevo color de bolsa</label> 
+                                <input type="number" name="agregar" id="agregar" value="0" hidden>
                             </div>
                             
+                            <!-- agrega nuevo color -->
+                            <div class="contenedor" id="nuevoColor" name="nuevoColor" hidden>
+                                <div class="titulos">
+                                    <h4 class="subtitulo">Seleccione un color de bolsa</h4>  
+                                </div>
+
+                                    <select class="inputText" name="colorNoAsignado" >
+                                        <% for(let i=0; i < coloresNoAsignados.length; i++){ %>
+                                            
+                                            <option value="<%= coloresNoAsignados[i].id%>"><%= coloresNoAsignados[i].color%></option>
+                                            
+                                            <% } %>
+                                    </select>
+                
+                                    <div class="titulos">
+                                        <h4 class="subtitulo">Ingrese el stock</h4>  
+                                    </div>
+                
+                                    <input name="stockNuevo" class="inputText" type="number" >
+                                    
+                                    <div class="botones" >
+                                        <button id="cancelar" class="boton-cancelar">Cancelar</button>
+                                        <button type="submit" class="boton-agregar">Agregar</button>
+                                    </div>
+
+                            </div>
+
+                            
                             <button type="submit" class="boton-guardar">Guardar</button>
+                            
                         </div>
                     </section>
                 </article>  
@@ -132,3 +169,23 @@
 </body>
 
 </html>
+<script src="/js/ValidacionModificar.js"></script>
+
+<script>
+
+    document.getElementById('modificar').addEventListener('click', function (e) {
+
+        document.getElementById('nuevoColor').hidden = false;
+        document.getElementById('agregar').value=1;
+
+    });
+
+  
+    document.getElementById('cancelar').addEventListener('click', function (e) {
+        event.preventDefault();
+        document.getElementById('nuevoColor').hidden = true;
+        document.getElementById('modificar').checked  = false;
+
+    });
+
+</script>

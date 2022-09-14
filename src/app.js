@@ -7,13 +7,20 @@ const publicPath = path.resolve(__dirname, '../public');
 const port = process.env.PORT || 3000;
 const routes = require("./routes/index.routes")
 const usersRoutes = require("./routes/users.routes");
-const indexUsersRoutes = require("./routes/indexUsers.routes");
+const apiRoutes = require("./routes/api.routes");
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
+
 const recordameMid = require('./middlewares/recordameMid')
+
+
+//---archivos estaticos---
+app.use(express.static(publicPath));
+
 app.set('views', path.join(__dirname,'./views'));
 app.set('view engine','ejs');
+
 
 app.use(methodOverride("_method"));
 
@@ -32,30 +39,32 @@ app.use(recordameMid);
 
 app.use((req, res, next) => {
     res.locals.logueado = 0;
+    res.locals.admin = 0;
     if (req.session.usuarioLogueado){
         res.locals.logueado = 1;
-        res.locals.nombreUsuario = req.session.usuarioLogueado.nombre;
+        res.locals.nombreUsuario = req.session.usuarioLogueado.name;
+    }
+    if (req.session.admin) {
+        res.locals.admin = 1;
     }
     next();
 });
 
 
 
-
-
-
 //---rutas---
 app.use("/", routes);
 app.use("/users", usersRoutes); 
-app.use("/users", indexUsersRoutes); //PREGUNTAR QUE ONDA PORQUE ESTA SEPARADO EN DOS RUTESO
+app.use("/api", apiRoutes); 
 
-
-
-//---archivos estaticos---
-app.use(express.static(publicPath));
 
 //---middleware---
 app.listen(port, () => {
     console.log('Servidor corriendo en el puerto ' + port);
+});
+
+// error 404
+app.use((req,res,next)=>{
+  res.status(404).render("error404");
 });
 
