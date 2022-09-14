@@ -1,0 +1,22 @@
+.panelProductos{
+    width: 500px;
+    height: 400px;
+    margin: 20px;
+    box-shadow: 0px 0px 5px rgba(162, 161, 161, 0.5);
+}
+
+.tablaProductos{
+    width: 100%;
+}
+
+th {
+    width: 25%;
+    box-shadow: 0px 0px 5px rgba(162, 161, 161, 0.5);
+    background-color: rgb(33, 54, 94);
+    color: whitesmoke;
+ }
+
+ td {
+    width: 25%;
+    box-shadow: 0px 0px 5px rgba(162, 161, 161, 0.5);
+ }
