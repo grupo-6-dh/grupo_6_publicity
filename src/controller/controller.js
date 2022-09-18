@@ -364,9 +364,11 @@ const controller = {
     apiList: (req, res) => {
         let productos = db.Producto.findAll();
         let categorias = db.CategoriaProducto.findAll();
+        let sizes = db.TamanioBolsa.findAll();
 
-        Promise.all([productos, categorias]).then(function ([productos, categorias]) {
+        Promise.all([productos, categorias, sizes]).then(function ([productos, categorias, sizes]) {
             let categoriesData = [];
+            
 
             categorias.forEach((categoria) => {
                 let productCount = 0;
@@ -387,10 +389,16 @@ const controller = {
             let productsData = []
             
             productos.forEach((product) => {
-                let category = ''; 
+                let category = '';
+                let size = ''; 
                 categorias.forEach((categoria) =>{
                     if(categoria.id == product.idProductCategory){
                         category = categoria.productCategory;
+                    }
+                })
+                sizes.forEach((tamanio) => {
+                    if (tamanio.id == product.idSize) {
+                        size = tamanio.size;
                     }
                 })
                 let productData = {
@@ -398,7 +406,8 @@ const controller = {
                     name: product.name,
                     description: product.description,
                     category: category,
-                    detail: 'localhost:3000/api/products/' + product.id,
+                    bag_size: size,
+                    detail: 'localhost:3001/api/products/' + product.id,
                 }
                 productsData.push(productData);
             })
