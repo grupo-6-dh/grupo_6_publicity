@@ -2,6 +2,7 @@ import React from "react";
 import Cantidad from "../ejemploPanel/Cantidad";
 import Header from "../Header/Header";
 import ListadoProductos from "../ListadoProductos/ListadoProductos";
+import TotalCategorias from "../TotalCategorias/TotalCategorias";
 import './TemplateDashboard.css'
 
 function TemplateDashboard(){
@@ -14,6 +15,7 @@ function TemplateDashboard(){
                 
                 <Cantidad/>
                 <ListadoProductos/>
+                <TotalCategorias/>
             </div>
         </div>
     )
