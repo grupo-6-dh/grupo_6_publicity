@@ -448,7 +448,7 @@ const controller = {
                 return res.json({
                     id: product.id,
                     name: product.name,
-                    description: product.descrpiption,
+                    description: product.description,
                     price: product.price,
                     bag_size: size.size,
                     category: category.productCategory,
@@ -459,7 +459,29 @@ const controller = {
             })
             ;
         })
-    }
+    },
+    apiGetLastProduct: (req,res)=>{
+        productos=db.Producto.findAll().then(function (prod) {
+            let indice=prod.length-1;
+            let ultimo=prod[indice];
+
+            return res.json({
+                id: ultimo.id,
+                name: ultimo.name,
+                description: ultimo.description,
+                price: ultimo.price,
+                bag_size: ultimo.size,
+                category: ultimo.productCategory,
+                image: 'localhost:3001/public/' + ultimo.image,
+                status: 200,
+            })
+        })
+       
+       
+        
+    }    
+
+    
 }
 
 module.exports = controller;

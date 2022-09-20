@@ -10,7 +10,7 @@ const usersRoutes = require("./routes/users.routes");
 const apiRoutes = require("./routes/api.routes");
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const cors = require ("cors");
+const cors = require('cors');
 
 const recordameMid = require('./middlewares/recordameMid')
 

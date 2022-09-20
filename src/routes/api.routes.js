@@ -15,6 +15,7 @@ routes.get("/users/:id", controllerUsers.apiGetOne)
 //--rutas productos--//
 routes.get("/products", controllerProducts.apiList)
 routes.get("/products/:id", controllerProducts.apiGetOne)
+routes.get("/lastProduct", controllerProducts.apiGetLastProduct)
 
 module.exports = routes;
 
