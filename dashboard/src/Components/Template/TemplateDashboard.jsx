@@ -4,6 +4,7 @@ import Cantidad from "../ejemploPanel/Cantidad";
 import Header from "../Header/Header";
 import ListadoProductos from "../ListadoProductos/ListadoProductos";
 import UltimoProducto from "../UltimoProducto/UltimoProducto";
+import TotalCategorias from "../TotalCategorias/TotalCategorias";
 import './TemplateDashboard.css'
 function TemplateDashboard(){
     return(
@@ -17,6 +18,7 @@ function TemplateDashboard(){
                 
                 <ListadoProductos/>
                 <UltimoProducto/>
+                <TotalCategorias/>
             </div>
         </div>
     )
