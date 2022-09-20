@@ -15,7 +15,6 @@ const cors = require('cors');
 const recordameMid = require('./middlewares/recordameMid')
 
 app.use(cors());
-
 //---archivos estaticos---
 app.use(express.static(publicPath));
 

@@ -12,8 +12,8 @@ function Header(){
             </div>
             <div className="nav-bar">
                 <ul>
-                   <li><Link to='/'><i className="fa-solid fa-house"></i> Inicio </Link></li>
-                    <li><Link to='/productos'><i className="fa-solid fa-bag-shopping"></i> Productos</Link></li>
+                   <li><Link to='#'><i className="fa-solid fa-house"></i> Inicio </Link></li>
+                    <li><Link to='#'><i className="fa-solid fa-bag-shopping"></i> Productos</Link></li>
                     <li><Link to='#'><i className="fa-regular fa-user"></i> Usuarios</Link></li>
                     
                 </ul>
