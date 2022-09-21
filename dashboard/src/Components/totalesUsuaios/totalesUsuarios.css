@@ -1,0 +1,7 @@
+.TotalUsuarios{
+    display: flex;
+    flex-direction: column;    
+    width: 100px;
+    margin: 20px;
+    box-shadow: 0px 0px 5px rgba(162, 161, 161, 0.5);
+}
