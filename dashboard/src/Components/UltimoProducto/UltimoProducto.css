@@ -5,8 +5,10 @@
     width: 500px;
     height: 400px;
     margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(162, 161, 161, 0.5);
+    border-radius: 10px;
+    color: rgb(125 127 138);
+    background-color: rgb(42 45 62);
+    box-shadow:  0px 5px rgba(34, 68, 255, 0.5);
 }
 .titulo{
     border-radius: 5px;
@@ -23,12 +25,17 @@
 
 .titulo h1{
     margin: 10px 0 10px 0;
-    background-color: rgba(10, 74, 111, 0.734);
-    color: rgb(255, 247, 240);
+    color: rgb(125 127 138);
+    font-size: 20px;
+    margin: 5%;
+    
 }
 
 .descripcion h3{
-    margin: 5px 0 5px 0;
-    background-color: rgba(10, 74, 111, 0.734);
-       
+    margin: 5px 0 5px 0;  
+    color: rgb(68 165 255);
+}
+
+.precio{
+    color: green;
 }

@@ -24,13 +24,13 @@ class UltimoProducto extends Component{
             
             <div className="producto">
                 <div className="titulo">
-                    <h1>Ultimo Producto</h1>
+                    <h1>Último producto añadido</h1>
                      <img src={this.state.producto.image} alt="bolsa" /> 
                 <hr/>
                 </div>
                 <div className="descripcion">
                     <h3>{this.state.producto.name}</h3>
-                    <h4>Precio: ${this.state.producto.price}</h4>
+                    <h4 className="precio">${this.state.producto.price}</h4>
                     <p>Descripción: {this.state.producto.description}</p>
                 </div>
             </div>

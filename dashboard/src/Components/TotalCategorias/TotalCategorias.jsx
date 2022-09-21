@@ -22,7 +22,7 @@ class ListadoProductos extends Component{
         return ( 
             
             <div className="panelCategorias">
-            <h1>Total por categorias</h1>
+            <h1 className="titulo-categorias">Total por categoría</h1>
                 <div>
                     <Category data = {contenido} ></Category>
                 </div>

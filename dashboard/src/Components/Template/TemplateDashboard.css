@@ -1,6 +1,9 @@
 .principal{
     display: flex;
     flex-direction: column;
+    background-color: rgb(33 35 50);
+    font-family: 'Montserrat';
+    
 }
 .cabecera{
     width: 100%;
@@ -8,6 +11,15 @@
 }
 .cuerpo{
     display: flex;
+    justify-content: space-around;
+    flex-direction: row;
     width: 100%;
     height: 800px;   
+}
+
+
+
+.lateral-derecho{
+    display: flex;
+    flex-direction: column;
 }
