@@ -19,12 +19,12 @@ class totalesUsuarios extends Component {
 
     render() {
         return (
-            <table>
+            <div className="usuarios">
+                <h4 className="titulo-usuarios">Usuarios</h4>
                 <div className="TotalUsuarios">
-                    <h4>Total de Usuarios: {this.state.count}</h4>
+                    <h1>{this.state.count}</h1>
                 </div>
-            </table>
-
+            </div>
 
         );
     }

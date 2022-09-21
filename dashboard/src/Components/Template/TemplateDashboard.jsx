@@ -20,19 +20,23 @@ function TemplateDashboard(){
             </div>
             <div className="cuerpo">
                 <div className="lateral-izquierdo">
-                <TotalCategorias/>    
+                    <TotalCategorias/>    
                 </div>
                 <div className="lateral-derecho">
-                <UltimoProducto/>
-                <TotalCategorias/>
-                <TotalesProductos/>
-                <TotalUsuarios/>
-                <TotalesPorCategorias/>
-                
-
-                <ListadoProductos/>
+                    
+                     <div className="ultimo-producto">
+                     <UltimoProducto/>
+                    </div>
+                    <div className="totales">
+                            <TotalesPorCategorias/>
+                            <TotalesProductos/>
+                            <TotalUsuarios/>
+                    </div>
+                    <ListadoProductos/>
+                  
                 </div>
                 
+              
                 
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './totalePorCategorias.css';
+import './totalesPorCategorias.css';
 
 
 
@@ -22,13 +22,12 @@ class totalesPorCategorias extends Component {
 
 
         return (
-
-            <table>
+            <div className="categorias">
+                <h4 className="titulo-cat">Categorías</h4>
                 <div className="TotalPorCategorias">
-                    <h4>Total por categorias: {this.state.categorias.length}</h4>
+                    <h1>{this.state.categorias.length}</h1>
                 </div>
-            </table>
-
+            </div>
 
         );
     }

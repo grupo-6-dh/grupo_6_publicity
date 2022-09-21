@@ -1,4 +1,4 @@
-.TotalProductos{
+.TotalPorCategorias{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,14 +9,16 @@
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    background-color: green;
+    background-color: #3498DB;
 }
-.titulo-productos{
+
+.titulo-cat{
     text-align: center;
     color: rgba(234, 235, 240, 0.514);
     }
 
-.productos{
+.categorias{
         height: 50%;
+        border-right: solid 1px rgba(185, 183, 193, 0.288);
         padding: 20px;
     }

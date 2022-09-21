@@ -21,13 +21,12 @@ class totales extends Component {
 
     render() {
         return (
-            <table>
+            <div className="productos">
+                <h4 className="titulo-productos">Productos</h4>
                 <div className="TotalProductos">
-                    <div>
-                        <h4>Total de Productos: {this.state.count}</h4>
-                    </div>
+                    <h1>{this.state.count}</h1>
                 </div>
-            </table>
+            </div>
 
         );
     }
