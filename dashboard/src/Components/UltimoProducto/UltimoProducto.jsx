@@ -25,7 +25,7 @@ class UltimoProducto extends Component{
             <div className="producto">
                 <h1 className="titulo">Último producto añadido</h1>    
                 <div className="imagen">
-                <img src={this.state.producto.image} alt="bolsa" /> 
+                <img src={'http://localhost:3001/'+this.state.producto.image} alt="bolsa" /> 
                 </div>
                 <div className="descripcion">
                     <h3>{this.state.producto.name}</h3>

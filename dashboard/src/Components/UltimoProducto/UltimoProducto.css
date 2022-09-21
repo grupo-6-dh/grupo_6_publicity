@@ -22,6 +22,10 @@
     height: 200px;
 }
 
+.imagen img{
+    width: 100%;
+}
+
 .titulo h1{
     margin: 10px 0 10px 0;
     color: rgb(125 127 138);

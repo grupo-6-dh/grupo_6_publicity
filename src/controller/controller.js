@@ -472,7 +472,7 @@ const controller = {
                 price: ultimo.price,
                 bag_size: ultimo.size,
                 category: ultimo.productCategory,
-                image: 'localhost:3001/public/' + ultimo.image,
+                image: ultimo.image,
                 status: 200,
             })
         })
