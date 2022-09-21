@@ -5,7 +5,11 @@ import Header from "../Header/Header";
 import ListadoProductos from "../ListadoProductos/ListadoProductos";
 import UltimoProducto from "../UltimoProducto/UltimoProducto";
 import TotalCategorias from "../TotalCategorias/TotalCategorias";
-import panelTotales from "../panelTotales/panelTotales";
+import TotalUsuarios from "../totalesUsuaios/totalesUsuarios";
+import TotalesProductos from "../totalesProductos/totalesProductos";
+import TotalesPorCategorias from "../totalesPorCategorias/totalesPorCategorias";
+
+
 
 import './TemplateDashboard.css'
 function TemplateDashboard(){
@@ -21,7 +25,10 @@ function TemplateDashboard(){
                 <ListadoProductos/>
                 <UltimoProducto/>
                 <TotalCategorias/>
-                <panelTotales/>
+                <TotalesProductos/>
+                <TotalUsuarios/>
+                <TotalesPorCategorias/>
+                
 
             </div>
         </div>
