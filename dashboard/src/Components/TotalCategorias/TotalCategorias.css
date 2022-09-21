@@ -1,7 +1,18 @@
 .panelCategorias{
     display: flex;
     flex-direction: column;    
-    width: 300px;
+    align-items: center;
+    min-width: 300px;
+    height: 90%;
     margin: 20px;
-    box-shadow: 0px 0px 5px rgba(162, 161, 161, 0.5);
+    border-radius: 10px;
+    background-color: rgb(42 45 62);
+    color: rgb(157, 158, 172);
+    box-shadow:  0px 5px rgba(34, 68, 255, 0.5);
+}
+
+
+.titulo-categorias{
+    font-size: 15px;
+    margin: 5%;
 }

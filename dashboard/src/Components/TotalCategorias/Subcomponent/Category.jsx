@@ -5,8 +5,8 @@ function Category(props){
     return(
         props.data.map((item) =>
         <div className="categoria"> 
-            <i>{item.productCategory}</i>
-            <h1>{item.productCount}</h1>
+            <i className="titulo-categoria">{item.productCategory}</i>
+            <h1 className="numero">{item.productCount}</h1>
         </div>
         )
     )

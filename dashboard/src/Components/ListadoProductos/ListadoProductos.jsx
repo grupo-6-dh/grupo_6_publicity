@@ -22,7 +22,8 @@ class ListadoProductos extends Component{
         return ( 
             
             <div className="panelProductos">
-            <h1>Productos</h1>
+                <h1 className="titulo-tabla">Productos</h1>
+               
                 <div className="tablaProductos">
                     <Table products={contenido}/>
                 </div>
