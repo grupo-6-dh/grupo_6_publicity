@@ -28,11 +28,12 @@ formulario.addEventListener("submit",(e)=>{
 
     //Imagen
     if(inputImg.value){
-        let extension = inputImg.value.split(".").pop().toLowerCase();
-        if (extension != ("jpg" || "png" || "jpeg" || "gif")) {
+        let extension = inputImg.value.split(".").pop();
+        console.log(extension)
+        let extensionAceptada = ['png', 'jpg', 'gif', 'JPG', 'PNG', 'JPEG', 'GIF', 'jpeg'];
+        if (!(extensionAceptada.includes(extension))) {
             document.querySelector("#errorImagen").innerHTML = "Ese formato de imagen no esta permitido. \n Por favor ingresá una imagen .jpeg/.jpg/.gif/.png";
             entrar = true;
-            return;
         } else {
             document.querySelector("#errorImagen").innerHTML = "";
         }

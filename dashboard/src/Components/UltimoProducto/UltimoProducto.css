@@ -1,0 +1,47 @@
+
+.producto{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    margin: 20px;
+    border-radius: 10px;
+    color: rgb(125 127 138);
+    background-color: rgb(42 45 62);
+    box-shadow:  0px 5px rgba(34, 68, 255, 0.5);
+}
+.titulo{
+    font-size: 15px;
+    width: 100%;
+    text-align: center;    
+}
+
+.imagen{
+    align-items: center;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+.imagen img{
+    width: 100%;
+}
+
+.titulo h1{
+    margin: 10px 0 10px 0;
+    color: rgb(125 127 138);
+    font-size: 20px;
+    margin: 5%;
+    
+}
+
+.descripcion h3{
+    padding: 15px;
+    border-top: solid 1px rgba(185, 183, 193, 0.288);
+    margin: 5px 0 5px 0;  
+    color: rgb(68 165 255);
+}
+
+
+.precio{
+    color: green;
+}

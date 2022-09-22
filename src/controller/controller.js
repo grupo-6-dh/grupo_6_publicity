@@ -359,7 +359,129 @@ const controller = {
                     })
             })
         }   
-    }
+    },
+
+    apiList: (req, res) => {
+        let productos = db.Producto.findAll();
+        let categorias = db.CategoriaProducto.findAll();
+        let sizes = db.TamanioBolsa.findAll();
+
+        Promise.all([productos, categorias, sizes]).then(function ([productos, categorias, sizes]) {
+            let categoriesData = [];
+            
+
+            categorias.forEach((categoria) => {
+                let productCount = 0;
+                productos.forEach((producto) => {
+                    if(producto.idProductCategory == categoria.id){
+                        productCount++;
+                    }
+                })
+                let categoryData = {
+                    id: categoria.id,
+                    productCategory: categoria.productCategory,
+                    productCount: productCount,
+                }
+
+                categoriesData.push(categoryData);
+            })
+            
+            let productsData = []
+            
+            productos.forEach((product) => {
+                let category = '';
+                let size = ''; 
+                categorias.forEach((categoria) =>{
+                    if(categoria.id == product.idProductCategory){
+                        category = categoria.productCategory;
+                    }
+                })
+                sizes.forEach((tamanio) => {
+                    if (tamanio.id == product.idSize) {
+                        size = tamanio.size;
+                    }
+                })
+                let productData = {
+                    id: product.id,
+                    name: product.name,
+                    description: product.description,
+                    category: category,
+                    bag_size: size,
+                    detail: 'localhost:3001/api/products/' + product.id,
+                }
+                productsData.push(productData);
+            })
+
+            return res.json({
+                count: productos.length,
+                countByCategory: categoriesData,
+                products: productsData,
+                status: 200,
+            });
+        });
+    },
+
+    apiGetOne: (req, res) =>{
+        let product = db.Producto.findByPk(req.params.id).then((product) => {
+            let category = db.CategoriaProducto.findByPk(product.idProductCategory);
+            let size = db.TamanioBolsa.findByPk(product.idSize);
+            let stock = db.Stock.findAll({
+                where: {
+                    idProduct: product.id,
+                }
+            })
+            let colors = db.ColorBolsa.findAll();
+
+            Promise.all([category, size, stock, colors]).then(([category, size, stock, colors]) => {
+                let stock_by_color = [];
+                stock.forEach((colorStock) => {
+                    colors.forEach((color) => {
+                        if(color.id == colorStock.idBagColor){
+                            let aux = {
+                                bagColor: color.color,
+                                stock: colorStock.stock,
+                            }
+                            stock_by_color.push(aux)
+                        }
+                    })
+                })
+                return res.json({
+                    id: product.id,
+                    name: product.name,
+                    description: product.description,
+                    price: product.price,
+                    bag_size: size.size,
+                    category: category.productCategory,
+                    stock_by_color: stock_by_color,
+                    image: 'localhost:3000/public/' + product.image,
+                    status: 200,
+                })
+            })
+            ;
+        })
+    },
+    apiGetLastProduct: (req,res)=>{
+        productos=db.Producto.findAll().then(function (prod) {
+            let indice=prod.length-1;
+            let ultimo=prod[indice];
+
+            return res.json({
+                id: ultimo.id,
+                name: ultimo.name,
+                description: ultimo.description,
+                price: ultimo.price,
+                bag_size: ultimo.size,
+                category: ultimo.productCategory,
+                image: ultimo.image,
+                status: 200,
+            })
+        })
+       
+       
+        
+    }    
+
+    
 }
 
 module.exports = controller;

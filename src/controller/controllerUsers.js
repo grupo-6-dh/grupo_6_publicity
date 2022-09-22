@@ -12,6 +12,7 @@ const controllerUsers = {
         });
     },
 
+    
     login: (req, res) => {
         return res.render('usuarios/login');
     },
@@ -120,6 +121,54 @@ const controllerUsers = {
         }).then(function () {
             db.Usuario.findAll().then(function (result) {
                 return res.render('usuarios/usuarios', { 'usuarios': result });
+            });
+        });
+    },
+
+    apiList: (req, res) => {
+        db.Usuario.findAll().then(function (usuarios) {
+            let usersData = []
+            usuarios.forEach((usuario) => {
+                let userData = {
+                    id: usuario.id,
+                    name: usuario.name,
+                    email: usuario.email,
+                    detail: 'localhost:3000/api/users/' + usuario.id,
+                }
+                usersData.push(userData);
+            })
+            return res.json({
+                count: usuarios.length,
+                users: usersData,
+                status: 200,
+            });
+        });
+    },
+
+    apiGetOne: (req, res) => {
+        db.Usuario.findOne({
+            where: {
+                id: req.params.id,
+            }
+        }).then(function (usuario) {
+            let usersData = []
+            usuarios.forEach((usuario) => {
+                let userData = {
+                    id: usuario.id,
+                    name: usuario.name,
+                    email: usuario.email,
+                    detail: 'localhost:3000/api/users/' + usuario.id,
+                }
+                usersData.push(userData);
+            })
+            return res.json({
+                id: usuario.id,
+                name: usuario.name,
+                email: usuario.email,
+                detail: 'localhost:3000/api/users/' + usuario.id,
+                profilePictureUrl: 'localhost:3000/public/img/1661985692039-img.PNG',
+                //profilePictureUrl: usuario.profilePicture,
+                status: 200,
             });
         });
     },

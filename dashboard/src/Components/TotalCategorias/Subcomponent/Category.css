@@ -1,0 +1,28 @@
+.categoria{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    min-height: 150px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    box-shadow: 0px 0px 5px  rgba(150, 150, 158, 0.5);
+    border-radius: 20px;
+    background-color: rgb(45 57 81);
+    color: rgb(125 127 138);
+}
+
+.titulo-categoria{
+    padding: 10px;
+    color: rgb(68 165 255);
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+.numero{
+    color:  green;
+    font-size: 30px;
+}
