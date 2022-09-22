@@ -18,11 +18,10 @@ exports.validacionDatosProducto = [
         .notEmpty().withMessage('Debes agregar una descripcion del producto'),
     body('tamanio')
         .notEmpty().withMessage('Debes ingresar el tamaño del producto'),
-    body('cantMinima')
-        .notEmpty().withMessage('Debes ingresar la cantidad mínima de compra'),
     body('img')
         .custom((value, { req }) => {
             let file = req.file;
+            console.log(path.extname(file.originalname))
 
             let extensionAceptada = ['.png', '.jpg', '.gif','.JPG','.PNG','.JPEG','.GIF','.jpeg'];
             //controlamos que se suba una imagen
@@ -30,7 +29,7 @@ exports.validacionDatosProducto = [
                 throw new Error('Debes subir una imágen')
             } else {
                 //controlamos que sea valida la extension del archivo subido
-                let extension = path.extname(file.filename);
+                let extension = path.extname(file.originalname);
                 let aceptado = extensionAceptada.includes(extension);
                 console.log(aceptado);
                 if (!aceptado) {
@@ -41,11 +40,14 @@ exports.validacionDatosProducto = [
                     throw new Error('El archivo es demasiado grande');
                 }
 
+                return true;
+
 
             }
         }),
     (req, res, next) => {
         const errors = validationResult(req);
+        console.log(errors)
         if (!errors.isEmpty()) { //error en validación
             //si se cargo una imagen previamente la borramos
             if (req.file != 'undefined') {
@@ -96,6 +98,8 @@ exports.validacionDatosProductoEditar = [
                 if (file.size > 1500000) {
                     throw new Error('El archivo es demasiado grande');
                 }
+
+                return true;
 
 
             }
