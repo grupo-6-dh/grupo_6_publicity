@@ -355,7 +355,7 @@ const controller = {
 
                         }
 
-                        return res.render('productos/detalle', { 'detalle': prod, 'stock': stock, 'bolsaColores': bolsaColores, 'tamanios': tamanios, 'categorias': categorias });
+                        return res.redirect('/detalleProducto/'+idProducto);
                     })
             })
         }   
