@@ -18,10 +18,13 @@ app.use(cors());
 //---archivos estaticos---
 app.use(express.static(publicPath));
 
+
+//indicamos a express que las vistas van a estar en la ruta /views
 app.set('views', path.join(__dirname,'./views'));
+//indicamos a express que el motor de vistas que vamos a usar es ejs
 app.set('view engine','ejs');
 
-
+// instalamos method override para poder utilizar los metodos PUT Y DELETE
 app.use(methodOverride("_method"));
 
 
