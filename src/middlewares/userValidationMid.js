@@ -9,7 +9,7 @@ exports.validacionLogin = [
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) //error en validación
-            return res.render('usuarios/login', { mensajeDeError: errors.mapped(), datosViejos: req.body });
+            return res.render('usuarios/login', { errors: errors.mapped(), datosViejos: req.body });
         next();
     },
 ]
@@ -35,7 +35,7 @@ exports.validacionRegistro = [
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) //error en validación
-            return res.render('usuarios/registro', { mensajeDeError: errors.mapped(), datosViejos: req.body });
+            return res.render('usuarios/registro', { errors: errors.mapped(), datosViejos: req.body });
         next();
     },
 ]
